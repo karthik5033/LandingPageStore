@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 interface ScrollSequenceProps {
   folderPath?: string;
@@ -20,54 +20,79 @@ export default function ScrollSequence({
   padLength = 3
 }: ScrollSequenceProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [images, setImages] = useState<HTMLImageElement[]>([]);
-  const [progress, setProgress] = useState(0);
+  const imagesRef = useRef<HTMLImageElement[]>([]);
 
   const getFramePath = (index: number) => 
     `${folderPath}/${fileNamePrefix}${index.toString().padStart(padLength, '0')}.${fileExtension}`;
 
-  // Preload images
-  useEffect(() => {
-    let loadedCount = 0;
-    const imgArray: HTMLImageElement[] = [];
+  // Core Render Function
+  const render = (index: number) => {
+    let img = imagesRef.current[index];
     
-    // Create new image objects
-    for (let i = 1; i <= frameCount; i++) {
-        imgArray[i-1] = new Image();
+    // Fallback to the nearest previously loaded frame if current one isn't ready
+    if (!img || !img.complete) {
+        for (let i = index - 1; i >= 0; i--) {
+            if (imagesRef.current[i] && imagesRef.current[i].complete) {
+                img = imagesRef.current[i];
+                break;
+            }
+        }
     }
-
-    const onLoad = () => {
-      loadedCount++;
-      const currentProgress = Math.round((loadedCount / frameCount) * 100);
-      setProgress(currentProgress);
-      
-      if (loadedCount === frameCount) {
-        setImages(imgArray);
-      }
-    };
-
-    // Start loading
-    imgArray.forEach((img, i) => {
-      img.src = getFramePath(i + 1);
-      img.onload = onLoad;
-      img.onerror = () => {
-          console.error(`Failed to load frame at ${img.src}`);
-          onLoad(); 
-      };
-    });
-  }, [folderPath, frameCount]);
-
-  // Handle Scroll & Draw
-  useEffect(() => {
-    if (images.length !== frameCount) return;
+    
+    if (!img || !img.complete) return; // If even frame 0 isn't loaded, skip
 
     const canvas = canvasRef.current;
     if (!canvas) return;
-    
     const context = canvas.getContext('2d');
     if (!context) return;
 
-    // Set canvas dimensions to window size for high DPI
+    context.imageSmoothingEnabled = true;
+    context.imageSmoothingQuality = 'high';
+
+    const logicalWidth = window.innerWidth;
+    const logicalHeight = window.innerHeight;
+
+    // "cover" logic for canvas
+    const hRatio = logicalWidth / img.width;
+    const vRatio = logicalHeight / img.height;
+    const ratio = Math.max(hRatio, vRatio);
+    const centerShift_x = (logicalWidth - img.width * ratio) / 2;
+    const centerShift_y = (logicalHeight - img.height * ratio) / 2;
+    
+    context.clearRect(0, 0, logicalWidth, logicalHeight);
+    context.drawImage(
+        img, 
+        0, 0, img.width, img.height,
+        centerShift_x, centerShift_y, img.width * ratio, img.height * ratio
+    );
+  };
+
+  // Preload images gracefully in the background
+  useEffect(() => {
+    const imgArray: HTMLImageElement[] = [];
+    imagesRef.current = imgArray;
+
+    for (let i = 1; i <= frameCount; i++) {
+        const img = new Image();
+        img.src = getFramePath(i);
+        imgArray[i-1] = img;
+        
+        // Render the very first frame the moment it is ready so the user sees the background instantly
+        if (i === 1) {
+            img.onload = () => {
+                requestAnimationFrame(() => render(0));
+            };
+        }
+    }
+  }, [folderPath, frameCount]);
+
+  // Handle Scroll & Resize
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const context = canvas.getContext('2d');
+    if (!context) return;
+
     const updateCanvasSize = () => {
         const dpr = window.devicePixelRatio || 1;
         canvas.width = window.innerWidth * dpr;
@@ -75,38 +100,19 @@ export default function ScrollSequence({
         canvas.style.width = `${window.innerWidth}px`;
         canvas.style.height = `${window.innerHeight}px`;
         context.scale(dpr, dpr);
+        
+        // Re-render after resize
+        const html = document.documentElement;
+        const scrollTop = html.scrollTop;
+        const maxScrollTop = html.scrollHeight - window.innerHeight;
+        const scrollFraction = scrollTop / maxScrollTop || 0;
+        const frameIndex = Math.min(frameCount - 1, Math.ceil(scrollFraction * frameCount));
+        render(frameIndex);
     };
+
     updateCanvasSize();
     window.addEventListener('resize', updateCanvasSize);
 
-    // Render Function
-    const render = (index: number) => {
-        if (index < 0 || index >= frameCount) return;
-        const img = images[index];
-        if (!img) return;
-
-        context.imageSmoothingEnabled = true;
-        context.imageSmoothingQuality = 'high';
-
-        const logicalWidth = window.innerWidth;
-        const logicalHeight = window.innerHeight;
-
-        // "cover" logic for canvas
-        const hRatio = logicalWidth / img.width;
-        const vRatio = logicalHeight / img.height;
-        const ratio = Math.max(hRatio, vRatio);
-        const centerShift_x = (logicalWidth - img.width * ratio) / 2;
-        const centerShift_y = (logicalHeight - img.height * ratio) / 2;
-        
-        context.clearRect(0, 0, logicalWidth, logicalHeight);
-        context.drawImage(
-            img, 
-            0, 0, img.width, img.height,
-            centerShift_x, centerShift_y, img.width * ratio, img.height * ratio
-        );
-    };
-
-    // Scroll Handler
     const handleScroll = () => {
       const html = document.documentElement;
       const scrollTop = html.scrollTop;
@@ -123,32 +129,11 @@ export default function ScrollSequence({
 
     window.addEventListener('scroll', handleScroll);
     
-    // Initial render
-    render(0);
-
     return () => {
         window.removeEventListener('scroll', handleScroll);
         window.removeEventListener('resize', updateCanvasSize);
     };
-  }, [images]);
-
-  // Loading Overlay
-  if (images.length !== frameCount) {
-     return (
-        <div className="fixed inset-0 flex items-center justify-center bg-black text-white z-50">
-           <div className="flex flex-col items-center gap-4">
-              <div className="text-2xl font-bold tracking-widest uppercase">Loading Experience</div>
-              <div className="w-64 h-1 bg-gray-800 rounded-full overflow-hidden">
-                 <div 
-                    className="h-full bg-white transition-all duration-300 ease-out"
-                    style={{ width: `${progress}%` }}
-                 />
-              </div>
-              <div className="text-xs text-gray-400">{progress}%</div>
-           </div>
-        </div>
-     );
-  }
+  }, [frameCount]);
 
   return (
     <canvas 
