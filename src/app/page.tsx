@@ -1,65 +1,158 @@
-import Image from "next/image";
+'use client';
+import { motion } from 'framer-motion';
+import { ArrowRight, Coffee, Zap, Sparkles, FolderOpen } from 'lucide-react';
+
+const categories = [
+  {
+    name: "Chocolate Series",
+    description: "Dark, moody, and ultra-premium designs for luxury chocolate brands.",
+    templates: [
+      {
+        id: "03",
+        name: "VELVET",
+        description: "The Dark Art of Chocolate",
+        href: "/template3",
+        accent: "text-[#c8922a]",
+        icon: Sparkles
+      },
+      {
+        id: "04",
+        name: "NOIR",
+        description: "The Essence of Dark",
+        href: "/template4",
+        accent: "text-[#a67c52]",
+        icon: Sparkles
+      },
+      {
+        id: "05",
+        name: "OBSIDIAN",
+        description: "Pure 100% Cacao Experience",
+        href: "/template5",
+        accent: "text-white",
+        icon: Sparkles
+      }
+    ]
+  },
+  {
+    name: "Coffee Series",
+    description: "Warm, sophisticated scrolling experiences for craft coffee.",
+    templates: [
+      {
+        id: "01",
+        name: "AURA",
+        description: "The Art of Coffee",
+        href: "/template1",
+        accent: "text-amber-500",
+        icon: Coffee
+      }
+    ]
+  },
+  {
+    name: "Performance Series",
+    description: "High-octane, neon-accented interfaces for energy products.",
+    templates: [
+      {
+        id: "02",
+        name: "VOLT.OS",
+        description: "High-Voltage Energy",
+        href: "/template2",
+        accent: "text-[#ccff00]",
+        icon: Zap
+      }
+    ]
+  }
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="min-h-screen bg-black text-white selection:bg-white selection:text-black font-sans relative overflow-x-hidden flex flex-col">
+      
+      {/* Background Video */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="w-full h-full object-cover opacity-30 mix-blend-screen"
+        >
+          <source src="/hero-bg.mp4" type="video/mp4" />
+        </video>
+        {/* Overlay gradient to ensure text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/50 to-black z-10" />
+      </div>
+
+      <div className="relative z-10 container mx-auto px-6 py-24 flex-grow flex flex-col">
+        
+        {/* Header */}
+        <div className="mb-20 text-center">
+           <motion.div
+             initial={{ opacity: 0, y: 20 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ duration: 0.8 }}
+           >
+             <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-4">
+               Landing Page Store
+             </h1>
+             <p className="text-gray-400 text-lg max-w-xl mx-auto">
+               A curated library of premium scroll-sequence templates.
+             </p>
+           </motion.div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Categories */}
+        <div className="max-w-5xl mx-auto w-full flex flex-col gap-16">
+          {categories.map((category, idx) => (
+            <motion.div 
+              key={category.name}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.15, duration: 0.8 }}
+            >
+              {/* Category Header */}
+              <div className="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
+                <FolderOpen className="text-gray-500" size={20} />
+                <h2 className="text-2xl font-bold tracking-widest uppercase">{category.name}</h2>
+              </div>
+              <p className="text-gray-400 mb-8 text-sm">{category.description}</p>
+              
+              {/* Template Grid (Small elegant cards) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {category.templates.map((t) => (
+                  <a 
+                    key={t.id}
+                    href={t.href} 
+                    className="group flex flex-col justify-between p-6 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl hover:bg-white/10 hover:border-white/30 transition-all duration-300"
+                  >
+                    <div className="flex justify-between items-start mb-6">
+                      <div className={`p-3 bg-black/40 rounded-xl border border-white/5 group-hover:border-white/20 transition-colors ${t.accent}`}>
+                        <t.icon size={20} />
+                      </div>
+                      <span className="font-mono text-xs text-gray-600 font-bold">{t.id}</span>
+                    </div>
+                    
+                    <div>
+                      <h3 className="font-bold text-xl tracking-wider mb-2 uppercase group-hover:text-white transition-colors">{t.name}</h3>
+                      <p className="text-xs text-gray-400 leading-relaxed mb-6">{t.description}</p>
+                      
+                      <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-gray-500 group-hover:text-white transition-colors">
+                        <span>View Template</span>
+                        <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
-      </main>
-    </div>
+
+      </div>
+
+      <footer className="relative z-10 py-12 text-center text-xs font-mono text-gray-600 uppercase tracking-widest">
+         © 2026 Antigravity Systems. All Rights Reserved.
+      </footer>
+
+    </main>
   );
 }
