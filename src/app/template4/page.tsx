@@ -53,8 +53,8 @@ export default function Template4() {
       {/* === FULLSCREEN STICKY CANVAS BACKGROUND === */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <ScrollSequence
-          folderPath="/template4-v3-frames"
-          frameCount={281}
+          folderPath="/template4-v4-frames"
+          frameCount={156}
           fileNamePrefix="ezgif-frame-"
           fileExtension="png"
           padLength={3}
