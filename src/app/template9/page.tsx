@@ -91,23 +91,7 @@ export default function Template9() {
             </motion.p>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.6, duration: 1 }}
-            className="absolute bottom-16 left-1/2 -translate-x-1/2 text-[9px] font-medium tracking-[0.3em] uppercase flex flex-col items-center gap-6 text-white"
-          >
-            Explore
-            <motion.div
-              className="w-[1px] h-12 bg-white/20 relative overflow-hidden"
-            >
-                <motion.div 
-                    className="w-full h-full bg-green-400 absolute top-0 left-0"
-                    animate={{ y: ['-100%', '100%'] }}
-                    transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
-                />
-            </motion.div>
-          </motion.div>
+          
         </section>
 
         <BotanicaProcess />

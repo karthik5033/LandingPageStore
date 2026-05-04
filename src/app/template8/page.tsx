@@ -90,23 +90,7 @@ export default function Template8() {
             </motion.p>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5, duration: 1 }}
-            className="absolute bottom-20 left-12 text-[10px] font-black tracking-[0.3em] uppercase flex items-center gap-6 text-white"
-          >
-            Scroll
-            <motion.div
-              className="w-16 h-[2px] bg-white/20 relative overflow-hidden"
-            >
-                <motion.div 
-                    className="w-full h-full bg-white absolute top-0 left-0 origin-left"
-                    animate={{ scaleX: [0, 1, 0], x: ['0%', '0%', '100%'] }}
-                    transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-                />
-            </motion.div>
-          </motion.div>
+          
         </section>
 
         <MonolithProcess />

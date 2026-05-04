@@ -46,7 +46,7 @@ export default function Template2() {
 
       {/* Background Sequence */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <ScrollSequence folderPath="/drk-frames" />
+        <ScrollSequence folderPath="/drk-frames" fileExtension="jpg" />
         
         {/* Dynamic vignette - stronger left vignette for text */}
         <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-transparent z-10 opacity-80" />

@@ -105,21 +105,7 @@ export default function Template5() {
             </motion.p>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.6, duration: 1 }}
-            className="absolute bottom-16 left-6 md:left-48 text-[10px] tracking-[0.3em] uppercase flex items-center gap-6 text-[#706055]"
-          >
-            <span className="w-16 h-[1px] bg-[#a67c52]/40" />
-            Embrace the Dark
-            <motion.span
-              animate={{ y: [0, 8, 0] }}
-              transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-            >
-              ↓
-            </motion.span>
-          </motion.div>
+          
         </section>
 
         {/* ORIGIN SECTION */}

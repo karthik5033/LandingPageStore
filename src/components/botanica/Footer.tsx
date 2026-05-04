@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 
 export default function BotanicaFooter() {
   return (
-    <footer className="w-full bg-[#050505] text-white relative z-20 pt-32 pb-12 px-6 md:px-24 border-t border-white/10">
-      <div className="flex flex-col md:flex-row justify-between items-start gap-16 max-w-7xl mx-auto mb-24">
+    <footer className="w-full bg-[#050505] text-white relative z-20 py-10 px-6 md:px-24 border-t border-white/10">
+      <div className="flex flex-col md:flex-row justify-between items-start gap-16 max-w-7xl mx-auto mb-12">
         
         {/* Brand Section */}
         <div className="flex flex-col gap-8 w-full md:w-1/3">

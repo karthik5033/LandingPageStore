@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function SilkFooter() {
   return (
-    <footer className="w-full bg-[#0a0705] text-white relative z-20 py-24 px-6 md:px-32 border-t border-[#c8a97e]/20">
+    <footer className="w-full bg-[#0a0705] text-white relative z-20 py-10 px-6 md:px-32 border-t border-[#c8a97e]/20">
       <div className="flex flex-col md:flex-row justify-between items-start gap-16 max-w-7xl mx-auto">
         
         {/* Brand Section */}
@@ -51,7 +51,7 @@ export default function SilkFooter() {
         </div>
       </div>
 
-      <div className="mt-24 pt-8 border-t border-[#c8a97e]/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] tracking-widest text-[#a89584] uppercase font-light max-w-7xl mx-auto">
+      <div className="mt-12 pt-8 border-t border-[#c8a97e]/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] tracking-widest text-[#a89584] uppercase font-light max-w-7xl mx-auto">
         <p>&copy; {new Date().getFullYear()} Silk Chocolatier. All rights reserved.</p>
         <p>Paris • New York • Tokyo</p>
       </div>

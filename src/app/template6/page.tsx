@@ -92,19 +92,7 @@ export default function Template6() {
             </motion.p>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.6, duration: 1 }}
-            className="absolute bottom-12 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.3em] uppercase flex flex-col items-center gap-4 text-[#c8a97e]/60"
-          >
-            Scroll to Experience
-            <motion.div
-              className="w-[1px] h-12 bg-[#c8a97e]/40"
-              animate={{ scaleY: [0, 1, 0], transformOrigin: ['top', 'top', 'bottom'] }}
-              transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-            />
-          </motion.div>
+          
         </section>
 
         <SilkFeatures />

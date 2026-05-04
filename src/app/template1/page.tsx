@@ -45,7 +45,7 @@ export default function Home() {
       </div>
 
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <ScrollSequence />
+        <ScrollSequence fileExtension="jpg" />
         {/* Vignette Overlay for better text readability on left */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent z-10" />
       </div>
@@ -79,15 +79,7 @@ export default function Home() {
             </motion.p>
           </div>
 
-          <motion.div 
-             initial={{ opacity: 0, y: 50 }}
-             animate={{ opacity: 1, y: 0 }}
-             transition={{ delay: 1.5, duration: 1 }}
-             className="absolute bottom-12 left-6 md:left-40 text-xs tracking-widest uppercase text-gray-400 flex items-center gap-4"
-          >
-             <span className="w-12 h-[1px] bg-gray-600"></span>
-             Scroll to Explore
-          </motion.div>
+          
         </section>
 
         {/* Section 2: Origin */}

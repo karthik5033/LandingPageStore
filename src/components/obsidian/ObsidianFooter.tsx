@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function ObsidianFooter() {
   return (
-    <footer className="w-full bg-black text-white relative z-20 py-24 px-6 md:px-32 border-t border-[#1a120f]">
+    <footer className="w-full bg-black text-white relative z-20 py-10 px-6 md:px-32 border-t border-[#1a120f]">
       <div className="flex flex-col md:flex-row justify-between items-start gap-16">
         
         {/* Brand Section */}
@@ -54,7 +54,7 @@ export default function ObsidianFooter() {
         </div>
       </div>
 
-      <div className="mt-24 pt-8 border-t border-[#1a120f] flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] tracking-widest text-[#60554d] uppercase">
+      <div className="mt-12 pt-8 border-t border-[#1a120f] flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] tracking-widest text-[#60554d] uppercase">
         <p>&copy; {new Date().getFullYear()} Obsidian Chocolate Co. All rights reserved.</p>
         <p>Crafted for the bold.</p>
       </div>

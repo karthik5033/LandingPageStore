@@ -1,4 +1,4 @@
-import { Sparkles, Coffee, Zap } from 'lucide-react';
+import { Sparkles, Coffee, Zap, Droplets } from 'lucide-react';
 
 export const categories = [
   {
@@ -82,6 +82,22 @@ export const categories = [
         href: "/template11",
         accent: "text-yellow-400",
         icon: Sparkles
+      },
+      {
+        id: "12",
+        name: "ZEST",
+        description: "Vibrant Organic Elixirs",
+        href: "/template12",
+        accent: "text-rose-500",
+        icon: Sparkles
+      },
+      {
+        id: "13",
+        name: "CRUSH",
+        description: "Kinetic Fruit Energy",
+        href: "/template13",
+        accent: "text-fuchsia-500",
+        icon: Sparkles
       }
     ]
   },
@@ -110,6 +126,46 @@ export const categories = [
         href: "/template2",
         accent: "text-[#ccff00]",
         icon: Zap
+      },
+      {
+        id: "14",
+        name: "SURGE",
+        description: "Kinetic Fruit Fuel",
+        href: "/template14",
+        accent: "text-[#ccff00]",
+        icon: Zap
+      },
+      {
+        id: "15",
+        name: "KINETIC",
+        description: "Overclocked Voltage",
+        href: "/template15",
+        accent: "text-[#00f0ff]",
+        icon: Zap
+      },
+      {
+        id: "16",
+        name: "APEX",
+        description: "Maximum Output",
+        href: "/template16",
+        accent: "text-[#ff3300]",
+        icon: Zap
+      },
+      {
+        id: "17",
+        name: "PULSE",
+        description: "Elevated Vitality",
+        href: "/template17",
+        accent: "text-[#c8922a]",
+        icon: Zap
+      },
+      {
+        id: "18",
+        name: "PRISM",
+        description: "Full Spectrum Energy",
+        href: "/template18",
+        accent: "text-[#ff0066]",
+        icon: Droplets
       }
     ]
   }

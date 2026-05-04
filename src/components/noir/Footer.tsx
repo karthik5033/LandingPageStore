@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function NoirFooter() {
   return (
-    <footer className="w-full relative z-20 py-24 px-6 md:px-24 border-t border-[#3a2010]" style={{ backgroundColor: '#050100' }}>
+    <footer className="w-full relative z-20 py-10 px-6 md:px-24 border-t border-[#3a2010]" style={{ backgroundColor: '#050100' }}>
       <div className="flex flex-col md:flex-row justify-between items-start">
         
         {/* Brand Section */}
@@ -54,7 +54,7 @@ export default function NoirFooter() {
         </div>
       </div>
 
-      <div className="mt-24 pt-8 border-t border-[#3a2010] flex flex-col md:flex-row justify-between items-center text-[9px] uppercase tracking-[0.3em]" style={{ color: '#4a3020' }}>
+      <div className="mt-12 pt-8 border-t border-[#3a2010] flex flex-col md:flex-row justify-between items-center text-[9px] uppercase tracking-[0.3em]" style={{ color: '#4a3020' }}>
          <span>© 2026 NOIR CHOCOLATIER.</span>
          <div className="flex gap-8 mt-4 md:mt-0">
             <a href="#" className="hover:text-[#c8922a] transition-colors">Privacy</a>

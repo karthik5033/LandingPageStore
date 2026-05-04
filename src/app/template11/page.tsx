@@ -91,23 +91,7 @@ export default function Template11() {
             </motion.p>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5, duration: 1 }}
-            className="absolute bottom-20 left-1/2 -translate-x-1/2 text-[9px] font-bold tracking-[0.4em] uppercase flex flex-col items-center gap-6 text-yellow-500/80"
-          >
-            Awaken
-            <motion.div
-              className="w-[1px] h-16 bg-white/10 relative overflow-hidden"
-            >
-                <motion.div 
-                    className="w-full h-full bg-yellow-400 absolute top-0 left-0"
-                    animate={{ y: ['-100%', '100%'] }}
-                    transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-                />
-            </motion.div>
-          </motion.div>
+          
         </section>
 
         <AuroraProcess />

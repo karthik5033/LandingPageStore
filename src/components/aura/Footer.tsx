@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-black text-white relative z-20 py-24 px-6 md:px-24 border-t border-white/10">
+    <footer className="w-full bg-black text-white relative z-20 py-10 px-6 md:px-24 border-t border-white/10">
       <div className="flex flex-col md:flex-row justify-between items-start">
         
         {/* Brand Section */}
@@ -54,7 +54,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-600 uppercase tracking-[0.2em]">
+      <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-600 uppercase tracking-[0.2em]">
          <span>© 2026 Aura Coffee Co.</span>
          <div className="flex gap-8 mt-4 md:mt-0">
             <a href="#" className="hover:text-amber-500 transition-colors">Privacy</a>

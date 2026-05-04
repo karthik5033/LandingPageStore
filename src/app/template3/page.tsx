@@ -119,23 +119,7 @@ export default function Template3() {
           </div>
 
           {/* Scroll CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.6, duration: 1 }}
-            className="absolute bottom-12 left-6 md:left-40 text-[10px] tracking-widest uppercase flex items-center gap-4"
-            style={{ color: '#5a4030' }}
-          >
-            <span className="w-10 h-[1px]" style={{ background: '#3a2010' }} />
-            Scroll to Explore
-            <motion.span
-              animate={{ y: [0, 6, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
-              className="text-base"
-            >
-              ↓
-            </motion.span>
-          </motion.div>
+          
         </section>
 
         {/* ——— SECTION 2: ORIGIN ——— */}

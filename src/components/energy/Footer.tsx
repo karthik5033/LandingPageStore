@@ -4,7 +4,7 @@ import { useRef } from 'react';
 
 // Custom Footer for Energy Drink Theme
 const Footer = () => (
-   <footer className="py-32 px-6 md:px-12 relative z-20 border-t border-[#ccff00]/20 backdrop-blur-xl bg-black/40 text-left">
+   <footer className="py-10 px-6 md:px-12 relative z-20 border-t border-[#ccff00]/20 backdrop-blur-xl bg-black/40 text-left">
       <div className="flex flex-col md:flex-row justify-between items-start gap-24 w-full max-w-7xl mx-auto">
           
           <div>
@@ -33,7 +33,7 @@ const Footer = () => (
           </div>
       </div>
       
-      <div className="mt-24 pt-8 border-t border-white/10 flex justify-between items-center text-[10px] text-gray-600 font-mono tracking-widest uppercase">
+      <div className="mt-12 pt-8 border-t border-white/10 flex justify-between items-center text-[10px] text-gray-600 font-mono tracking-widest uppercase">
           <span>© 2026 VOLT BEVERAGE CO. SECTOR 7.</span>
           <span>POWERED BY KINETIC ENGINE</span>
       </div>

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function AetherFooter() {
   return (
-    <footer className="w-full bg-black text-white relative z-20 py-24 px-6 md:px-24 border-t border-white/10">
+    <footer className="w-full bg-black text-white relative z-20 py-10 px-6 md:px-24 border-t border-white/10">
       <div className="flex flex-col md:flex-row justify-between items-start gap-16 max-w-7xl mx-auto">
         
         {/* Brand Section */}
@@ -51,7 +51,7 @@ export default function AetherFooter() {
         </div>
       </div>
 
-      <div className="mt-24 pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-[9px] tracking-[0.2em] text-gray-600 uppercase font-bold max-w-7xl mx-auto">
+      <div className="mt-12 pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-[9px] tracking-[0.2em] text-gray-600 uppercase font-bold max-w-7xl mx-auto">
         <p>&copy; {new Date().getFullYear()} Aether Horology. All rights reserved.</p>
         <div className="flex gap-8">
             <a href="#" className="hover:text-gray-400 transition-colors">Privacy</a>
