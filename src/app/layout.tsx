@@ -28,8 +28,11 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "AURA | The Essence of Coffee",
-  description: "Experience the pinnacle of brewing. Ethically sourced, precision roasted.",
+  title: {
+    template: "%s | Premium Templates",
+    default: "Premium Landing Page Store",
+  },
+  description: "High-end, cinematic landing page templates for brands.",
 };
 
 export default function RootLayout({
