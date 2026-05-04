@@ -70,6 +70,14 @@ const categories = [
         href: "/template9",
         accent: "text-emerald-400",
         icon: Sparkles
+      },
+      {
+        id: "10",
+        name: "OASIS",
+        description: "Liquid Gold Bottled",
+        href: "/template10",
+        accent: "text-orange-400",
+        icon: Sparkles
       }
     ]
   },
