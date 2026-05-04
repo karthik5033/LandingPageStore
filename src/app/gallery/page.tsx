@@ -30,11 +30,11 @@ export default function GalleryPage() {
           loop 
           muted 
           playsInline 
-          className="w-full h-full object-cover opacity-30 mix-blend-screen grayscale"
+          className="w-full h-full object-cover opacity-60 mix-blend-screen grayscale"
         >
           <source src="/newv.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/60 to-black z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/90 z-10" />
       </div>
 
       {/* Navigation */}
