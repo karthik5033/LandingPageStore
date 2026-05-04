@@ -24,7 +24,7 @@ const products = [
 
 export default function LumenProducts() {
   return (
-    <section id="beans" className="py-40 relative z-20 border-t border-[#d97706]/10 bg-gradient-to-t from-[#0a0602]/90 to-[#0a0602]/40 backdrop-blur-md">
+    <section id="beans" className="py-40 relative z-20 border-none ">
       <div className="container mx-auto px-8 md:px-16">
         
         <div className="text-center mb-24">

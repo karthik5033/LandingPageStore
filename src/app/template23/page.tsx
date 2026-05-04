@@ -55,8 +55,8 @@ export default function Template23() {
           padLength={3}
         />
         {/* Overlays to integrate video */}
-        <div className="absolute inset-0 bg-black/20 z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0602]/90 via-transparent to-[#0a0602]/40 z-10" />
+        <div className="absolute inset-0 bg-black/30 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0602]/95 via-transparent to-[#0a0602]/50 z-10" />
       </div>
 
       <main className="relative z-10 w-full text-white selection:bg-[#d97706] selection:text-white">
@@ -107,7 +107,7 @@ export default function Template23() {
         <LumenProducts />
 
         {/* CTA SECTION */}
-        <section className="h-[80vh] flex flex-col items-center justify-center px-8 text-center border-t border-[#d97706]/10 bg-[#0a0602]/40 backdrop-blur-md">
+        <section className="h-[80vh] flex flex-col items-center justify-center px-8 text-center bg-transparent border-none">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}

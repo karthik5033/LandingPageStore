@@ -2,8 +2,8 @@
 
 export default function LumenFooter() {
   return (
-    <footer className="w-full bg-[#0a0602]/95 backdrop-blur-xl text-white relative z-20 py-16 px-8 md:px-16 border-t border-[#d97706]/20">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-16 mb-24">
+    <footer className="w-full bg-transparent text-white relative z-20 py-12 px-8 md:px-16 border-none">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-16 mb-12">
         
         <div className="max-w-sm">
           <span className="text-3xl text-white" style={{ fontFamily: "'Playfair Display', serif" }}>

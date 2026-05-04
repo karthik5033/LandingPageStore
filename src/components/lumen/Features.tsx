@@ -22,7 +22,7 @@ const features = [
 
 export default function LumenFeatures() {
   return (
-    <section id="roast" className="py-40 relative z-20 border-t border-[#d97706]/10 bg-[#0a0602]/80 backdrop-blur-sm">
+    <section id="roast" className="py-40 relative z-20 border-none bg-transparent ">
       <div className="container mx-auto px-8 md:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           

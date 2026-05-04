@@ -136,6 +136,54 @@ export const categories = [
         href: "/template23",
         accent: "text-[#d97706]",
         icon: Coffee
+      },
+      {
+        id: "24",
+        name: "OPUS",
+        description: "The Perfect Pour",
+        href: "/template24",
+        accent: "text-[#f5f5f0]",
+        icon: Coffee
+      },
+      {
+        id: "25",
+        name: "ZENITH",
+        description: "Infinite Rhythm",
+        href: "/template25",
+        accent: "text-[#f2f0eb]",
+        icon: Coffee
+      },
+      {
+        id: "26",
+        name: "GRAVITY",
+        description: "The Force of Coffee",
+        href: "/template26",
+        accent: "text-[#b87333]",
+        icon: Coffee
+      },
+      {
+        id: "27",
+        name: "FRACTURE",
+        description: "Coffee Deconstructed",
+        href: "/template27",
+        accent: "text-[#c98a53]",
+        icon: Coffee
+      },
+      {
+        id: "28",
+        name: "EXTRACT",
+        description: "The Perfect Yield",
+        href: "/template28",
+        accent: "text-[#cfa052]",
+        icon: Coffee
+      },
+      {
+        id: "29",
+        name: "RITUAL",
+        description: "Your Daily Sanctuary",
+        href: "/template29",
+        accent: "text-[#e8c490]",
+        icon: Coffee
       }
     ]
   },

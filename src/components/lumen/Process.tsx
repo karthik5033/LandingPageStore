@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function LumenProcess() {
   return (
-    <section id="essence" className="py-48 relative z-20 bg-gradient-to-b from-[#0a0602]/0 via-[#0a0602]/60 to-[#0a0602]/80">
+    <section id="essence" className="py-48 relative z-20 ">
       <div className="container mx-auto px-8 md:px-16 text-center">
         <motion.div
            initial={{ opacity: 0, y: 30 }}
