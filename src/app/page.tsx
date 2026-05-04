@@ -1,5 +1,5 @@
 'use client';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 import { ArrowRight, Coffee, Zap, Sparkles, FolderOpen, Layers, Cpu, Smartphone, Code2, CheckCircle2 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -110,6 +110,9 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-black text-white selection:bg-white selection:text-black font-sans relative overflow-x-hidden flex flex-col">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap');
+      `}</style>
       
       {/* Background Video */}
       <div className="fixed inset-0 z-0 pointer-events-none">
@@ -126,81 +129,80 @@ export default function Home() {
       </div>
 
       {/* Navigation */}
-      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b ${scrolled ? 'bg-black/60 backdrop-blur-xl border-white/10 py-4' : 'bg-transparent border-transparent py-6'}`}>
+      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 border-b ${scrolled ? 'bg-black/60 backdrop-blur-xl border-white/10 py-5' : 'bg-transparent border-transparent py-8'}`}>
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-white rounded-sm flex items-center justify-center">
-              <div className="w-3 h-3 bg-black rounded-full" />
-            </div>
-            <span className="font-bold tracking-widest text-sm uppercase">Antigravity</span>
+          <div className="flex items-center gap-4">
+            <span className="font-light tracking-[0.3em] text-lg uppercase text-white" style={{ fontFamily: "'Playfair Display', serif" }}>Atelier</span>
           </div>
-          <div className="hidden md:flex gap-8 text-xs font-bold tracking-[0.2em] uppercase text-gray-400">
-            <a href="#templates" className="hover:text-white transition-colors">Templates</a>
-            <a href="#features" className="hover:text-white transition-colors">Engine</a>
-            <a href="#" className="hover:text-white transition-colors">Documentation</a>
+          <div className="hidden md:flex gap-10 text-[10px] font-bold tracking-[0.3em] uppercase text-gray-400" style={{ fontFamily: "'Inter', sans-serif" }}>
+            <a href="#templates" className="hover:text-white transition-colors duration-300">Collection</a>
+            <a href="#features" className="hover:text-white transition-colors duration-300">The Engine</a>
           </div>
-          <button className="text-xs font-bold uppercase tracking-widest bg-white text-black px-6 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
-            Get Access
+          <button className="text-[10px] font-bold uppercase tracking-[0.2em] border border-white/30 text-white px-8 py-3 hover:bg-white hover:text-black transition-all duration-300">
+            View Gallery
           </button>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative z-10 container mx-auto px-6 pt-40 pb-32 flex flex-col items-center text-center">
+      <section className="relative z-10 container mx-auto px-6 pt-48 pb-32 flex flex-col items-center text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1 }}
           className="max-w-4xl flex flex-col items-center"
         >
-          <div className="px-4 py-1.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-[10px] font-bold tracking-[0.2em] uppercase text-gray-300 mb-8 flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-            Antigravity Engine v2.0 Live
-          </div>
+          <span className="block text-gray-400 text-[10px] font-bold tracking-[0.5em] mb-8 uppercase" style={{ fontFamily: "'Inter', sans-serif" }}>
+            The Premium Template Library
+          </span>
           
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-8 leading-[0.95]">
-            Cinematic web experiences, <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-white">packaged for production.</span>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-light tracking-wide mb-8 leading-tight text-white" style={{ fontFamily: "'Playfair Display', serif" }}>
+            Cinematic web experiences,<br />
+            <span className="italic text-gray-400">crafted for production.</span>
           </h1>
           
-          <p className="text-gray-400 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed mb-12">
-            A curated library of ultra-premium, scroll-driven landing page templates built for Next.js. Deploy Apple-tier visual narratives in minutes, not months.
+          <p className="text-gray-400 text-sm md:text-base font-light tracking-[0.2em] max-w-2xl mx-auto leading-relaxed mb-16 uppercase" style={{ fontFamily: "'Inter', sans-serif" }}>
+            A curated library of ultra-premium, scroll-driven landing page templates. Deploy flawless visual narratives in minutes.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-            <a href="#templates" className="w-full sm:w-auto px-8 py-4 bg-white text-black text-xs font-bold tracking-widest uppercase rounded-full hover:scale-105 transition-transform flex items-center justify-center gap-2">
-              Explore Templates <ArrowRight size={16} />
+          <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto">
+            <a href="#templates" className="w-full sm:w-auto px-10 py-4 bg-white text-black text-[10px] font-bold tracking-[0.3em] uppercase hover:bg-gray-200 transition-colors flex items-center justify-center gap-3">
+              Explore Collection <ArrowRight size={14} />
             </a>
-            <a href="#features" className="w-full sm:w-auto px-8 py-4 border border-white/20 bg-black/40 backdrop-blur-md text-white text-xs font-bold tracking-widest uppercase rounded-full hover:bg-white/10 transition-colors flex items-center justify-center">
-              Discover the Engine
+            <a href="#features" className="w-full sm:w-auto px-10 py-4 border border-white/20 text-white text-[10px] font-bold tracking-[0.3em] uppercase hover:bg-white/10 transition-colors flex items-center justify-center">
+              Discover Engine
             </a>
           </div>
         </motion.div>
       </section>
 
       {/* Features Section */}
-      <section id="features" className="relative z-10 border-y border-white/10 bg-black/50 backdrop-blur-lg">
-        <div className="container mx-auto px-6 py-24">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight mb-4">Engineered for absolute performance.</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">We didn't just design templates; we built a proprietary rendering engine that guarantees flawless execution across all devices.</p>
+      <section id="features" className="relative z-10 border-y border-white/10 bg-[#0a0a0a]/80 backdrop-blur-lg">
+        <div className="container mx-auto px-6 py-32">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl font-light tracking-wide mb-6 text-white" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Engineered for absolute <span className="italic text-gray-400">perfection.</span>
+            </h2>
+            <p className="text-gray-400 max-w-2xl mx-auto font-light leading-relaxed tracking-wide text-sm">
+              We didn't just design templates; we built a proprietary rendering engine that guarantees flawless execution across all devices.
+            </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 max-w-6xl mx-auto">
             {features.map((f, i) => (
               <motion.div 
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition-colors"
+                transition={{ delay: i * 0.1, duration: 0.8 }}
+                className="flex flex-col items-center text-center"
               >
-                <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-6 text-white">
-                  <f.icon size={24} strokeWidth={1.5} />
+                <div className="mb-6 text-gray-400">
+                  <f.icon size={28} strokeWidth={1} />
                 </div>
-                <h3 className="text-lg font-bold mb-3">{f.title}</h3>
-                <p className="text-sm text-gray-400 leading-relaxed">{f.description}</p>
+                <h3 className="text-sm font-normal tracking-widest uppercase mb-4 text-white" style={{ fontFamily: "'Inter', sans-serif" }}>{f.title}</h3>
+                <p className="text-xs text-gray-500 font-light leading-relaxed">{f.description}</p>
               </motion.div>
             ))}
           </div>
@@ -208,60 +210,57 @@ export default function Home() {
       </section>
 
       {/* Templates Collection */}
-      <section id="templates" className="relative z-10 container mx-auto px-6 py-32 flex-grow flex flex-col">
-        <div className="mb-20 text-center">
-          <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-4">The Collection</h2>
-          <p className="text-gray-400 max-w-xl mx-auto">Browse our meticulously crafted brand templates.</p>
+      <section id="templates" className="relative z-10 container mx-auto px-6 py-40 flex-grow flex flex-col">
+        <div className="mb-24 text-center">
+          <span className="block text-gray-400 text-[10px] font-bold tracking-[0.5em] mb-6 uppercase" style={{ fontFamily: "'Inter', sans-serif" }}>
+            Curated Gallery
+          </span>
+          <h2 className="text-5xl md:text-6xl font-light tracking-wide text-white" style={{ fontFamily: "'Playfair Display', serif" }}>
+            The Collection
+          </h2>
         </div>
 
-        <div className="max-w-5xl mx-auto w-full flex flex-col gap-24">
+        <div className="max-w-6xl mx-auto w-full flex flex-col gap-32">
           {categories.map((category, idx) => (
             <motion.div 
               key={category.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 1 }}
             >
               {/* Category Header */}
-              <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 border-b border-white/10 pb-6">
-                <div>
-                  <div className="flex items-center gap-3 mb-3">
-                    <FolderOpen className="text-gray-500" size={24} />
-                    <h3 className="text-3xl font-bold tracking-widest uppercase">{category.name}</h3>
-                  </div>
-                  <p className="text-gray-400 text-sm max-w-2xl leading-relaxed">{category.description}</p>
-                </div>
-                <div className="text-xs font-mono text-gray-600 bg-white/5 px-3 py-1 rounded-md self-start md:self-auto">
-                  {category.templates.length} TEMPLATES
-                </div>
+              <div className="flex flex-col items-center text-center mb-16 border-b border-white/10 pb-12">
+                <h3 className="text-2xl font-light tracking-[0.3em] uppercase mb-4 text-white" style={{ fontFamily: "'Playfair Display', serif" }}>{category.name}</h3>
+                <p className="text-gray-400 text-sm max-w-2xl font-light leading-relaxed">{category.description}</p>
               </div>
               
               {/* Template Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {category.templates.map((t) => (
                   <Link 
                     key={t.id}
                     href={t.href} 
-                    className="group flex flex-col justify-between p-8 bg-white/[0.03] border border-white/10 backdrop-blur-md rounded-2xl hover:bg-white/10 hover:border-white/30 transition-all duration-500 hover:-translate-y-1"
+                    className="group relative flex flex-col justify-between p-10 bg-[#0a0a0a] border border-white/5 hover:border-white/20 transition-all duration-700"
                   >
-                    <div className="flex justify-between items-start mb-10">
-                      <div className={`p-4 bg-black/60 rounded-xl border border-white/5 shadow-2xl group-hover:border-white/20 transition-colors ${t.accent}`}>
-                        <t.icon size={24} strokeWidth={1.5} />
+                    <div className="flex justify-between items-start mb-16">
+                      <div className={`text-gray-500 group-hover:${t.accent} transition-colors duration-500`}>
+                        <t.icon size={24} strokeWidth={1} />
                       </div>
-                      <span className="font-mono text-xs text-gray-500 font-bold tracking-widest">SEQ-{t.id}</span>
+                      <span className="font-mono text-[10px] text-gray-600 tracking-widest">NO. {t.id}</span>
                     </div>
                     
                     <div>
-                      <h4 className="font-black text-2xl tracking-wider mb-2 uppercase group-hover:text-white transition-colors">{t.name}</h4>
-                      <p className="text-sm text-gray-400 leading-relaxed mb-8">{t.description}</p>
+                      <h4 className="font-light text-2xl tracking-[0.2em] mb-4 uppercase text-gray-300 group-hover:text-white transition-colors duration-500" style={{ fontFamily: "'Playfair Display', serif" }}>
+                        {t.name}
+                      </h4>
+                      <p className="text-xs text-gray-500 font-light leading-relaxed mb-8">{t.description}</p>
                       
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 group-hover:text-white transition-colors">
-                          <span>Live Preview</span>
-                          <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                      <div className="flex items-center justify-between border-t border-white/5 pt-6">
+                        <div className="flex items-center gap-3 text-[9px] font-bold uppercase tracking-[0.3em] text-gray-600 group-hover:text-white transition-colors duration-500">
+                          <span>View Exhibit</span>
+                          <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                         </div>
-                        <CheckCircle2 size={16} className="text-green-500/0 group-hover:text-green-500/100 transition-colors" />
                       </div>
                     </div>
                   </Link>
@@ -273,47 +272,44 @@ export default function Home() {
       </section>
 
       {/* Premium Footer */}
-      <footer className="relative z-10 border-t border-white/10 bg-black pt-20 pb-10 px-6">
+      <footer className="relative z-10 border-t border-white/10 bg-[#050505] pt-24 pb-12 px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-            <div className="md:col-span-2">
-              <div className="flex items-center gap-2 mb-6">
-                <div className="w-6 h-6 bg-white rounded-sm flex items-center justify-center">
-                  <div className="w-3 h-3 bg-black rounded-full" />
-                </div>
-                <span className="font-bold tracking-widest text-sm uppercase">Antigravity</span>
-              </div>
-              <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
-                Empowering developers and designers to build uncompromising, cinematic web experiences without the technical overhead.
+          <div className="flex flex-col md:flex-row justify-between items-start gap-16 mb-20">
+            <div className="max-w-sm">
+              <span className="block font-light tracking-[0.3em] text-xl uppercase text-white mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Atelier
+              </span>
+              <p className="text-gray-500 text-xs font-light leading-relaxed tracking-wide">
+                Empowering designers to build uncompromising, cinematic web experiences without the technical overhead. Designed with absolute precision.
               </p>
             </div>
             
-            <div>
-              <h5 className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-300 mb-6">Product</h5>
-              <ul className="flex flex-col gap-4 text-sm text-gray-500">
-                <li><a href="#" className="hover:text-white transition-colors">Templates</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Engine Core</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Pricing</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Changelog</a></li>
-              </ul>
-            </div>
+            <div className="flex gap-16">
+              <div>
+                <h5 className="text-[9px] font-bold tracking-[0.3em] uppercase text-gray-400 mb-6">Gallery</h5>
+                <ul className="flex flex-col gap-4 text-xs font-light text-gray-600">
+                  <li><a href="#" className="hover:text-white transition-colors">Chocolate Series</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Coffee Series</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Performance Series</a></li>
+                </ul>
+              </div>
 
-            <div>
-              <h5 className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-300 mb-6">Resources</h5>
-              <ul className="flex flex-col gap-4 text-sm text-gray-500">
-                <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Tutorials</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Github</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Support</a></li>
-              </ul>
+              <div>
+                <h5 className="text-[9px] font-bold tracking-[0.3em] uppercase text-gray-400 mb-6">Studio</h5>
+                <ul className="flex flex-col gap-4 text-xs font-light text-gray-600">
+                  <li><a href="#" className="hover:text-white transition-colors">Engine Core</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+                </ul>
+              </div>
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-white/10 text-xs text-gray-600 font-mono">
-            <p>© {new Date().getFullYear()} Antigravity Systems. All Rights Reserved.</p>
-            <div className="flex gap-6">
-              <a href="#" className="hover:text-gray-300 transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-gray-300 transition-colors">Terms of Service</a>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-white/5 text-[9px] text-gray-600 font-bold uppercase tracking-[0.2em]">
+            <p>© {new Date().getFullYear()} Atelier Studio. All Rights Reserved.</p>
+            <div className="flex gap-8">
+              <a href="#" className="hover:text-gray-400 transition-colors">Privacy</a>
+              <a href="#" className="hover:text-gray-400 transition-colors">Terms</a>
             </div>
           </div>
         </div>
