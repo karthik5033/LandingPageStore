@@ -269,8 +269,12 @@ export default function Home() {
             >
               {/* Category Header */}
               <div className="flex flex-col items-center text-center mb-16 border-b border-white/10 pb-12">
-                <h3 className="text-2xl font-light tracking-[0.3em] uppercase mb-4 text-white" style={{ fontFamily: "'Playfair Display', serif" }}>{category.name}</h3>
-                <p className="text-gray-400 text-sm max-w-2xl font-light leading-relaxed">{category.description}</p>
+                  <h3 className="text-3xl md:text-4xl font-light tracking-[0.3em] uppercase text-white mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    {category.name}
+                  </h3>
+                  <p className="text-gray-400 font-light text-base md:text-lg max-w-3xl leading-relaxed">
+                    {category.description}
+                  </p>
               </div>
               
               {/* Template Grid */}
@@ -289,27 +293,27 @@ export default function Home() {
                       
                       {/* Text */}
                       <div>
-                        <h4 className="font-light text-lg md:text-xl tracking-[0.15em] uppercase text-gray-300 group-hover:text-white transition-colors duration-500" style={{ fontFamily: "'Playfair Display', serif" }}>
+                        <h4 className="font-light text-xl md:text-2xl tracking-[0.15em] uppercase text-gray-300 group-hover:text-white transition-colors duration-500" style={{ fontFamily: "'Playfair Display', serif" }}>
                           {t.name}
                         </h4>
-                        <p className="text-[10px] md:text-xs text-gray-500 font-light mt-1 tracking-wider">{t.description}</p>
+                        <p className="text-xs md:text-sm text-gray-500 font-light mt-2 tracking-wider">{t.description}</p>
                       </div>
                     </div>
                     
                     {/* Trailing Actions */}
                     <div className="flex flex-col items-end gap-4">
-                      <span className="font-mono text-[9px] text-gray-700 tracking-widest group-hover:text-gray-500 transition-colors">NO. {t.id}</span>
+                      <span className="font-mono text-[10px] md:text-xs text-gray-600 tracking-widest group-hover:text-gray-400 transition-colors">NO. {t.id}</span>
                       <div className="flex items-center gap-4">
                         <button 
                           onClick={(e) => {
                             e.preventDefault();
                             alert('Download option not available now... but coming soon!');
                           }}
-                          className="hidden sm:block px-3 py-1.5 border border-white/10 text-[9px] font-bold tracking-widest uppercase text-gray-500 hover:text-white hover:border-white/30 rounded transition-all"
+                          className="hidden sm:block px-4 py-2 border border-white/10 text-[10px] font-bold tracking-widest uppercase text-gray-400 hover:text-white hover:border-white/30 rounded transition-all"
                         >
                           Download
                         </button>
-                        <ArrowRight size={14} className="text-gray-600 group-hover:text-white group-hover:translate-x-1 transition-all duration-500" />
+                        <ArrowRight size={16} className="text-gray-500 group-hover:text-white group-hover:translate-x-1 transition-all duration-500" />
                       </div>
                     </div>
                   </Link>
