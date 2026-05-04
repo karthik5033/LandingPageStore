@@ -65,7 +65,7 @@ export default function Template8() {
               transition={{ duration: 1, delay: 0.2 }}
               className="block text-[12px] font-black tracking-[0.6em] uppercase mb-12 text-gray-400"
             >
-              The Architecture Series
+              The Fresh Series
             </motion.span>
 
             <motion.h1
@@ -77,7 +77,7 @@ export default function Template8() {
                 fontSize: 'clamp(5rem, 15vw, 14rem)',
               }}
             >
-              MONOLITH
+              NECTAR
             </motion.h1>
 
             <motion.p
@@ -86,7 +86,7 @@ export default function Template8() {
               transition={{ delay: 0.8, duration: 1.2 }}
               className="text-sm md:text-base font-bold tracking-[0.4em] uppercase text-gray-500 max-w-xl mx-auto"
             >
-              Defining Space. Defying Gravity.
+              The Essence of Fruit.
             </motion.p>
           </div>
 
@@ -129,12 +129,12 @@ export default function Template8() {
                   fontSize: 'clamp(4rem, 10vw, 8rem)',
                 }}
               >
-                Construct <br />
-                <span className="text-gray-700">Reality.</span>
+                Pure <br />
+                <span className="text-gray-700">Extract.</span>
               </h2>
               
               <button className="mt-8 px-16 py-8 bg-white text-black text-[12px] font-black uppercase tracking-[0.5em] hover:bg-gray-300 transition-colors">
-                Initiate Project
+                Order Now
               </button>
             </motion.div>
           </div>

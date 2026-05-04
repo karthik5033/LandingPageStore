@@ -65,7 +65,7 @@ export default function Template7() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="block text-[9px] font-bold tracking-[0.5em] uppercase mb-10 text-gray-400"
             >
-              The Signature Series
+              The Fresh Series
             </motion.span>
 
             <motion.h1
@@ -79,7 +79,7 @@ export default function Template7() {
                 letterSpacing: '0.05em'
               }}
             >
-              AETHER
+              VITALITY
             </motion.h1>
 
             <motion.p
@@ -88,7 +88,7 @@ export default function Template7() {
               transition={{ delay: 0.8, duration: 1 }}
               className="text-xs md:text-sm font-light tracking-[0.3em] uppercase text-gray-500 max-w-lg mx-auto"
             >
-              Precision In Motion.
+              Pure Organic Energy.
             </motion.p>
           </div>
 
@@ -132,12 +132,12 @@ export default function Template7() {
                   fontSize: 'clamp(3rem, 6vw, 5rem)',
                 }}
               >
-                Elevate your <br />
-                <span className="italic text-gray-400">Standard.</span>
+                Taste the <br />
+                <span className="italic text-gray-400">Freshness.</span>
               </h2>
               
               <button className="mt-8 px-12 py-5 bg-white text-black text-[9px] font-bold uppercase tracking-[0.4em] hover:bg-gray-200 transition-all duration-500">
-                Secure Your Piece
+                Shop Organic
               </button>
             </motion.div>
           </div>

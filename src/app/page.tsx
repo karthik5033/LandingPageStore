@@ -44,30 +44,24 @@ const categories = [
     ]
   },
   {
-    name: "Signature Series",
-    description: "Avant-garde, high-precision interfaces designed for engineering marvels. Features monochromatic elegance and technical typography.",
+    name: "Fresh Series",
+    description: "Vibrant, high-energy interfaces designed for cold-pressed juices and organic fruit brands. Features refreshing color palettes and dynamic fluid motion.",
     templates: [
       {
         id: "07",
-        name: "AETHER",
-        description: "Precision In Motion",
+        name: "VITALITY",
+        description: "Pure Organic Energy",
         href: "/template7",
-        accent: "text-white",
+        accent: "text-green-400",
         icon: Sparkles
-      }
-    ]
-  },
-  {
-    name: "Architecture Series",
-    description: "Brutalist, structural layouts designed for real estate and construction. Featuring massive typography, rigid grids, and raw aesthetic power.",
-    templates: [
+      },
       {
         id: "08",
-        name: "MONOLITH",
-        description: "Defining Space. Defying Gravity.",
+        name: "NECTAR",
+        description: "The Essence of Fruit",
         href: "/template8",
-        accent: "text-gray-400",
-        icon: Layers
+        accent: "text-red-400",
+        icon: Sparkles
       }
     ]
   },
