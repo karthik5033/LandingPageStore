@@ -17,92 +17,82 @@ interface TemplateCardProps {
   frameCount: number;
 }
 
+// Sample ~15 evenly spaced frame indices from the full sequence
+function getSampledFrames(total: number, sampleCount = 15): number[] {
+  const frames: number[] = [];
+  const step = Math.max(1, Math.floor(total / sampleCount));
+  for (let i = 1; i <= total && frames.length < sampleCount; i += step) {
+    frames.push(i);
+  }
+  return frames;
+}
+
 export default function TemplateCard({
   id, name, description, href, accentHex, heroHeadline,
   icon: Icon, folder, ext, prefix, frameCount
 }: TemplateCardProps) {
   const [isHovered, setIsHovered] = useState(false);
-  const [currentFrame, setCurrentFrame] = useState(10);
+  const [currentFrameIdx, setCurrentFrameIdx] = useState(0);
+  const [preloaded, setPreloaded] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const imgCacheRef = useRef<Map<number, HTMLImageElement>>(new Map());
+  const imagesRef = useRef<HTMLImageElement[]>([]);
+  const sampledFrames = useRef(getSampledFrames(frameCount));
   const numId = parseInt(id, 10);
   const previewExt = (numId === 1 || numId === 2) ? 'jpg' : 'png';
   const staticSrc = `/previews/template${numId}.${previewExt}`;
 
-  // Build frame path — frames are 001-indexed with 3-digit zero-padding
+  // Build frame path
   const getFramePath = useCallback((frameIdx: number) => {
     const padded = String(frameIdx).padStart(3, '0');
     return `/${folder}/${prefix}${padded}${ext}`;
   }, [folder, prefix, ext]);
 
-  // Preload a batch of frames ahead of current position
-  const preloadFrames = useCallback((startFrame: number, count: number) => {
-    for (let i = 0; i < count; i++) {
-      const idx = ((startFrame + i - 1) % frameCount) + 1;
-      if (!imgCacheRef.current.has(idx)) {
-        const img = new Image();
-        img.src = getFramePath(idx);
-        imgCacheRef.current.set(idx, img);
-      }
-    }
-  }, [frameCount, getFramePath]);
+  // Preload the sampled frames when the card enters the viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !preloaded) {
+          // Start preloading sampled frames
+          const imgs: HTMLImageElement[] = [];
+          let loaded = 0;
+          const total = sampledFrames.current.length;
 
-  // Draw frame to canvas
-  const drawFrame = useCallback((frameIdx: number) => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+          sampledFrames.current.forEach((frameNum) => {
+            const img = new Image();
+            img.onload = () => {
+              loaded++;
+              if (loaded >= total) setPreloaded(true);
+            };
+            img.onerror = () => {
+              loaded++;
+              if (loaded >= total) setPreloaded(true);
+            };
+            img.src = getFramePath(frameNum);
+            imgs.push(img);
+          });
 
-    const cached = imgCacheRef.current.get(frameIdx);
-    if (cached && cached.complete && cached.naturalWidth > 0) {
-      // Scale to fill canvas (cover)
-      const cw = canvas.width;
-      const ch = canvas.height;
-      const iw = cached.naturalWidth;
-      const ih = cached.naturalHeight;
-      const scale = Math.max(cw / iw, ch / ih);
-      const sw = iw * scale;
-      const sh = ih * scale;
-      const sx = (cw - sw) / 2;
-      const sy = (ch - sh) / 2;
-      ctx.drawImage(cached, sx, sy, sw, sh);
-    } else {
-      // Load and draw
-      const img = new Image();
-      img.onload = () => {
-        imgCacheRef.current.set(frameIdx, img);
-        const cw = canvas.width;
-        const ch = canvas.height;
-        const iw = img.naturalWidth;
-        const ih = img.naturalHeight;
-        const scale = Math.max(cw / iw, ch / ih);
-        const sw = iw * scale;
-        const sh = ih * scale;
-        const sx = (cw - sw) / 2;
-        const sy = (ch - sh) / 2;
-        ctx.drawImage(img, sx, sy, sw, sh);
-      };
-      img.src = getFramePath(frameIdx);
-      imgCacheRef.current.set(frameIdx, img);
-    }
-  }, [getFramePath]);
+          imagesRef.current = imgs;
+        }
+      },
+      { rootMargin: '200px' } // Start preloading 200px before visible
+    );
+
+    const card = document.getElementById(`card-${id}`);
+    if (card) observer.observe(card);
+
+    return () => observer.disconnect();
+  }, [id, getFramePath, preloaded]);
 
   const handleMouseEnter = useCallback(() => {
     setIsHovered(true);
-    // Start preloading from frame 10
-    preloadFrames(10, 30);
+    if (!preloaded || imagesRef.current.length === 0) return;
 
-    let frame = 10;
+    let idx = 0;
     intervalRef.current = setInterval(() => {
-      frame = ((frame) % frameCount) + 1;
-      setCurrentFrame(frame);
-      drawFrame(frame);
-      // Preload ahead
-      preloadFrames(frame, 10);
-    }, 80); // ~12.5fps for smooth-ish playback without hammering
-  }, [frameCount, preloadFrames, drawFrame]);
+      idx = (idx + 1) % imagesRef.current.length;
+      setCurrentFrameIdx(idx);
+    }, 120); // ~8fps — smooth enough, not too fast
+  }, [preloaded]);
 
   const handleMouseLeave = useCallback(() => {
     setIsHovered(false);
@@ -110,7 +100,7 @@ export default function TemplateCard({
       clearInterval(intervalRef.current);
       intervalRef.current = null;
     }
-    setCurrentFrame(10);
+    setCurrentFrameIdx(0);
   }, []);
 
   // Cleanup on unmount
@@ -120,17 +110,12 @@ export default function TemplateCard({
     };
   }, []);
 
-  // Set canvas dimensions when it mounts
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (canvas) {
-      canvas.width = 640;
-      canvas.height = 360;
-    }
-  }, []);
+  // Get the current image src for the animated frame
+  const currentAnimSrc = imagesRef.current[currentFrameIdx]?.src || staticSrc;
 
   return (
     <Link
+      id={`card-${id}`}
       href={href}
       className="group relative flex flex-col bg-[#0a0a0a]/60 backdrop-blur-md border border-white/5 rounded-2xl hover:border-white/20 transition-all duration-500 overflow-hidden"
       onMouseEnter={handleMouseEnter}
@@ -142,14 +127,18 @@ export default function TemplateCard({
         <img
           src={staticSrc}
           alt={name}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isHovered ? 'opacity-0' : 'opacity-80'}`}
+          loading="lazy"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isHovered && preloaded ? 'opacity-0' : 'opacity-80'}`}
         />
 
-        {/* Canvas for hover animation */}
-        <canvas
-          ref={canvasRef}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
-        />
+        {/* Animated frame (visible on hover) */}
+        {isHovered && preloaded && (
+          <img
+            src={currentAnimSrc}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        )}
 
         {/* Text Overlay — Hero content simulation */}
         <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
