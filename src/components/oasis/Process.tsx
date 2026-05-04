@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function OasisProcess() {
   return (
-    <section id="mirage" className="relative z-10 py-48 px-6 bg-gradient-to-b from-black/0 via-black/60 to-black/90">
+    <section id="mirage" className="relative z-10 py-48 px-6 bg-gradient-to-b from-black/0 via-black/40 to-black/60">
       <div className="max-w-5xl mx-auto text-center">
         <motion.div
            initial={{ opacity: 0, scale: 0.95 }}

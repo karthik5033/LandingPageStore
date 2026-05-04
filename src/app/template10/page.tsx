@@ -116,7 +116,7 @@ export default function Template10() {
         <OasisProducts />
 
         {/* CTA SECTION */}
-        <section className="min-h-screen flex items-center justify-center px-6 py-40 border-t border-orange-500/20 bg-gradient-to-b from-black/60 to-black backdrop-blur-md">
+        <section className="min-h-screen flex items-center justify-center px-6 py-40 border-t border-orange-500/20 bg-black/40 backdrop-blur-md">
           <div className="max-w-4xl text-center">
             <motion.div
               initial={{ opacity: 0, y: 40 }}

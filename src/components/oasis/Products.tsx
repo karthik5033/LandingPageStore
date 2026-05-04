@@ -21,7 +21,7 @@ const products = [
 
 export default function OasisProducts() {
   return (
-    <section id="eden" className="relative z-10 py-40 px-6 md:px-20 border-t border-orange-500/10 bg-gradient-to-t from-black to-black/90">
+    <section id="eden" className="relative z-10 py-40 px-6 md:px-20 border-t border-orange-500/10 bg-gradient-to-t from-black/60 to-black/30 backdrop-blur-sm">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}

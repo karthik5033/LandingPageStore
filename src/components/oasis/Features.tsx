@@ -18,7 +18,7 @@ const features = [
 
 export default function OasisFeatures() {
   return (
-    <section id="sun-kissed" className="relative z-10 py-40 px-6 md:px-20 border-t border-orange-500/10 bg-black/90">
+    <section id="sun-kissed" className="relative z-10 py-40 px-6 md:px-20 border-t border-orange-500/10 bg-black/50 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20 items-center">
         <div className="lg:w-1/2">
           <motion.div
