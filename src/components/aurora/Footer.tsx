@@ -2,7 +2,7 @@
 
 export default function AuroraFooter() {
   return (
-    <footer className="w-full bg-[#030303] text-white relative z-20 py-10 px-6 md:px-20 border-t border-yellow-500/10">
+    <footer className="w-full bg-black/40 backdrop-blur-md text-white relative z-20 py-10 px-6 md:px-20 border-t border-yellow-500/10">
       <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-12 max-w-7xl mx-auto mb-20">
         
         <div className="text-center md:text-left md:w-1/3">

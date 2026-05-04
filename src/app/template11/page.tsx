@@ -50,7 +50,7 @@ export default function Template11() {
           fileExtension="png"
           padLength={3}
         />
-        <div className="absolute inset-0 bg-black/40 z-10" />
+        <div className="absolute inset-0 bg-black/20 z-10" />
       </div>
 
       <main className="relative z-10 w-full text-white selection:bg-yellow-400 selection:text-black">
@@ -101,7 +101,7 @@ export default function Template11() {
         <AuroraProducts />
 
         {/* CTA SECTION */}
-        <section className="py-32 flex items-center justify-center px-6 border-t border-yellow-500/10 bg-black/40 backdrop-blur-md">
+        <section className="py-32 flex items-center justify-center px-6 border-t border-yellow-500/10 bg-black/20 backdrop-blur-md">
           <div className="max-w-4xl text-center">
             <motion.div
               initial={{ opacity: 0, y: 40 }}

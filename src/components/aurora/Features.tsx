@@ -18,7 +18,7 @@ const features = [
 
 export default function AuroraFeatures() {
   return (
-    <section id="citrus" className="relative z-10 py-40 px-6 md:px-20 border-t border-yellow-500/10 bg-black/40 backdrop-blur-sm">
+    <section id="citrus" className="relative z-10 py-40 px-6 md:px-20 border-t border-yellow-500/10 bg-black/20 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-24 items-center">
         <div className="md:w-5/12">
           <motion.div

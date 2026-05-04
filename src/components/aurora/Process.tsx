@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function AuroraProcess() {
   return (
-    <section id="dawn" className="relative z-10 py-48 px-6 bg-gradient-to-b from-black/0 via-black/40 to-black/60">
+    <section id="dawn" className="relative z-10 py-48 px-6 bg-black/10">
       <div className="max-w-4xl mx-auto text-center">
         <motion.div
            initial={{ opacity: 0, y: 30 }}
