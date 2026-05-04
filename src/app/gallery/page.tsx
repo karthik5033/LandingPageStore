@@ -1,9 +1,9 @@
 'use client';
 import { motion, useScroll } from 'framer-motion';
-import { ArrowRight, Sparkles, Coffee, Zap } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { categories } from '@/lib/data';
+import TemplateCard from '@/components/gallery/TemplateCard';
 
 export default function GalleryPage() {
   const [scrolled, setScrolled] = useState(false);
@@ -90,46 +90,22 @@ export default function GalleryPage() {
                   </p>
               </div>
               
-              {/* Template Grid */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                 {category.templates.map((t) => (
-                  <Link 
+                  <TemplateCard
                     key={t.id}
-                    href={t.href} 
-                    className="group relative flex items-center justify-between p-5 md:p-6 bg-[#0a0a0a]/50 backdrop-blur-md border border-white/5 rounded-2xl hover:bg-white/[0.03] hover:border-white/20 transition-all duration-500"
-                  >
-                    <div className="flex items-center gap-5">
-                      {/* Icon Circle */}
-                      <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-gray-600 group-hover:${t.accent} group-hover:border-white/30 transition-all duration-500`}>
-                        <t.icon size={16} strokeWidth={1.5} />
-                      </div>
-                      
-                      {/* Text */}
-                      <div>
-                        <h4 className="font-light text-xl md:text-2xl tracking-[0.15em] uppercase text-gray-300 group-hover:text-white transition-colors duration-500" style={{ fontFamily: "'Playfair Display', serif" }}>
-                          {t.name}
-                        </h4>
-                        <p className="text-xs md:text-sm text-gray-500 font-light mt-2 tracking-wider">{t.description}</p>
-                      </div>
-                    </div>
-                    
-                    {/* Trailing Actions */}
-                    <div className="flex flex-col items-end gap-4">
-                      <span className="font-mono text-[10px] md:text-xs text-gray-600 tracking-widest group-hover:text-gray-400 transition-colors">NO. {t.id}</span>
-                      <div className="flex items-center gap-4">
-                        <button 
-                          onClick={(e) => {
-                            e.preventDefault();
-                            alert('Download option not available now... but coming soon!');
-                          }}
-                          className="hidden sm:block px-4 py-2 border border-white/10 text-[10px] font-bold tracking-widest uppercase text-gray-400 hover:text-white hover:border-white/30 rounded transition-all"
-                        >
-                          Download
-                        </button>
-                        <ArrowRight size={16} className="text-gray-500 group-hover:text-white group-hover:translate-x-1 transition-all duration-500" />
-                      </div>
-                    </div>
-                  </Link>
+                    id={t.id}
+                    name={t.name}
+                    description={t.description}
+                    href={t.href}
+                    accentHex={t.accentHex}
+                    heroHeadline={t.heroHeadline}
+                    icon={t.icon}
+                    folder={t.folder}
+                    ext={t.ext}
+                    prefix={t.prefix}
+                    frameCount={t.frameCount}
+                  />
                 ))}
               </div>
             </motion.div>

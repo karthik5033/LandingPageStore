@@ -11,7 +11,10 @@ export const categories = [
         description: "The Dark Art of Chocolate",
         href: "/template3",
         accent: "text-[#c8922a]",
-        icon: Sparkles
+        accentHex: "#c8922a",
+        heroHeadline: "Dark Indulgence",
+        icon: Sparkles,
+        folder: "template4-v3-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 281
       },
       {
         id: "04",
@@ -19,7 +22,10 @@ export const categories = [
         description: "The Essence of Dark",
         href: "/template4",
         accent: "text-[#a67c52]",
-        icon: Sparkles
+        accentHex: "#a67c52",
+        heroHeadline: "Pure Darkness",
+        icon: Sparkles,
+        folder: "template4-v4-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       },
       {
         id: "05",
@@ -27,7 +33,10 @@ export const categories = [
         description: "Pure 100% Cacao Experience",
         href: "/template5",
         accent: "text-white",
-        icon: Sparkles
+        accentHex: "#ffffff",
+        heroHeadline: "100% Cacao",
+        icon: Sparkles,
+        folder: "template5-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       },
       {
         id: "06",
@@ -35,7 +44,10 @@ export const categories = [
         description: "Smooth. Decadent. Pure.",
         href: "/template6",
         accent: "text-[#c8a97e]",
-        icon: Sparkles
+        accentHex: "#c8a97e",
+        heroHeadline: "Smooth Decadence",
+        icon: Sparkles,
+        folder: "template6-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       }
     ]
   },
@@ -49,7 +61,10 @@ export const categories = [
         description: "Pure Organic Energy",
         href: "/template7",
         accent: "text-green-400",
-        icon: Sparkles
+        accentHex: "#4ade80",
+        heroHeadline: "Pure Energy",
+        icon: Sparkles,
+        folder: "template7-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       },
       {
         id: "08",
@@ -57,7 +72,10 @@ export const categories = [
         description: "The Essence of Fruit",
         href: "/template8",
         accent: "text-red-400",
-        icon: Sparkles
+        accentHex: "#f87171",
+        heroHeadline: "Nature's Nectar",
+        icon: Sparkles,
+        folder: "template8-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       },
       {
         id: "09",
@@ -65,7 +83,10 @@ export const categories = [
         description: "Wildcrafted Elixirs",
         href: "/template9",
         accent: "text-emerald-400",
-        icon: Sparkles
+        accentHex: "#34d399",
+        heroHeadline: "Wild Crafted",
+        icon: Sparkles,
+        folder: "template9-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       },
       {
         id: "10",
@@ -73,7 +94,10 @@ export const categories = [
         description: "Liquid Gold Bottled",
         href: "/template10",
         accent: "text-orange-400",
-        icon: Sparkles
+        accentHex: "#fb923c",
+        heroHeadline: "Liquid Gold",
+        icon: Sparkles,
+        folder: "template10-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       },
       {
         id: "11",
@@ -81,7 +105,10 @@ export const categories = [
         description: "The Citrus Dawn",
         href: "/template11",
         accent: "text-yellow-400",
-        icon: Sparkles
+        accentHex: "#facc15",
+        heroHeadline: "Citrus Dawn",
+        icon: Sparkles,
+        folder: "template11-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       },
       {
         id: "12",
@@ -89,7 +116,10 @@ export const categories = [
         description: "Vibrant Organic Elixirs",
         href: "/template12",
         accent: "text-rose-500",
-        icon: Sparkles
+        accentHex: "#f43f5e",
+        heroHeadline: "Vibrant Elixirs",
+        icon: Sparkles,
+        folder: "fruit-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       },
       {
         id: "13",
@@ -97,7 +127,10 @@ export const categories = [
         description: "Kinetic Fruit Energy",
         href: "/template13",
         accent: "text-fuchsia-500",
-        icon: Sparkles
+        accentHex: "#d946ef",
+        heroHeadline: "Fruit Energy",
+        icon: Sparkles,
+        folder: "crush-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       }
     ]
   },
@@ -111,7 +144,10 @@ export const categories = [
         description: "The Art of Coffee",
         href: "/template1",
         accent: "text-amber-500",
-        icon: Coffee
+        accentHex: "#f59e0b",
+        heroHeadline: "The Art of Coffee",
+        icon: Coffee,
+        folder: "frames", ext: ".jpg", prefix: "ezgif-frame-", frameCount: 240
       },
       {
         id: "20",
@@ -119,7 +155,10 @@ export const categories = [
         description: "Liquid Velvet",
         href: "/template20",
         accent: "text-[#d4a373]",
-        icon: Coffee
+        accentHex: "#d4a373",
+        heroHeadline: "Liquid Velvet",
+        icon: Coffee,
+        folder: "crema-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       },
       {
         id: "22",
@@ -127,7 +166,10 @@ export const categories = [
         description: "The Master Roasters",
         href: "/template22",
         accent: "text-[#d4af37]",
-        icon: Coffee
+        accentHex: "#d4af37",
+        heroHeadline: "Master Roasters",
+        icon: Coffee,
+        folder: "velvet-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       },
       {
         id: "23",
@@ -135,7 +177,10 @@ export const categories = [
         description: "The Golden Pour",
         href: "/template23",
         accent: "text-[#d97706]",
-        icon: Coffee
+        accentHex: "#d97706",
+        heroHeadline: "The Golden Pour",
+        icon: Coffee,
+        folder: "lumen-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       },
       {
         id: "24",
@@ -143,7 +188,10 @@ export const categories = [
         description: "The Perfect Pour",
         href: "/template24",
         accent: "text-[#f5f5f0]",
-        icon: Coffee
+        accentHex: "#f5f5f0",
+        heroHeadline: "The Perfect Pour",
+        icon: Coffee,
+        folder: "opus-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       },
       {
         id: "25",
@@ -151,7 +199,10 @@ export const categories = [
         description: "Infinite Rhythm",
         href: "/template25",
         accent: "text-[#f2f0eb]",
-        icon: Coffee
+        accentHex: "#f2f0eb",
+        heroHeadline: "Infinite Rhythm",
+        icon: Coffee,
+        folder: "zenith-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       },
       {
         id: "26",
@@ -159,7 +210,10 @@ export const categories = [
         description: "The Force of Coffee",
         href: "/template26",
         accent: "text-[#b87333]",
-        icon: Coffee
+        accentHex: "#b87333",
+        heroHeadline: "The Force of Coffee",
+        icon: Coffee,
+        folder: "gravity-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       },
       {
         id: "27",
@@ -167,7 +221,10 @@ export const categories = [
         description: "Coffee Deconstructed",
         href: "/template27",
         accent: "text-[#c98a53]",
-        icon: Coffee
+        accentHex: "#c98a53",
+        heroHeadline: "Coffee Deconstructed",
+        icon: Coffee,
+        folder: "fracture-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       },
       {
         id: "28",
@@ -175,7 +232,10 @@ export const categories = [
         description: "The Perfect Yield",
         href: "/template28",
         accent: "text-[#cfa052]",
-        icon: Coffee
+        accentHex: "#cfa052",
+        heroHeadline: "The Perfect Yield",
+        icon: Coffee,
+        folder: "extract-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       },
       {
         id: "29",
@@ -183,7 +243,10 @@ export const categories = [
         description: "Your Daily Sanctuary",
         href: "/template29",
         accent: "text-[#e8c490]",
-        icon: Coffee
+        accentHex: "#e8c490",
+        heroHeadline: "Elevate Your Ritual",
+        icon: Coffee,
+        folder: "ritual-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       }
     ]
   },
@@ -197,7 +260,10 @@ export const categories = [
         description: "High-Voltage Energy",
         href: "/template2",
         accent: "text-[#ccff00]",
-        icon: Zap
+        accentHex: "#ccff00",
+        heroHeadline: "High-Voltage Energy",
+        icon: Zap,
+        folder: "drk-frames", ext: ".jpg", prefix: "ezgif-frame-", frameCount: 240
       },
       {
         id: "14",
@@ -205,7 +271,10 @@ export const categories = [
         description: "Kinetic Fruit Fuel",
         href: "/template14",
         accent: "text-[#ccff00]",
-        icon: Zap
+        accentHex: "#ccff00",
+        heroHeadline: "Kinetic Fuel",
+        icon: Zap,
+        folder: "surge-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       },
       {
         id: "15",
@@ -213,7 +282,10 @@ export const categories = [
         description: "Overclocked Voltage",
         href: "/template15",
         accent: "text-[#00f0ff]",
-        icon: Zap
+        accentHex: "#00f0ff",
+        heroHeadline: "Overclocked",
+        icon: Zap,
+        folder: "kinetic-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       },
       {
         id: "16",
@@ -221,7 +293,10 @@ export const categories = [
         description: "Maximum Output",
         href: "/template16",
         accent: "text-[#ff3300]",
-        icon: Zap
+        accentHex: "#ff3300",
+        heroHeadline: "Maximum Output",
+        icon: Zap,
+        folder: "apex-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       },
       {
         id: "17",
@@ -229,7 +304,10 @@ export const categories = [
         description: "Elevated Vitality",
         href: "/template17",
         accent: "text-[#c8922a]",
-        icon: Zap
+        accentHex: "#c8922a",
+        heroHeadline: "Elevated Vitality",
+        icon: Zap,
+        folder: "j4vid-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       },
       {
         id: "18",
@@ -237,7 +315,10 @@ export const categories = [
         description: "Full Spectrum Energy",
         href: "/template18",
         accent: "text-[#ff0066]",
-        icon: Droplets
+        accentHex: "#ff0066",
+        heroHeadline: "Full Spectrum",
+        icon: Droplets,
+        folder: "prism-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       },
       {
         id: "19",
@@ -245,7 +326,10 @@ export const categories = [
         description: "Industrial-Grade Power",
         href: "/template19",
         accent: "text-[#4a90d9]",
-        icon: Anvil
+        accentHex: "#4a90d9",
+        heroHeadline: "Industrial Power",
+        icon: Anvil,
+        folder: "forge-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       },
       {
         id: "21",
@@ -253,7 +337,10 @@ export const categories = [
         description: "Hyper Velocity",
         href: "/template21",
         accent: "text-[#ff00cc]",
-        icon: FastForward
+        accentHex: "#ff00cc",
+        heroHeadline: "Hyper Velocity",
+        icon: FastForward,
+        folder: "hyper-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       }
     ]
   }
