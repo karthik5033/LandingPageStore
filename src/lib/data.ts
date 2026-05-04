@@ -1,4 +1,4 @@
-import { Sparkles, Coffee, Zap, Droplets } from 'lucide-react';
+import { Sparkles, Coffee, Zap, Droplets, Anvil } from 'lucide-react';
 
 export const categories = [
   {
@@ -166,6 +166,14 @@ export const categories = [
         href: "/template18",
         accent: "text-[#ff0066]",
         icon: Droplets
+      },
+      {
+        id: "19",
+        name: "FORGE",
+        description: "Industrial-Grade Power",
+        href: "/template19",
+        accent: "text-[#4a90d9]",
+        icon: Anvil
       }
     ]
   }
