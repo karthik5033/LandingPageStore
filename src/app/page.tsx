@@ -3,113 +3,7 @@ import { motion, useScroll } from 'framer-motion';
 import { ArrowRight, Coffee, Zap, Sparkles, FolderOpen, Layers, Cpu, Smartphone, Code2, CheckCircle2 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-
-const categories = [
-  {
-    name: "Chocolate Series",
-    description: "Dark, moody, and ultra-premium designs tailored for luxury artisan brands. Features deep cinematic vignettes and slow-melt scroll dynamics.",
-    templates: [
-      {
-        id: "03",
-        name: "VELVET",
-        description: "The Dark Art of Chocolate",
-        href: "/template3",
-        accent: "text-[#c8922a]",
-        icon: Sparkles
-      },
-      {
-        id: "04",
-        name: "NOIR",
-        description: "The Essence of Dark",
-        href: "/template4",
-        accent: "text-[#a67c52]",
-        icon: Sparkles
-      },
-      {
-        id: "05",
-        name: "OBSIDIAN",
-        description: "Pure 100% Cacao Experience",
-        href: "/template5",
-        accent: "text-white",
-        icon: Sparkles
-      },
-      {
-        id: "06",
-        name: "SILK",
-        description: "Smooth. Decadent. Pure.",
-        href: "/template6",
-        accent: "text-[#c8a97e]",
-        icon: Sparkles
-      }
-    ]
-  },
-  {
-    name: "Fresh Series",
-    description: "Vibrant, high-energy interfaces designed for cold-pressed juices and organic fruit brands. Features refreshing color palettes and dynamic fluid motion.",
-    templates: [
-      {
-        id: "07",
-        name: "VITALITY",
-        description: "Pure Organic Energy",
-        href: "/template7",
-        accent: "text-green-400",
-        icon: Sparkles
-      },
-      {
-        id: "08",
-        name: "NECTAR",
-        description: "The Essence of Fruit",
-        href: "/template8",
-        accent: "text-red-400",
-        icon: Sparkles
-      },
-      {
-        id: "09",
-        name: "BOTANICA",
-        description: "Wildcrafted Elixirs",
-        href: "/template9",
-        accent: "text-emerald-400",
-        icon: Sparkles
-      },
-      {
-        id: "10",
-        name: "OASIS",
-        description: "Liquid Gold Bottled",
-        href: "/template10",
-        accent: "text-orange-400",
-        icon: Sparkles
-      }
-    ]
-  },
-  {
-    name: "Coffee Series",
-    description: "Warm, sophisticated scrolling experiences designed for craft roasters. Incorporates organic fluid transitions and earthy color palettes.",
-    templates: [
-      {
-        id: "01",
-        name: "AURA",
-        description: "The Art of Coffee",
-        href: "/template1",
-        accent: "text-amber-500",
-        icon: Coffee
-      }
-    ]
-  },
-  {
-    name: "Performance Series",
-    description: "High-octane, neon-accented interfaces built for energy products and tech hardware. Features sharp, aggressive scroll velocity.",
-    templates: [
-      {
-        id: "02",
-        name: "VOLT.OS",
-        description: "High-Voltage Energy",
-        href: "/template2",
-        accent: "text-[#ccff00]",
-        icon: Zap
-      }
-    ]
-  }
-];
+import { categories } from '@/lib/data';
 
 const features = [
   {
@@ -173,12 +67,12 @@ export default function Home() {
             <a href="#" className="font-light tracking-[0.3em] text-lg uppercase text-white hover:text-gray-300 transition-colors" style={{ fontFamily: "'Playfair Display', serif" }}>Atelier</a>
           </div>
           <div className="hidden md:flex gap-10 text-[10px] font-bold tracking-[0.3em] uppercase text-gray-400" style={{ fontFamily: "'Inter', sans-serif" }}>
-            <a href="#templates" className="hover:text-white transition-colors duration-300">Collection</a>
+            <Link href="/gallery" className="hover:text-white transition-colors duration-300">Collection</Link>
             <a href="#features" className="hover:text-white transition-colors duration-300">The Engine</a>
           </div>
-          <a href="#templates" className="text-[10px] font-bold uppercase tracking-[0.2em] border border-white/30 text-white px-8 py-3 hover:bg-white hover:text-black transition-all duration-300 inline-block">
+          <Link href="/gallery" className="text-[10px] font-bold uppercase tracking-[0.2em] border border-white/30 text-white px-8 py-3 hover:bg-white hover:text-black transition-all duration-300 inline-block">
             View Gallery
-          </a>
+          </Link>
         </div>
       </nav>
 
@@ -204,9 +98,9 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto">
-            <a href="#templates" className="w-full sm:w-auto px-10 py-4 bg-white text-black text-[10px] font-bold tracking-[0.3em] uppercase hover:bg-gray-200 transition-colors flex items-center justify-center gap-3">
+            <Link href="/gallery" className="w-full sm:w-auto px-10 py-4 bg-white text-black text-[10px] font-bold tracking-[0.3em] uppercase hover:bg-gray-200 transition-colors flex items-center justify-center gap-3">
               Explore Collection <ArrowRight size={14} />
-            </a>
+            </Link>
             <a href="#features" className="w-full sm:w-auto px-10 py-4 border border-white/20 text-white text-[10px] font-bold tracking-[0.3em] uppercase hover:bg-white/10 transition-colors flex items-center justify-center">
               Discover Engine
             </a>
@@ -247,90 +141,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Templates Collection */}
-      <section id="templates" className="relative z-10 container mx-auto px-6 py-40 flex-grow flex flex-col">
-        <div className="mb-24 text-center">
-          <span className="block text-gray-400 text-[10px] font-bold tracking-[0.5em] mb-6 uppercase" style={{ fontFamily: "'Inter', sans-serif" }}>
-            Curated Gallery
-          </span>
-          <h2 className="text-5xl md:text-6xl font-light tracking-wide text-white" style={{ fontFamily: "'Playfair Display', serif" }}>
-            The Collection
-          </h2>
-        </div>
-
-        <div className="max-w-6xl mx-auto w-full flex flex-col gap-32">
-          {categories.map((category, idx) => (
-            <motion.div 
-              key={category.name}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 1 }}
-            >
-              {/* Category Header */}
-              <div className="flex flex-col items-center text-center mb-16 border-b border-white/10 pb-12">
-                  <h3 className="text-3xl md:text-4xl font-light tracking-[0.3em] uppercase text-white mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-                    {category.name}
-                  </h3>
-                  <p className="text-gray-400 font-light text-base md:text-lg max-w-3xl leading-relaxed">
-                    {category.description}
-                  </p>
-              </div>
-              
-              {/* Template Grid */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                {category.templates.map((t) => (
-                  <Link 
-                    key={t.id}
-                    href={t.href} 
-                    className="group relative flex items-center justify-between p-5 md:p-6 bg-[#0a0a0a]/50 backdrop-blur-md border border-white/5 rounded-2xl hover:bg-white/[0.03] hover:border-white/20 transition-all duration-500"
-                  >
-                    <div className="flex items-center gap-5">
-                      {/* Icon Circle */}
-                      <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-gray-600 group-hover:${t.accent} group-hover:border-white/30 transition-all duration-500`}>
-                        <t.icon size={16} strokeWidth={1.5} />
-                      </div>
-                      
-                      {/* Text */}
-                      <div>
-                        <h4 className="font-light text-xl md:text-2xl tracking-[0.15em] uppercase text-gray-300 group-hover:text-white transition-colors duration-500" style={{ fontFamily: "'Playfair Display', serif" }}>
-                          {t.name}
-                        </h4>
-                        <p className="text-xs md:text-sm text-gray-500 font-light mt-2 tracking-wider">{t.description}</p>
-                      </div>
-                    </div>
-                    
-                    {/* Trailing Actions */}
-                    <div className="flex flex-col items-end gap-4">
-                      <span className="font-mono text-[10px] md:text-xs text-gray-600 tracking-widest group-hover:text-gray-400 transition-colors">NO. {t.id}</span>
-                      <div className="flex items-center gap-4">
-                        <button 
-                          onClick={(e) => {
-                            e.preventDefault();
-                            alert('Download option not available now... but coming soon!');
-                          }}
-                          className="hidden sm:block px-4 py-2 border border-white/10 text-[10px] font-bold tracking-widest uppercase text-gray-400 hover:text-white hover:border-white/30 rounded transition-all"
-                        >
-                          Download
-                        </button>
-                        <ArrowRight size={16} className="text-gray-500 group-hover:text-white group-hover:translate-x-1 transition-all duration-500" />
-                      </div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-
-          {/* COMING SOON INDICATOR */}
-          <div className="mt-16 flex flex-col items-center justify-center py-20 px-6 border border-dashed border-white/10 rounded-2xl bg-white/[0.01] backdrop-blur-sm hover:bg-white/[0.02] hover:border-white/20 transition-all duration-500">
-            <span className="text-[10px] font-bold tracking-[0.4em] text-gray-500 uppercase mb-4 text-center">Expanding The Archive</span>
-            <h4 className="text-2xl md:text-3xl font-light tracking-[0.2em] text-gray-300 uppercase text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
-              More Exhibits <span className="italic text-gray-500">Coming Soon.</span>
-            </h4>
-          </div>
-        </div>
-      </section>
 
       {/* Premium Footer */}
       <footer className="relative z-10 border-t border-white/10 bg-[#050505] pt-24 pb-12 px-6">
