@@ -22,11 +22,15 @@ export default function ScrollSequence({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imagesRef = useRef<HTMLImageElement[]>([]);
 
+  const targetFrameRef = useRef(0);
+
   const getFramePath = (index: number) => 
     `${folderPath}/${fileNamePrefix}${index.toString().padStart(padLength, '0')}.${fileExtension}`;
 
   // Core Render Function
   const render = (index: number) => {
+    if (imagesRef.current.length === 0) return;
+    
     let img = imagesRef.current[index];
     
     // Fallback to the nearest previously loaded frame if current one isn't ready
@@ -72,18 +76,35 @@ export default function ScrollSequence({
     const imgArray: HTMLImageElement[] = [];
     imagesRef.current = imgArray;
 
-    for (let i = 1; i <= frameCount; i++) {
+    // We load in smaller staggered batches to avoid clogging the network queue
+    // which causes all images to finish at the exact same time at the end.
+    let loadedCount = 0;
+    
+    const loadFrame = (i: number) => {
+        if (i > frameCount) return;
         const img = new Image();
         img.src = getFramePath(i);
         imgArray[i-1] = img;
         
-        // Render the very first frame the moment it is ready so the user sees the background instantly
-        if (i === 1) {
-            img.onload = () => {
-                requestAnimationFrame(() => render(0));
-            };
-        }
-    }
+        img.onload = () => {
+            loadedCount++;
+            // Re-render the canvas if the scroll position is currently waiting for this frame
+            requestAnimationFrame(() => render(targetFrameRef.current));
+            
+            // Trigger the next frame in the sequence to load
+            loadFrame(i + 4); 
+        };
+        img.onerror = () => {
+            loadFrame(i + 4);
+        };
+    };
+
+    // Kick off 4 parallel loading streams
+    loadFrame(1);
+    loadFrame(2);
+    loadFrame(3);
+    loadFrame(4);
+
   }, [folderPath, frameCount]);
 
   // Handle Scroll & Resize
@@ -102,12 +123,7 @@ export default function ScrollSequence({
         context.scale(dpr, dpr);
         
         // Re-render after resize
-        const html = document.documentElement;
-        const scrollTop = html.scrollTop;
-        const maxScrollTop = html.scrollHeight - window.innerHeight;
-        const scrollFraction = scrollTop / maxScrollTop || 0;
-        const frameIndex = Math.min(frameCount - 1, Math.ceil(scrollFraction * frameCount));
-        render(frameIndex);
+        requestAnimationFrame(() => render(targetFrameRef.current));
     };
 
     updateCanvasSize();
@@ -117,13 +133,16 @@ export default function ScrollSequence({
       const html = document.documentElement;
       const scrollTop = html.scrollTop;
       const maxScrollTop = html.scrollHeight - window.innerHeight;
-      const scrollFraction = scrollTop / maxScrollTop;
+      
+      // Protect against division by zero
+      const scrollFraction = maxScrollTop > 0 ? scrollTop / maxScrollTop : 0;
       
       const frameIndex = Math.min(
         frameCount - 1,
         Math.ceil(scrollFraction * frameCount)
       );
 
+      targetFrameRef.current = frameIndex;
       requestAnimationFrame(() => render(frameIndex));
     };
 

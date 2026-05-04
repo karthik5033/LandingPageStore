@@ -30,6 +30,14 @@ const categories = [
         href: "/template5",
         accent: "text-white",
         icon: Sparkles
+      },
+      {
+        id: "06",
+        name: "SILK",
+        description: "Smooth. Decadent. Pure.",
+        href: "/template6",
+        accent: "text-[#c8a97e]",
+        icon: Sparkles
       }
     ]
   },
