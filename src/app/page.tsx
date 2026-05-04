@@ -62,6 +62,14 @@ const categories = [
         href: "/template8",
         accent: "text-red-400",
         icon: Sparkles
+      },
+      {
+        id: "09",
+        name: "BOTANICA",
+        description: "Wildcrafted Elixirs",
+        href: "/template9",
+        accent: "text-emerald-400",
+        icon: Sparkles
       }
     ]
   },
