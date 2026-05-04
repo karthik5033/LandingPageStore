@@ -21,7 +21,7 @@ const structures = [
 
 export default function MonolithProducts() {
   return (
-    <section id="structures" className="relative z-10 py-40 px-6 md:px-24 border-t border-white/10 bg-black">
+    <section id="structures" className="relative z-10 py-40 px-6 md:px-24 border-t border-white/10 bg-gradient-to-t from-black/80 to-black/20">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}

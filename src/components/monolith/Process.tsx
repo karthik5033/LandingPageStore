@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function MonolithProcess() {
   return (
-    <section className="relative z-10 py-48 px-6 bg-[#0a0a0a] border-t border-white/10">
+    <section className="relative z-10 py-48 px-6 bg-gradient-to-b from-black/0 via-black/80 to-black/40 border-t border-white/10">
       <div className="max-w-5xl mx-auto text-center">
         <motion.div
            initial={{ opacity: 0, y: 40 }}
