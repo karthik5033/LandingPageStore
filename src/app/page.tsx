@@ -289,9 +289,20 @@ export default function Home() {
                     </div>
                     
                     {/* Trailing Actions */}
-                    <div className="flex flex-col items-end gap-3">
+                    <div className="flex flex-col items-end gap-4">
                       <span className="font-mono text-[9px] text-gray-700 tracking-widest group-hover:text-gray-500 transition-colors">NO. {t.id}</span>
-                      <ArrowRight size={14} className="text-gray-600 group-hover:text-white group-hover:translate-x-1 transition-all duration-500" />
+                      <div className="flex items-center gap-4">
+                        <button 
+                          onClick={(e) => {
+                            e.preventDefault();
+                            alert('Download option not available now... but coming soon!');
+                          }}
+                          className="hidden sm:block px-3 py-1.5 border border-white/10 text-[9px] font-bold tracking-widest uppercase text-gray-500 hover:text-white hover:border-white/30 rounded transition-all"
+                        >
+                          Download
+                        </button>
+                        <ArrowRight size={14} className="text-gray-600 group-hover:text-white group-hover:translate-x-1 transition-all duration-500" />
+                      </div>
                     </div>
                   </Link>
                 ))}
