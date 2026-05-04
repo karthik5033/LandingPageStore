@@ -128,6 +128,14 @@ export const categories = [
         href: "/template22",
         accent: "text-[#d4af37]",
         icon: Coffee
+      },
+      {
+        id: "23",
+        name: "LUMEN",
+        description: "The Golden Pour",
+        href: "/template23",
+        accent: "text-[#d97706]",
+        icon: Coffee
       }
     ]
   },
