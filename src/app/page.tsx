@@ -58,6 +58,20 @@ const categories = [
     ]
   },
   {
+    name: "Architecture Series",
+    description: "Brutalist, structural layouts designed for real estate and construction. Featuring massive typography, rigid grids, and raw aesthetic power.",
+    templates: [
+      {
+        id: "08",
+        name: "MONOLITH",
+        description: "Defining Space. Defying Gravity.",
+        href: "/template8",
+        accent: "text-gray-400",
+        icon: Layers
+      }
+    ]
+  },
+  {
     name: "Coffee Series",
     description: "Warm, sophisticated scrolling experiences designed for craft roasters. Incorporates organic fluid transitions and earthy color palettes.",
     templates: [
