@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 
 interface ScrollSequenceProps {
   folderPath?: string;
@@ -71,39 +71,44 @@ export default function ScrollSequence({
     );
   };
 
+  const [progress, setProgress] = useState(0);
+
   // Preload images gracefully in the background
   useEffect(() => {
     const imgArray: HTMLImageElement[] = [];
     imagesRef.current = imgArray;
 
-    // We load in smaller staggered batches to avoid clogging the network queue
-    // which causes all images to finish at the exact same time at the end.
     let loadedCount = 0;
     
-    const loadFrame = (i: number) => {
-        if (i > frameCount) return;
+    // We fire all requests simultaneously. Modern browsers using HTTP/2 or HTTP/3
+    // will multiplex these requests and download them much faster than sequential loading.
+    for (let i = 1; i <= frameCount; i++) {
         const img = new Image();
-        img.src = getFramePath(i);
         imgArray[i-1] = img;
         
         img.onload = () => {
             loadedCount++;
+            setProgress(Math.round((loadedCount / frameCount) * 100));
             // Re-render the canvas if the scroll position is currently waiting for this frame
             requestAnimationFrame(() => render(targetFrameRef.current));
-            
-            // Trigger the next frame in the sequence to load
-            loadFrame(i + 4); 
         };
+        
         img.onerror = () => {
-            loadFrame(i + 4);
+            loadedCount++;
+            setProgress(Math.round((loadedCount / frameCount) * 100));
         };
-    };
 
-    // Kick off 4 parallel loading streams
-    loadFrame(1);
-    loadFrame(2);
-    loadFrame(3);
-    loadFrame(4);
+        // Assigning src starts the download immediately
+        img.src = getFramePath(i);
+        
+        // Render the very first frame the moment it is ready
+        if (i === 1) {
+            img.onload = () => {
+                loadedCount++;
+                requestAnimationFrame(() => render(0));
+            };
+        }
+    }
 
   }, [folderPath, frameCount]);
 
@@ -155,13 +160,29 @@ export default function ScrollSequence({
   }, [frameCount]);
 
   return (
-    <canvas 
-        ref={canvasRef} 
-        className="w-full h-full object-cover block"
-        style={blur && blur !== '0px' ? { 
-            filter: `blur(${blur})`, 
-            transform: 'scale(1.05)' // Scale slightly to hide blurred edges
-        } : undefined}
-    />
+    <>
+        <canvas 
+            ref={canvasRef} 
+            className="w-full h-full object-cover block"
+            style={blur && blur !== '0px' ? { 
+                filter: `blur(${blur})`, 
+                transform: 'scale(1.05)'
+            } : undefined}
+        />
+        {/* Subtle, non-intrusive loading indicator */}
+        {progress < 100 && (
+            <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-2 pointer-events-none opacity-50">
+                <span className="text-[9px] font-bold tracking-[0.2em] uppercase text-white drop-shadow-md">
+                    Synching Experience {progress}%
+                </span>
+                <div className="w-24 h-[1px] bg-white/20">
+                    <div 
+                        className="h-full bg-white transition-all duration-300 ease-out"
+                        style={{ width: `${progress}%` }}
+                    />
+                </div>
+            </div>
+        )}
+    </>
   );
 }
