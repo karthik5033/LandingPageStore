@@ -44,6 +44,20 @@ const categories = [
     ]
   },
   {
+    name: "Signature Series",
+    description: "Avant-garde, high-precision interfaces designed for engineering marvels. Features monochromatic elegance and technical typography.",
+    templates: [
+      {
+        id: "07",
+        name: "AETHER",
+        description: "Precision In Motion",
+        href: "/template7",
+        accent: "text-white",
+        icon: Sparkles
+      }
+    ]
+  },
+  {
     name: "Coffee Series",
     description: "Warm, sophisticated scrolling experiences designed for craft roasters. Incorporates organic fluid transitions and earthy color palettes.",
     templates: [
