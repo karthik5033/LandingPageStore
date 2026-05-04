@@ -117,7 +117,7 @@ export default function Template11() {
         <AuroraProducts />
 
         {/* CTA SECTION */}
-        <section className="min-h-screen flex items-center justify-center px-6 py-40 border-t border-yellow-500/10 bg-black/40 backdrop-blur-md">
+        <section className="py-32 flex items-center justify-center px-6 border-t border-yellow-500/10 bg-black/40 backdrop-blur-md">
           <div className="max-w-4xl text-center">
             <motion.div
               initial={{ opacity: 0, y: 40 }}

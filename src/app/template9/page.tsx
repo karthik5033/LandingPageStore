@@ -117,7 +117,7 @@ export default function Template9() {
         <BotanicaProducts />
 
         {/* CTA SECTION */}
-        <section className="min-h-screen flex items-center justify-center px-6 py-40 border-t border-white/10 bg-black/40 backdrop-blur-sm">
+        <section className="py-32 flex items-center justify-center px-6 border-t border-white/10 bg-black/40 backdrop-blur-sm">
           <div className="max-w-3xl text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}

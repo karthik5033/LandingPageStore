@@ -118,7 +118,7 @@ export default function Template7() {
         <AetherProducts />
 
         {/* CTA SECTION */}
-        <section className="min-h-screen flex items-center justify-center px-6 py-40 border-t border-white/5 bg-black/60 backdrop-blur-md">
+        <section className="py-32 flex items-center justify-center px-6 border-t border-white/5 bg-black/60 backdrop-blur-md">
           <div className="max-w-3xl text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}

@@ -1,11 +1,11 @@
 'use client';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import ScrollSequence from '@/components/ScrollSequence';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import Features from '@/components/Features';
-import Products from '@/components/Products';
-import Process from '@/components/Process';
+import Navbar from '@/components/aura/Navbar';
+import Footer from '@/components/aura/Footer';
+import Features from '@/components/aura/Features';
+import Products from '@/components/aura/Products';
+import Process from '@/components/aura/Process';
 import { useRef, useState, useEffect } from 'react';
 
 const sections = [
