@@ -2,7 +2,7 @@
 
 export default function OasisFooter() {
   return (
-    <footer className="w-full bg-black text-white relative z-20 pt-20 pb-10 px-6 md:px-20 border-t border-orange-500/20">
+    <footer className="w-full bg-black/60 backdrop-blur-xl text-white relative z-20 pt-20 pb-10 px-6 md:px-20 border-t border-orange-500/20">
       <div className="flex flex-col md:flex-row justify-between items-center gap-12 max-w-7xl mx-auto mb-16">
         
         <div className="text-center md:text-left">

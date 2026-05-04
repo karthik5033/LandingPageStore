@@ -116,24 +116,25 @@ export default function Template10() {
         <OasisProducts />
 
         {/* CTA SECTION */}
-        <section className="min-h-screen flex items-center justify-center px-6 py-40 border-t border-orange-500/20 bg-black/40 backdrop-blur-md">
+        <section className="py-32 flex flex-col items-center justify-center px-6 border-t border-orange-500/20 bg-black/40 backdrop-blur-md">
           <div className="max-w-4xl text-center">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 1.2 }}
             >
               <h2
-                className="font-black leading-none mb-16 text-white tracking-tighter uppercase"
+                className="font-black leading-none mb-12 text-white tracking-tighter uppercase"
                 style={{
-                  fontSize: 'clamp(4rem, 10vw, 8rem)',
+                  fontSize: 'clamp(3rem, 8vw, 6rem)',
                 }}
               >
                 Claim Your <br />
-                <span className="text-orange-500">Sunshine.</span>
+                <span className="text-orange-500 drop-shadow-[0_0_15px_rgba(249,115,22,0.4)]">Sunshine.</span>
               </h2>
               
-              <button className="mt-8 px-16 py-8 bg-white text-black text-[12px] font-black uppercase tracking-[0.5em] hover:bg-orange-500 hover:text-white transition-colors duration-500 rounded-full shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(249,115,22,0.4)]">
+              <button className="px-16 py-6 bg-white text-black text-[12px] font-black uppercase tracking-[0.5em] hover:bg-orange-500 hover:text-white transition-colors duration-500 rounded-full shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(249,115,22,0.4)]">
                 Secure A Crate
               </button>
             </motion.div>
