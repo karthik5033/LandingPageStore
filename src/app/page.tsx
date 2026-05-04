@@ -154,15 +154,15 @@ export default function Home() {
       <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 border-b ${scrolled ? 'bg-black/60 backdrop-blur-xl border-white/10 py-5' : 'bg-transparent border-transparent py-8'}`}>
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
           <div className="flex items-center gap-4">
-            <span className="font-light tracking-[0.3em] text-lg uppercase text-white" style={{ fontFamily: "'Playfair Display', serif" }}>Atelier</span>
+            <a href="#" className="font-light tracking-[0.3em] text-lg uppercase text-white hover:text-gray-300 transition-colors" style={{ fontFamily: "'Playfair Display', serif" }}>Atelier</a>
           </div>
           <div className="hidden md:flex gap-10 text-[10px] font-bold tracking-[0.3em] uppercase text-gray-400" style={{ fontFamily: "'Inter', sans-serif" }}>
             <a href="#templates" className="hover:text-white transition-colors duration-300">Collection</a>
             <a href="#features" className="hover:text-white transition-colors duration-300">The Engine</a>
           </div>
-          <button className="text-[10px] font-bold uppercase tracking-[0.2em] border border-white/30 text-white px-8 py-3 hover:bg-white hover:text-black transition-all duration-300">
+          <a href="#templates" className="text-[10px] font-bold uppercase tracking-[0.2em] border border-white/30 text-white px-8 py-3 hover:bg-white hover:text-black transition-all duration-300 inline-block">
             View Gallery
-          </button>
+          </a>
         </div>
       </nav>
 
