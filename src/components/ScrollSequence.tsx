@@ -154,8 +154,16 @@ export default function ScrollSequence({
         requestAnimationFrame(() => render(targetFrameRef.current));
     };
 
+    let lastWidth = window.innerWidth;
+    const handleResize = () => {
+        if (window.innerWidth !== lastWidth) {
+            lastWidth = window.innerWidth;
+            updateCanvasSize();
+        }
+    };
+
     updateCanvasSize();
-    window.addEventListener('resize', updateCanvasSize);
+    window.addEventListener('resize', handleResize);
 
     const handleScroll = () => {
       const html = document.documentElement;
@@ -177,7 +185,7 @@ export default function ScrollSequence({
     
     return () => {
         window.removeEventListener('scroll', handleScroll);
-        window.removeEventListener('resize', updateCanvasSize);
+        window.removeEventListener('resize', handleResize);
     };
   }, [frameCount]);
 

@@ -18,6 +18,15 @@ const playfair = Playfair_Display({
    subsets: ["latin"],
 });
 
+import type { Viewport } from 'next';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export const metadata: Metadata = {
   title: "AURA | The Essence of Coffee",
   description: "Experience the pinnacle of brewing. Ethically sourced, precision roasted.",
