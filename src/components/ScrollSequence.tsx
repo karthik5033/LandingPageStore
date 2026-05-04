@@ -15,14 +15,14 @@ export default function ScrollSequence({
   folderPath = '/frames',
   frameCount = 240,
   fileNamePrefix = 'ezgif-frame-',
-  fileExtension = 'jpg',
+  fileExtension = 'png',
   blur = '0px',
   padLength = 3
 }: ScrollSequenceProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imagesRef = useRef<HTMLImageElement[]>([]);
-
   const targetFrameRef = useRef(0);
+  const [progress, setProgress] = useState(0);
 
   const getFramePath = (index: number) => 
     `${folderPath}/${fileNamePrefix}${index.toString().padStart(padLength, '0')}.${fileExtension}`;
@@ -33,17 +33,23 @@ export default function ScrollSequence({
     
     let img = imagesRef.current[index];
     
-    // Fallback to the nearest previously loaded frame if current one isn't ready
+    // Intelligent Fallback: Find the absolute closest loaded frame
     if (!img || !img.complete) {
-        for (let i = index - 1; i >= 0; i--) {
+        let closestDist = Infinity;
+        let closestImg = null;
+        for (let i = 0; i < frameCount; i++) {
             if (imagesRef.current[i] && imagesRef.current[i].complete) {
-                img = imagesRef.current[i];
-                break;
+                const dist = Math.abs(i - index);
+                if (dist < closestDist) {
+                    closestDist = dist;
+                    closestImg = imagesRef.current[i];
+                }
             }
         }
+        img = closestImg as unknown as HTMLImageElement;
     }
     
-    if (!img || !img.complete) return; // If even frame 0 isn't loaded, skip
+    if (!img || !img.complete) return; 
 
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -71,44 +77,62 @@ export default function ScrollSequence({
     );
   };
 
-  const [progress, setProgress] = useState(0);
-
-  // Preload images gracefully in the background
+  // Progressive Interlaced Preloader
   useEffect(() => {
     const imgArray: HTMLImageElement[] = [];
     imagesRef.current = imgArray;
-
     let loadedCount = 0;
     
-    // We fire all requests simultaneously. Modern browsers using HTTP/2 or HTTP/3
-    // will multiplex these requests and download them much faster than sequential loading.
-    for (let i = 1; i <= frameCount; i++) {
-        const img = new Image();
-        imgArray[i-1] = img;
-        
-        img.onload = () => {
-            loadedCount++;
-            setProgress(Math.round((loadedCount / frameCount) * 100));
-            // Re-render the canvas if the scroll position is currently waiting for this frame
-            requestAnimationFrame(() => render(targetFrameRef.current));
-        };
-        
-        img.onerror = () => {
-            loadedCount++;
-            setProgress(Math.round((loadedCount / frameCount) * 100));
-        };
+    // Strategy: Load a low-framerate skeleton first, then fill in the gaps.
+    // This prevents the "stuck" lagging effect on slow networks (Vercel deployment)
+    const pass1: number[] = []; // Every 8th frame (approx 12 FPS)
+    const pass2: number[] = []; // Every 4th frame (approx 24 FPS)
+    const pass3: number[] = []; // Every 2th frame (approx 30 FPS)
+    const pass4: number[] = []; // The rest (full 60 FPS)
 
-        // Assigning src starts the download immediately
-        img.src = getFramePath(i);
-        
-        // Render the very first frame the moment it is ready
-        if (i === 1) {
-            img.onload = () => {
-                loadedCount++;
-                requestAnimationFrame(() => render(0));
-            };
-        }
+    for (let i = 1; i <= frameCount; i++) {
+        if (i === 1 || i === frameCount || i % 8 === 0) pass1.push(i);
+        else if (i % 4 === 0) pass2.push(i);
+        else if (i % 2 === 0) pass3.push(i);
+        else pass4.push(i);
     }
+
+    const loadBatch = (indices: number[], onComplete?: () => void) => {
+        if (indices.length === 0) {
+            if (onComplete) onComplete();
+            return;
+        }
+
+        let batchLoaded = 0;
+        indices.forEach(i => {
+            const img = new Image();
+            imgArray[i-1] = img;
+            
+            const handleLoad = () => {
+                batchLoaded++;
+                loadedCount++;
+                setProgress(Math.round((loadedCount / frameCount) * 100));
+                requestAnimationFrame(() => render(targetFrameRef.current));
+                
+                if (batchLoaded === indices.length && onComplete) {
+                    onComplete();
+                }
+            };
+
+            img.onload = handleLoad;
+            img.onerror = handleLoad;
+            img.src = getFramePath(i);
+        });
+    };
+
+    // Execute interlaced loading sequentially
+    loadBatch(pass1, () => {
+        loadBatch(pass2, () => {
+            loadBatch(pass3, () => {
+                loadBatch(pass4);
+            });
+        });
+    });
 
   }, [folderPath, frameCount]);
 
@@ -127,7 +151,6 @@ export default function ScrollSequence({
         canvas.style.height = `${window.innerHeight}px`;
         context.scale(dpr, dpr);
         
-        // Re-render after resize
         requestAnimationFrame(() => render(targetFrameRef.current));
     };
 
@@ -139,7 +162,6 @@ export default function ScrollSequence({
       const scrollTop = html.scrollTop;
       const maxScrollTop = html.scrollHeight - window.innerHeight;
       
-      // Protect against division by zero
       const scrollFraction = maxScrollTop > 0 ? scrollTop / maxScrollTop : 0;
       
       const frameIndex = Math.min(
@@ -151,7 +173,7 @@ export default function ScrollSequence({
       requestAnimationFrame(() => render(frameIndex));
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     
     return () => {
         window.removeEventListener('scroll', handleScroll);
