@@ -317,6 +317,14 @@ export default function Home() {
               </div>
             </motion.div>
           ))}
+
+          {/* COMING SOON INDICATOR */}
+          <div className="mt-16 flex flex-col items-center justify-center py-20 px-6 border border-dashed border-white/10 rounded-2xl bg-white/[0.01] backdrop-blur-sm hover:bg-white/[0.02] hover:border-white/20 transition-all duration-500">
+            <span className="text-[10px] font-bold tracking-[0.4em] text-gray-500 uppercase mb-4 text-center">Expanding The Archive</span>
+            <h4 className="text-2xl md:text-3xl font-light tracking-[0.2em] text-gray-300 uppercase text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
+              More Exhibits <span className="italic text-gray-500">Coming Soon.</span>
+            </h4>
+          </div>
         </div>
       </section>
 
