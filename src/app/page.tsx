@@ -236,32 +236,32 @@ export default function Home() {
               </div>
               
               {/* Template Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 {category.templates.map((t) => (
                   <Link 
                     key={t.id}
                     href={t.href} 
-                    className="group relative flex flex-col justify-between p-10 bg-[#0a0a0a] border border-white/5 hover:border-white/20 transition-all duration-700"
+                    className="group relative flex items-center justify-between p-5 md:p-6 bg-[#0a0a0a]/50 backdrop-blur-md border border-white/5 rounded-2xl hover:bg-white/[0.03] hover:border-white/20 transition-all duration-500"
                   >
-                    <div className="flex justify-between items-start mb-16">
-                      <div className={`text-gray-500 group-hover:${t.accent} transition-colors duration-500`}>
-                        <t.icon size={24} strokeWidth={1} />
+                    <div className="flex items-center gap-5">
+                      {/* Icon Circle */}
+                      <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-gray-600 group-hover:${t.accent} group-hover:border-white/30 transition-all duration-500`}>
+                        <t.icon size={16} strokeWidth={1.5} />
                       </div>
-                      <span className="font-mono text-[10px] text-gray-600 tracking-widest">NO. {t.id}</span>
+                      
+                      {/* Text */}
+                      <div>
+                        <h4 className="font-light text-lg md:text-xl tracking-[0.15em] uppercase text-gray-300 group-hover:text-white transition-colors duration-500" style={{ fontFamily: "'Playfair Display', serif" }}>
+                          {t.name}
+                        </h4>
+                        <p className="text-[10px] md:text-xs text-gray-500 font-light mt-1 tracking-wider">{t.description}</p>
+                      </div>
                     </div>
                     
-                    <div>
-                      <h4 className="font-light text-2xl tracking-[0.2em] mb-4 uppercase text-gray-300 group-hover:text-white transition-colors duration-500" style={{ fontFamily: "'Playfair Display', serif" }}>
-                        {t.name}
-                      </h4>
-                      <p className="text-xs text-gray-500 font-light leading-relaxed mb-8">{t.description}</p>
-                      
-                      <div className="flex items-center justify-between border-t border-white/5 pt-6">
-                        <div className="flex items-center gap-3 text-[9px] font-bold uppercase tracking-[0.3em] text-gray-600 group-hover:text-white transition-colors duration-500">
-                          <span>View Exhibit</span>
-                          <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
-                        </div>
-                      </div>
+                    {/* Trailing Actions */}
+                    <div className="flex flex-col items-end gap-3">
+                      <span className="font-mono text-[9px] text-gray-700 tracking-widest group-hover:text-gray-500 transition-colors">NO. {t.id}</span>
+                      <ArrowRight size={14} className="text-gray-600 group-hover:text-white group-hover:translate-x-1 transition-all duration-500" />
                     </div>
                   </Link>
                 ))}
