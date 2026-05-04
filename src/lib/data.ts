@@ -1,4 +1,4 @@
-import { Sparkles, Coffee, Zap, Droplets, Anvil } from 'lucide-react';
+import { Sparkles, Coffee, Zap, Droplets, Anvil, FastForward } from 'lucide-react';
 
 export const categories = [
   {
@@ -182,6 +182,14 @@ export const categories = [
         href: "/template19",
         accent: "text-[#4a90d9]",
         icon: Anvil
+      },
+      {
+        id: "21",
+        name: "HYPER",
+        description: "Hyper Velocity",
+        href: "/template21",
+        accent: "text-[#ff00cc]",
+        icon: FastForward
       }
     ]
   }
