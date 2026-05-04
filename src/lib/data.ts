@@ -74,6 +74,14 @@ export const categories = [
         href: "/template10",
         accent: "text-orange-400",
         icon: Sparkles
+      },
+      {
+        id: "11",
+        name: "AURORA",
+        description: "The Citrus Dawn",
+        href: "/template11",
+        accent: "text-yellow-400",
+        icon: Sparkles
       }
     ]
   },
