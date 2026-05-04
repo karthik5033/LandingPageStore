@@ -112,6 +112,14 @@ export const categories = [
         href: "/template1",
         accent: "text-amber-500",
         icon: Coffee
+      },
+      {
+        id: "20",
+        name: "CREMA",
+        description: "Liquid Velvet",
+        href: "/template20",
+        accent: "text-[#d4a373]",
+        icon: Coffee
       }
     ]
   },
