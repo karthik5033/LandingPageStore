@@ -4,6 +4,7 @@ import { ArrowRight, Coffee, Zap, Sparkles, FolderOpen, Layers, Cpu, Smartphone,
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { categories } from '@/lib/data';
+import { PageTransitionProvider, usePageTransition } from '@/components/PageTransition';
 
 const features = [
   {
@@ -29,8 +30,17 @@ const features = [
 ];
 
 export default function Home() {
+  return (
+    <PageTransitionProvider>
+      <HomeContent />
+    </PageTransitionProvider>
+  );
+}
+
+function HomeContent() {
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
+  const { navigateTo } = usePageTransition();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -165,9 +175,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { name: "AURA", desc: "The Art of Coffee", href: "/template1", num: "01", accent: "#f59e0b", preview: "/previews/template1.jpg" },
-              { name: "VELVET", desc: "Dark Indulgence", href: "/template3", num: "03", accent: "#c8922a", preview: "/previews/template3.png" },
-              { name: "VOLT.OS", desc: "High-Voltage Energy", href: "/template2", num: "02", accent: "#ccff00", preview: "/previews/template2.jpg" },
+              { name: "NECTAR", desc: "The Essence of Fruit", href: "/template8", num: "08", accent: "#f87171", preview: "/previews/template8.png" },
+              { name: "CARDAMOM", desc: "Vibrant Green Pods", href: "/template47", num: "47", accent: "#81c784", preview: "/spice18-frames/ezgif-frame-001.png" },
+              { name: "VELVET", desc: "The Master Roasters", href: "/template22", num: "22", accent: "#d4af37", preview: "/previews/template22.png" },
             ].map((t, i) => (
               <motion.div
                 key={t.num}
@@ -176,7 +186,10 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15, duration: 0.8 }}
               >
-                <Link href={t.href} className="group block relative overflow-hidden rounded-xl border border-white/5 hover:border-white/20 transition-all duration-500">
+                <div 
+                  onClick={() => navigateTo(t.href)}
+                  className="group block relative overflow-hidden rounded-xl border border-white/5 hover:border-white/20 transition-all duration-500 cursor-pointer"
+                >
                   <div className="aspect-[16/10] relative overflow-hidden">
                     <img
                       src={t.preview}
@@ -192,7 +205,7 @@ export default function Home() {
                       NO. {t.num}
                     </span>
                   </div>
-                </Link>
+                </div>
               </motion.div>
             ))}
           </div>
