@@ -79,6 +79,7 @@ function HomeContent() {
           <div className="hidden md:flex gap-10 text-[10px] font-bold tracking-[0.3em] uppercase text-gray-400" style={{ fontFamily: "'Inter', sans-serif" }}>
             <Link href="/gallery" className="hover:text-white transition-colors duration-300">Collection</Link>
             <a href="#features" className="hover:text-white transition-colors duration-300">The Engine</a>
+            <Link href="/auth/login" className="hover:text-white transition-colors duration-300">Sign In</Link>
           </div>
           <Link href="/gallery" className="text-[10px] font-bold uppercase tracking-[0.2em] border border-white/30 text-white px-8 py-3 hover:bg-white hover:text-black transition-all duration-300 inline-block">
             View Gallery
