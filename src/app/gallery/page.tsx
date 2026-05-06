@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { categories } from '@/lib/data';
 import TemplateCard from '@/components/gallery/TemplateCard';
+import { PageTransitionProvider } from '@/components/PageTransition';
 
 export default function GalleryPage() {
   const [scrolled, setScrolled] = useState(false);
@@ -18,6 +19,7 @@ export default function GalleryPage() {
   }, []);
 
   return (
+    <PageTransitionProvider>
     <main className="min-h-screen bg-black text-white selection:bg-white selection:text-black font-sans relative flex flex-col">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap');
@@ -127,5 +129,6 @@ export default function GalleryPage() {
         <p>© {new Date().getFullYear()} ATELIER STUDIOS. ALL RIGHTS RESERVED.</p>
       </footer>
     </main>
+    </PageTransitionProvider>
   );
 }

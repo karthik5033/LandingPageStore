@@ -1,7 +1,8 @@
 'use client';
 import { useState, useRef, useCallback, useEffect } from 'react';
-import Link from 'next/link';
 import { LucideIcon } from 'lucide-react';
+
+import { usePageTransition } from '@/components/PageTransition';
 
 interface TemplateCardProps {
   id: string;
@@ -31,6 +32,7 @@ export default function TemplateCard({
   id, name, description, href, accentHex, heroHeadline,
   icon: Icon, folder, ext, prefix, frameCount
 }: TemplateCardProps) {
+  const { navigateTo } = usePageTransition();
   const [isHovered, setIsHovered] = useState(false);
   const [currentFrameIdx, setCurrentFrameIdx] = useState(0);
   const [preloaded, setPreloaded] = useState(false);
@@ -128,7 +130,10 @@ export default function TemplateCard({
       onMouseLeave={handleMouseLeave}
     >
       {/* Preview Container - Links to the Live Preview */}
-      <Link href={href} className="w-full aspect-[16/9] relative overflow-hidden bg-black block cursor-pointer">
+      <div 
+        onClick={() => navigateTo(href)}
+        className="w-full aspect-[16/9] relative overflow-hidden bg-black block cursor-pointer"
+      >
         {/* Static Preview Image — native lazy loading, no JS preload */}
         <img
           src={staticSrc}
@@ -199,7 +204,7 @@ export default function TemplateCard({
             NO. {id}
           </span>
         </div>
-      </Link>
+      </div>
 
       {/* Footer bar */}
       <div className="px-5 py-4 flex items-center justify-between border-t border-white/5">
@@ -214,9 +219,9 @@ export default function TemplateCard({
         </div>
 
         {/* Buy Now Button routes to checkout */}
-        <Link
-          href={`/checkout?id=${id}`}
-          className="px-4 py-2 text-[10px] font-bold tracking-widest uppercase rounded-full border transition-all duration-300 group-hover:scale-105"
+        <div
+          onClick={() => navigateTo(`/checkout?id=${id}`)}
+          className="px-4 py-2 text-[10px] font-bold tracking-widest uppercase rounded-full border transition-all duration-300 group-hover:scale-105 cursor-pointer"
           style={{
             borderColor: isHovered ? accentHex : 'rgba(255,255,255,0.2)',
             color: isHovered ? '#000' : 'rgba(255,255,255,0.8)',
@@ -224,7 +229,7 @@ export default function TemplateCard({
           }}
         >
           Buy - {`$${price}`}
-        </Link>
+        </div>
       </div>
     </div>
   );
