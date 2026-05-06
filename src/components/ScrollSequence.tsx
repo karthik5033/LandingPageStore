@@ -218,6 +218,36 @@ export default function ScrollSequence({
     };
   }, [frameCount]);
 
+  const [showLoader, setShowLoader] = useState(true);
+  const [loaderFading, setLoaderFading] = useState(false);
+  const loaderMinTime = useRef(Date.now());
+
+  // Dismiss loader after 3.5s minimum OR when pass1 finishes (whichever is later)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoaderFading(true);
+      setTimeout(() => setShowLoader(false), 800); // 800ms fade-out
+    }, 3500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Fake smooth progress for the loader (0→95 in 3s, then jumps to 100 on dismiss)
+  const [loaderProgress, setLoaderProgress] = useState(0);
+  useEffect(() => {
+    if (!showLoader) return;
+    const interval = setInterval(() => {
+      setLoaderProgress(prev => {
+        if (prev >= 95) return 95;
+        return prev + (95 - prev) * 0.08; // Ease-out curve
+      });
+    }, 50);
+    return () => clearInterval(interval);
+  }, [showLoader]);
+
+  useEffect(() => {
+    if (loaderFading) setLoaderProgress(100);
+  }, [loaderFading]);
+
   return (
     <>
         <canvas 
@@ -228,20 +258,73 @@ export default function ScrollSequence({
                 transform: 'scale(1.05)'
             } : undefined}
         />
-        {/* Subtle, non-intrusive loading indicator */}
-        {progress < 100 && (
-            <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-2 pointer-events-none opacity-50">
-                <span className="text-[9px] font-bold tracking-[0.2em] uppercase text-white drop-shadow-md">
-                    Synching Experience {progress}%
+
+        {/* Premium Full-Screen Loader */}
+        {showLoader && (
+          <div 
+            className={`fixed inset-0 z-[200] flex flex-col items-center justify-center bg-black transition-opacity duration-[800ms] ease-out ${loaderFading ? 'opacity-0' : 'opacity-100'}`}
+          >
+            {/* Subtle radial glow */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0%,transparent_70%)]" />
+
+            {/* Central content */}
+            <div className="relative z-10 flex flex-col items-center gap-8">
+              {/* Logo / Brand */}
+              <div className="flex flex-col items-center gap-3">
+                <span 
+                  className="text-3xl md:text-4xl font-light tracking-[0.4em] uppercase text-white/90"
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                >
+                  Atelier
                 </span>
-                <div className="w-24 h-[1px] bg-white/20">
-                    <div 
-                        className="h-full bg-white transition-all duration-300 ease-out"
-                        style={{ width: `${progress}%` }}
-                    />
+                <span className="text-[9px] font-bold tracking-[0.5em] uppercase text-white/30">
+                  Studios
+                </span>
+              </div>
+
+              {/* Progress Ring */}
+              <div className="relative w-16 h-16 mt-4">
+                <svg className="w-full h-full -rotate-90" viewBox="0 0 64 64">
+                  {/* Background ring */}
+                  <circle
+                    cx="32" cy="32" r="28"
+                    fill="none"
+                    stroke="rgba(255,255,255,0.06)"
+                    strokeWidth="1"
+                  />
+                  {/* Progress ring */}
+                  <circle
+                    cx="32" cy="32" r="28"
+                    fill="none"
+                    stroke="rgba(255,255,255,0.5)"
+                    strokeWidth="1"
+                    strokeDasharray={`${2 * Math.PI * 28}`}
+                    strokeDashoffset={`${2 * Math.PI * 28 * (1 - loaderProgress / 100)}`}
+                    strokeLinecap="round"
+                    className="transition-all duration-300 ease-out"
+                  />
+                </svg>
+                <span className="absolute inset-0 flex items-center justify-center text-[10px] font-light text-white/50 tracking-widest">
+                  {Math.round(loaderProgress)}
+                </span>
+              </div>
+
+              {/* Status text */}
+              <div className="flex flex-col items-center gap-2 mt-2">
+                <span className="text-[9px] font-bold tracking-[0.4em] uppercase text-white/25">
+                  Preparing Experience
+                </span>
+                {/* Subtle animated dots */}
+                <div className="flex gap-1.5">
+                  <span className="w-1 h-1 rounded-full bg-white/30 animate-pulse" style={{ animationDelay: '0ms' }} />
+                  <span className="w-1 h-1 rounded-full bg-white/30 animate-pulse" style={{ animationDelay: '300ms' }} />
+                  <span className="w-1 h-1 rounded-full bg-white/30 animate-pulse" style={{ animationDelay: '600ms' }} />
                 </div>
+              </div>
             </div>
+          </div>
         )}
     </>
   );
 }
+
