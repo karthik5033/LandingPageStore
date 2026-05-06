@@ -1,27 +1,35 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { useState } from 'react';
 import { Mail, Lock, ArrowRight, Github, Chrome, Apple } from 'lucide-react';
 import { PageTransitionProvider, usePageTransition } from '@/components/PageTransition';
+import { AuthProvider, useAuth } from '@/components/AuthContext';
 
 export default function LoginPage() {
   return (
-    <PageTransitionProvider>
-      <LoginContent />
-    </PageTransitionProvider>
+    <AuthProvider>
+      <PageTransitionProvider>
+        <LoginContent />
+      </PageTransitionProvider>
+    </AuthProvider>
   );
 }
 
 function LoginContent() {
   const { navigateTo } = usePageTransition();
+  const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate login success and redirect to gallery
+    login();
+    navigateTo('/gallery');
+  };
+
+  const handleSocialLogin = () => {
+    login();
     navigateTo('/gallery');
   };
 
@@ -75,7 +83,6 @@ function LoginContent() {
                   type="email" 
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  required
                   placeholder="name@studio.com"
                   className="w-full bg-white/[0.03] border border-white/5 rounded-xl py-4 pl-12 pr-4 text-sm font-light placeholder:text-gray-700 focus:outline-none focus:border-white/20 focus:bg-white/[0.05] transition-all"
                 />
@@ -93,7 +100,6 @@ function LoginContent() {
                   type="password" 
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  required
                   placeholder="••••••••"
                   className="w-full bg-white/[0.03] border border-white/5 rounded-xl py-4 pl-12 pr-4 text-sm font-light placeholder:text-gray-700 focus:outline-none focus:border-white/20 focus:bg-white/[0.05] transition-all"
                 />
@@ -120,13 +126,13 @@ function LoginContent() {
 
           {/* Social Logins */}
           <div className="grid grid-cols-3 gap-4">
-            <button className="flex items-center justify-center py-3 border border-white/5 rounded-xl hover:bg-white/[0.03] hover:border-white/10 transition-all group">
+            <button onClick={handleSocialLogin} className="flex items-center justify-center py-3 border border-white/5 rounded-xl hover:bg-white/[0.03] hover:border-white/10 transition-all group">
               <Chrome size={18} className="text-gray-500 group-hover:text-white transition-colors" />
             </button>
-            <button className="flex items-center justify-center py-3 border border-white/5 rounded-xl hover:bg-white/[0.03] hover:border-white/10 transition-all group">
+            <button onClick={handleSocialLogin} className="flex items-center justify-center py-3 border border-white/5 rounded-xl hover:bg-white/[0.03] hover:border-white/10 transition-all group">
               <Apple size={18} className="text-gray-500 group-hover:text-white transition-colors" />
             </button>
-            <button className="flex items-center justify-center py-3 border border-white/5 rounded-xl hover:bg-white/[0.03] hover:border-white/10 transition-all group">
+            <button onClick={handleSocialLogin} className="flex items-center justify-center py-3 border border-white/5 rounded-xl hover:bg-white/[0.03] hover:border-white/10 transition-all group">
               <Github size={18} className="text-gray-500 group-hover:text-white transition-colors" />
             </button>
           </div>

@@ -1,28 +1,41 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { useState } from 'react';
 import { Mail, Lock, User, ArrowRight, Github, Chrome, Apple, ShieldCheck } from 'lucide-react';
 import { PageTransitionProvider, usePageTransition } from '@/components/PageTransition';
+import { AuthProvider, useAuth } from '@/components/AuthContext';
 
 export default function SignupPage() {
   return (
-    <PageTransitionProvider>
-      <SignupContent />
-    </PageTransitionProvider>
+    <AuthProvider>
+      <PageTransitionProvider>
+        <SignupContent />
+      </PageTransitionProvider>
+    </AuthProvider>
   );
 }
 
 function SignupContent() {
   const { navigateTo } = usePageTransition();
+  const { signup } = useAuth();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate signup success and redirect to gallery
+    if (!name.trim()) { setError('Please enter your name'); return; }
+    if (!email.trim()) { setError('Please enter your email'); return; }
+    if (!password || password.length < 4) { setError('Password must be at least 4 characters'); return; }
+    setError('');
+    signup(name.trim(), email.trim());
+    navigateTo('/gallery');
+  };
+
+  const handleSocialSignup = () => {
+    signup('User', '');
     navigateTo('/gallery');
   };
 
@@ -67,6 +80,13 @@ function SignupContent() {
             Create an <span className="italic text-gray-400">Account</span>
           </h1>
 
+          {/* Error message */}
+          {error && (
+            <div className="mb-6 px-4 py-3 bg-red-500/10 border border-red-500/20 rounded-xl text-center">
+              <p className="text-[10px] font-bold tracking-widest text-red-400 uppercase">{error}</p>
+            </div>
+          )}
+
           <form onSubmit={handleSubmit} className="space-y-5">
             <div className="space-y-2">
               <label className="text-[10px] font-bold tracking-[0.2em] text-gray-500 uppercase ml-1">Full Name</label>
@@ -75,7 +95,7 @@ function SignupContent() {
                 <input 
                   type="text" 
                   value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={(e) => { setName(e.target.value); setError(''); }}
                   required
                   placeholder="Alexander Wright"
                   className="w-full bg-white/[0.03] border border-white/5 rounded-xl py-4 pl-12 pr-4 text-sm font-light placeholder:text-gray-700 focus:outline-none focus:border-white/20 focus:bg-white/[0.05] transition-all"
@@ -90,7 +110,7 @@ function SignupContent() {
                 <input 
                   type="email" 
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => { setEmail(e.target.value); setError(''); }}
                   required
                   placeholder="name@studio.com"
                   className="w-full bg-white/[0.03] border border-white/5 rounded-xl py-4 pl-12 pr-4 text-sm font-light placeholder:text-gray-700 focus:outline-none focus:border-white/20 focus:bg-white/[0.05] transition-all"
@@ -105,7 +125,7 @@ function SignupContent() {
                 <input 
                   type="password" 
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e) => { setPassword(e.target.value); setError(''); }}
                   required
                   placeholder="••••••••"
                   className="w-full bg-white/[0.03] border border-white/5 rounded-xl py-4 pl-12 pr-4 text-sm font-light placeholder:text-gray-700 focus:outline-none focus:border-white/20 focus:bg-white/[0.05] transition-all"
@@ -142,13 +162,13 @@ function SignupContent() {
 
           {/* Social Logins */}
           <div className="grid grid-cols-3 gap-4">
-            <button className="flex items-center justify-center py-3 border border-white/5 rounded-xl hover:bg-white/[0.03] hover:border-white/10 transition-all group">
+            <button onClick={handleSocialSignup} className="flex items-center justify-center py-3 border border-white/5 rounded-xl hover:bg-white/[0.03] hover:border-white/10 transition-all group">
               <Chrome size={18} className="text-gray-500 group-hover:text-white transition-colors" />
             </button>
-            <button className="flex items-center justify-center py-3 border border-white/5 rounded-xl hover:bg-white/[0.03] hover:border-white/10 transition-all group">
+            <button onClick={handleSocialSignup} className="flex items-center justify-center py-3 border border-white/5 rounded-xl hover:bg-white/[0.03] hover:border-white/10 transition-all group">
               <Apple size={18} className="text-gray-500 group-hover:text-white transition-colors" />
             </button>
-            <button className="flex items-center justify-center py-3 border border-white/5 rounded-xl hover:bg-white/[0.03] hover:border-white/10 transition-all group">
+            <button onClick={handleSocialSignup} className="flex items-center justify-center py-3 border border-white/5 rounded-xl hover:bg-white/[0.03] hover:border-white/10 transition-all group">
               <Github size={18} className="text-gray-500 group-hover:text-white transition-colors" />
             </button>
           </div>

@@ -2,11 +2,56 @@
 import { motion, useScroll } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { categories } from '@/lib/data';
 import TemplateCard from '@/components/gallery/TemplateCard';
 import { PageTransitionProvider } from '@/components/PageTransition';
+import { AuthProvider, useAuth } from '@/components/AuthContext';
 
 export default function GalleryPage() {
+  return (
+    <AuthProvider>
+      <GalleryGuard />
+    </AuthProvider>
+  );
+}
+
+function GalleryGuard() {
+  const { isLoggedIn } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      router.replace('/auth/login');
+    }
+  }, [isLoggedIn, router]);
+
+  if (!isLoggedIn) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-10 h-10 mx-auto mb-4">
+            <svg className="w-full h-full animate-spin" style={{ animationDuration: '2s' }} viewBox="0 0 48 48">
+              <circle cx="24" cy="24" r="20" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+              <circle cx="24" cy="24" r="20" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeDasharray={`${2 * Math.PI * 20 * 0.25} ${2 * Math.PI * 20 * 0.75}`} strokeLinecap="round" />
+            </svg>
+          </div>
+          <p className="text-[9px] font-bold tracking-[0.4em] uppercase text-white/25">Redirecting</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <PageTransitionProvider>
+      <GalleryContent />
+    </PageTransitionProvider>
+  );
+}
+
+function GalleryContent() {
+  const { userName, logout } = useAuth();
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
 
@@ -19,7 +64,6 @@ export default function GalleryPage() {
   }, []);
 
   return (
-    <PageTransitionProvider>
     <main className="min-h-screen bg-black text-white selection:bg-white selection:text-black font-sans relative flex flex-col">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap');
@@ -45,10 +89,16 @@ export default function GalleryPage() {
           <div className="flex items-center gap-4">
             <Link href="/" className="font-light tracking-[0.3em] text-lg uppercase text-white hover:text-gray-300 transition-colors" style={{ fontFamily: "'Playfair Display', serif" }}>Atelier</Link>
           </div>
-          <div className="hidden md:flex gap-10 text-[10px] font-bold tracking-[0.3em] uppercase text-gray-400" style={{ fontFamily: "'Inter', sans-serif" }}>
+          <div className="hidden md:flex gap-10 items-center text-[10px] font-bold tracking-[0.3em] uppercase text-gray-400" style={{ fontFamily: "'Inter', sans-serif" }}>
             <Link href="/#features" className="hover:text-white transition-colors duration-300">The Engine</Link>
-            <Link href="/auth/login" className="hover:text-white transition-colors duration-300">Sign In</Link>
             <Link href="/" className="hover:text-white transition-colors duration-300">About</Link>
+            <span className="text-white/60 tracking-wider">{userName || 'Guest'}</span>
+            <button
+              onClick={() => { logout(); router.replace('/auth/login'); }}
+              className="text-gray-500 hover:text-red-400 transition-colors duration-300"
+            >
+              Logout
+            </button>
           </div>
           <Link href="/" className="text-[10px] font-bold uppercase tracking-[0.2em] border border-white/30 text-white px-8 py-3 hover:bg-white hover:text-black transition-all duration-300 inline-block">
             Home
@@ -130,6 +180,5 @@ export default function GalleryPage() {
         <p>© {new Date().getFullYear()} ATELIER STUDIOS. ALL RIGHTS RESERVED.</p>
       </footer>
     </main>
-    </PageTransitionProvider>
   );
 }
