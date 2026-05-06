@@ -151,13 +151,13 @@ function GalleryContent() {
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           <div className="relative">
-            <svg className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-500" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+            <svg className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-400" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search templates by name, series, or keyword..."
-              className="w-full bg-white/[0.03] border border-white/10 rounded-2xl py-4 pl-13 pr-12 text-sm font-light placeholder:text-gray-600 focus:outline-none focus:border-white/25 focus:bg-white/[0.05] transition-all tracking-wider"
+              className="w-full bg-[#111111] border border-white/20 rounded-2xl py-4 pr-12 text-sm font-light placeholder:text-gray-500 focus:outline-none focus:border-white/40 focus:bg-[#151515] transition-all tracking-wider shadow-lg shadow-black/40"
               style={{ paddingLeft: '3rem' }}
             />
             {searchQuery && (
