@@ -1,6 +1,6 @@
 'use client';
 import { motion, useScroll } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { categories } from '@/lib/data';
@@ -53,7 +53,28 @@ function GalleryContent() {
   const { userName, logout } = useAuth();
   const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const { scrollY } = useScroll();
+
+  // Filter categories/templates based on search
+  const filteredCategories = useMemo(() => {
+    if (!searchQuery.trim()) return categories;
+    const q = searchQuery.toLowerCase();
+    return categories
+      .map(cat => ({
+        ...cat,
+        templates: cat.templates.filter(t =>
+          t.name.toLowerCase().includes(q) ||
+          t.description.toLowerCase().includes(q) ||
+          t.heroHeadline.toLowerCase().includes(q) ||
+          cat.name.toLowerCase().includes(q) ||
+          t.id.includes(q)
+        )
+      }))
+      .filter(cat => cat.templates.length > 0);
+  }, [searchQuery]);
+
+  const totalResults = filteredCategories.reduce((acc, c) => acc + c.templates.length, 0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -107,7 +128,7 @@ function GalleryContent() {
       </nav>
 
       {/* Hero */}
-      <section className="relative z-10 container mx-auto px-6 pt-48 pb-16 flex flex-col items-center text-center">
+      <section className="relative z-10 container mx-auto px-6 pt-48 pb-8 flex flex-col items-center text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -122,10 +143,44 @@ function GalleryContent() {
         </motion.div>
       </section>
 
+      {/* Search Bar */}
+      <section className="relative z-10 container mx-auto px-6 pb-8 max-w-2xl">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          <div className="relative">
+            <svg className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-500" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search templates by name, series, or keyword..."
+              className="w-full bg-white/[0.03] border border-white/10 rounded-2xl py-4 pl-13 pr-12 text-sm font-light placeholder:text-gray-600 focus:outline-none focus:border-white/25 focus:bg-white/[0.05] transition-all tracking-wider"
+              style={{ paddingLeft: '3rem' }}
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery('')}
+                className="absolute right-5 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white transition-colors text-xs"
+              >
+                ✕
+              </button>
+            )}
+          </div>
+          {searchQuery.trim() && (
+            <p className="text-center mt-3 text-[10px] font-bold tracking-[0.3em] text-gray-500 uppercase">
+              {totalResults} {totalResults === 1 ? 'template' : 'templates'} found
+            </p>
+          )}
+        </motion.div>
+      </section>
+
       {/* TEMPLATES SHOWCASE */}
       <section className="relative z-10 py-16 px-6 md:px-12 max-w-[1400px] mx-auto min-h-screen">
         <div className="flex flex-col gap-32">
-          {categories.map((category, idx) => (
+          {filteredCategories.map((category, idx) => (
             <motion.div 
               key={idx} 
               className="flex flex-col gap-12"
@@ -165,13 +220,26 @@ function GalleryContent() {
             </motion.div>
           ))}
 
+          {/* No Results */}
+          {searchQuery.trim() && filteredCategories.length === 0 && (
+            <div className="flex flex-col items-center justify-center py-24">
+              <svg className="w-12 h-12 text-white/10 mb-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+              <h4 className="text-xl font-light tracking-[0.2em] text-gray-400 uppercase mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+                No templates found
+              </h4>
+              <p className="text-[10px] text-gray-600 tracking-widest uppercase">Try a different keyword</p>
+            </div>
+          )}
+
           {/* COMING SOON INDICATOR */}
-          <div className="mt-16 flex flex-col items-center justify-center py-20 px-6 border border-dashed border-white/10 rounded-2xl bg-white/[0.01] backdrop-blur-sm hover:bg-white/[0.02] hover:border-white/20 transition-all duration-500">
-            <span className="text-[10px] font-bold tracking-[0.4em] text-gray-500 uppercase mb-4 text-center">Expanding The Archive</span>
-            <h4 className="text-2xl md:text-3xl font-light tracking-[0.2em] text-gray-300 uppercase text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
-              More Exhibits <span className="italic text-gray-500">Coming Soon.</span>
-            </h4>
-          </div>
+          {!searchQuery.trim() && (
+            <div className="mt-16 flex flex-col items-center justify-center py-20 px-6 border border-dashed border-white/10 rounded-2xl bg-white/[0.01] backdrop-blur-sm hover:bg-white/[0.02] hover:border-white/20 transition-all duration-500">
+              <span className="text-[10px] font-bold tracking-[0.4em] text-gray-500 uppercase mb-4 text-center">Expanding The Archive</span>
+              <h4 className="text-2xl md:text-3xl font-light tracking-[0.2em] text-gray-300 uppercase text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
+                More Exhibits <span className="italic text-gray-500">Coming Soon.</span>
+              </h4>
+            </div>
+          )}
         </div>
       </section>
 
