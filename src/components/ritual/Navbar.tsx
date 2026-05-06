@@ -42,9 +42,10 @@ export default function RitualNavbar() {
         </Link>
         
         <div className="hidden md:flex items-center gap-12 text-[10px] tracking-[0.2em] text-[#fdfbf7]/80 uppercase font-light">
-          <a href="#morning" className="hover:text-[#e8c490] transition-colors duration-300">The Morning</a>
+          <a href="#origin" className="hover:text-[#e8c490] transition-colors duration-300">The Origin</a>
           <a href="#sanctuary" className="hover:text-[#e8c490] transition-colors duration-300">Sanctuary</a>
           <a href="#offerings" className="hover:text-[#e8c490] transition-colors duration-300">Offerings</a>
+          <Link href="/gallery" className="hover:text-[#e8c490] transition-colors duration-300">Gallery</Link>
         </div>
 
         <button className="text-[#fdfbf7] hover:text-[#e8c490] transition-colors duration-300">

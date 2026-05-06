@@ -41,6 +41,7 @@ export default function Navbar() {
           <a href="#spectrum" className="hover:text-[#ff0066] transition-colors">Spectrum</a>
           <a href="#formula" className="hover:text-[#ff0066] transition-colors">Formula</a>
           <a href="#variants" className="hover:text-[#ff0066] transition-colors">Variants</a>
+          <Link href="/gallery" className="hover:text-white transition-colors">GALLERY</Link>
         </div>
 
         <button className="text-white/80 hover:text-[#ff0066] transition-colors">

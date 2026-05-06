@@ -45,6 +45,7 @@ export default function ExtractNavbar() {
           <a href="#yield" className="hover:text-[#cfa052] transition-colors duration-300">The Yield</a>
           <a href="#pressure" className="hover:text-[#cfa052] transition-colors duration-300">Pressure</a>
           <a href="#equipment" className="hover:text-[#cfa052] transition-colors duration-300">Equipment</a>
+          <Link href="/gallery" className="hover:text-white transition-colors">GALLERY</Link>
         </div>
 
         <button className="text-[#ffffff] hover:text-[#cfa052] transition-colors duration-300">

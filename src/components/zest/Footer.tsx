@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -16,8 +17,8 @@ export default function Footer() {
             <div>
               <h5 className="text-[10px] font-bold tracking-widest uppercase text-rose-500 mb-6">Shop</h5>
               <ul className="flex flex-col gap-4 text-sm font-medium text-white/50">
-                <li><a href="#" className="hover:text-white transition-colors">All Blends</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Subscriptions</a></li>
+                <li><a href="#collection" className="hover:text-white transition-colors">All Blends</a></li>
+                <li><a href="#collection" className="hover:text-white transition-colors">Subscriptions</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Gifting</a></li>
               </ul>
             </div>
@@ -25,9 +26,9 @@ export default function Footer() {
             <div>
               <h5 className="text-[10px] font-bold tracking-widest uppercase text-rose-500 mb-6">Company</h5>
               <ul className="flex flex-col gap-4 text-sm font-medium text-white/50">
-                <li><a href="#" className="hover:text-white transition-colors">Our Story</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Sourcing</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+                <li><a href="#origin" className="hover:text-white transition-colors">Our Story</a></li>
+                <li><a href="#origin" className="hover:text-white transition-colors">Sourcing</a></li>
+                <li><a href="/gallery" className="hover:text-white transition-colors">Gallery</a></li>
               </ul>
             </div>
           </div>

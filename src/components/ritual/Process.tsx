@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function RitualProcess() {
   return (
-    <section id="morning" className="py-48 relative z-20 ">
+    <section id="craft" className="py-48 relative z-20 ">
       <div className="container mx-auto px-8 md:px-16 text-center">
         <motion.div
            initial={{ opacity: 0, y: 30 }}

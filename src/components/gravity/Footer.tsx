@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 
 export default function GravityFooter() {
   return (
@@ -23,7 +24,7 @@ export default function GravityFooter() {
             <ul className="flex flex-col gap-4 text-[11px] font-bold tracking-widest text-[#fdfbf7]/80 uppercase">
               <li><a href="#" className="hover:text-[#b87333] transition-colors duration-300">Dark Roasts</a></li>
               <li><a href="#" className="hover:text-[#b87333] transition-colors duration-300">Espresso</a></li>
-              <li><a href="#" className="hover:text-[#b87333] transition-colors duration-300">Equipment</a></li>
+              <li><a href="#collection" className="hover:text-[#b87333] transition-colors duration-300">Equipment</a></li>
             </ul>
           </div>
           <div>

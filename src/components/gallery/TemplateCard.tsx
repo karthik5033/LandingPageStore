@@ -38,14 +38,15 @@ export default function TemplateCard({
   const imagesRef = useRef<HTMLImageElement[]>([]);
   const sampledFrames = useRef(getSampledFrames(frameCount));
   const numId = parseInt(id, 10);
-  const previewExt = (numId === 1 || numId === 2) ? 'jpg' : 'png';
-  const staticSrc = `/previews/template${numId}.${previewExt}`;
-
+  
   // Build frame path
   const getFramePath = useCallback((frameIdx: number) => {
     const padded = String(frameIdx).padStart(3, '0');
     return `/${folder}/${prefix}${padded}${ext}`;
   }, [folder, prefix, ext]);
+
+  // Use the first frame as the static preview
+  const staticSrc = getFramePath(1);
 
   // Preload the sampled frames when the card enters the viewport
   useEffect(() => {
@@ -110,19 +111,19 @@ export default function TemplateCard({
     };
   }, []);
 
-  // Get the current image src for the animated frame
+  // Generate a deterministic price under $5
+  const price = (numId % 3 === 0 ? 4.99 : numId % 2 === 0 ? 3.99 : 2.99).toFixed(2);
   const currentAnimSrc = imagesRef.current[currentFrameIdx]?.src || staticSrc;
 
   return (
-    <Link
+    <div
       id={`card-${id}`}
-      href={href}
       className="group relative flex flex-col bg-[#0a0a0a]/60 backdrop-blur-md border border-white/5 rounded-2xl hover:border-white/20 transition-all duration-500 overflow-hidden"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Preview Container */}
-      <div className="w-full aspect-[16/9] relative overflow-hidden bg-black">
+      {/* Preview Container - Links to the Live Preview */}
+      <Link href={href} className="w-full aspect-[16/9] relative overflow-hidden bg-black block cursor-pointer">
         {/* Static Preview Image (visible when not hovered) */}
         <img
           src={staticSrc}
@@ -192,7 +193,7 @@ export default function TemplateCard({
             NO. {id}
           </span>
         </div>
-      </div>
+      </Link>
 
       {/* Footer bar */}
       <div className="px-5 py-4 flex items-center justify-between border-t border-white/5">
@@ -206,17 +207,19 @@ export default function TemplateCard({
           <p className="text-[11px] text-white/40 font-light tracking-wider mt-0.5">{description}</p>
         </div>
 
-        <span
-          className="px-4 py-2 text-[9px] font-bold tracking-widest uppercase rounded-full border transition-all duration-300 group-hover:scale-105"
+        {/* Buy Now Button routes to checkout */}
+        <Link
+          href={`/checkout?id=${id}`}
+          className="px-4 py-2 text-[10px] font-bold tracking-widest uppercase rounded-full border transition-all duration-300 group-hover:scale-105"
           style={{
-            borderColor: isHovered ? accentHex : 'rgba(255,255,255,0.1)',
-            color: isHovered ? '#000' : 'rgba(255,255,255,0.4)',
+            borderColor: isHovered ? accentHex : 'rgba(255,255,255,0.2)',
+            color: isHovered ? '#000' : 'rgba(255,255,255,0.8)',
             backgroundColor: isHovered ? accentHex : 'transparent',
           }}
         >
-          Live Preview
-        </span>
+          Buy - ${`$${price}`}
+        </Link>
       </div>
-    </Link>
+    </div>
   );
 }

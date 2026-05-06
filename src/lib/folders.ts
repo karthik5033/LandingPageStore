@@ -172,5 +172,131 @@ export const templateFolders: Record<string, { folder: string; ext: string; pref
     "ext": ".png",
     "prefix": "ezgif-frame-",
     "count": 156
+  },
+  "30": {
+    "folder": "spice1-frames",
+    "ext": ".png",
+    "prefix": "ezgif-frame-",
+    "count": 156
+  },
+  "31": {
+    "folder": "spice2-frames",
+    "ext": ".png",
+    "prefix": "ezgif-frame-",
+    "count": 156
+  },
+  "32": {
+    "folder": "spice3-frames",
+    "ext": ".png",
+    "prefix": "ezgif-frame-",
+    "count": 156
+  },
+  "33": {
+    "folder": "spice4-frames",
+    "ext": ".png",
+    "prefix": "ezgif-frame-",
+    "count": 156
+  },
+  "34": {
+    "folder": "spice5-frames",
+    "ext": ".png",
+    "prefix": "ezgif-frame-",
+    "count": 156
+  },
+  "35": {
+    "folder": "spice6-frames",
+    "ext": ".png",
+    "prefix": "ezgif-frame-",
+    "count": 156
+  },
+  "36": {
+    "folder": "spice7-frames",
+    "ext": ".png",
+    "prefix": "ezgif-frame-",
+    "count": 156
+  },
+  "37": {
+    "folder": "spice8-frames",
+    "ext": ".png",
+    "prefix": "ezgif-frame-",
+    "count": 156
+  },
+  "38": {
+    "folder": "spice9-frames",
+    "ext": ".png",
+    "prefix": "ezgif-frame-",
+    "count": 156
+  },
+  "39": {
+    "folder": "spice10-frames",
+    "ext": ".png",
+    "prefix": "ezgif-frame-",
+    "count": 156
+  },
+  "40": {
+    "folder": "spice11-frames",
+    "ext": ".png",
+    "prefix": "ezgif-frame-",
+    "count": 156
+  },
+  "41": {
+    "folder": "spice12-frames",
+    "ext": ".png",
+    "prefix": "ezgif-frame-",
+    "count": 156
+  },
+  "42": {
+    "folder": "spice13-frames",
+    "ext": ".png",
+    "prefix": "ezgif-frame-",
+    "count": 156
+  },
+  "43": {
+    "folder": "spice14-frames",
+    "ext": ".png",
+    "prefix": "ezgif-frame-",
+    "count": 156
+  },
+  "44": {
+    "folder": "spice15-frames",
+    "ext": ".png",
+    "prefix": "ezgif-frame-",
+    "count": 156
+  },
+  "45": {
+    "folder": "spice16-frames",
+    "ext": ".png",
+    "prefix": "ezgif-frame-",
+    "count": 156
+  },
+  "46": {
+    "folder": "spice17-frames",
+    "ext": ".png",
+    "prefix": "ezgif-frame-",
+    "count": 156
+  },
+  "47": {
+    "folder": "spice18-frames",
+    "ext": ".png",
+    "prefix": "ezgif-frame-",
+    "count": 156
+  },
+  "48": {
+    "folder": "spice19-frames",
+    "ext": ".png",
+    "prefix": "ezgif-frame-",
+    "count": 156
+  },
+  "49": {
+    "folder": "spice20-frames",
+    "ext": ".png",
+    "prefix": "ezgif-frame-",
+    "count": 156
+  },
+  "50": {
+    "folder": "spice21-frames",
+    "ext": ".png",
+    "prefix": "ezgif-frame-",
+    "count": 156
   }
 };

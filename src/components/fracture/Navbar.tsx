@@ -45,6 +45,7 @@ export default function FractureNavbar() {
           <a href="#shatter" className="hover:text-[#c98a53] transition-colors duration-300">The Break</a>
           <a href="#physics" className="hover:text-[#c98a53] transition-colors duration-300">Physics</a>
           <a href="#matter" className="hover:text-[#c98a53] transition-colors duration-300">Dark Matter</a>
+          <Link href="/gallery" className="hover:text-white transition-colors">GALLERY</Link>
         </div>
 
         <button className="text-[#ffffff] hover:text-[#c98a53] transition-colors duration-300">

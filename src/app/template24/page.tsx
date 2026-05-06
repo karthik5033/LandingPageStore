@@ -102,6 +102,52 @@ export default function Template24() {
           </div>
         </section>
 
+        {/* ORIGIN SECTION */}
+        <section id="origin" className="min-h-[120vh] relative z-20 flex items-center py-32">
+          <div className="container mx-auto px-6 md:px-16">
+            <div className="max-w-xl">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <span className="text-[10px] font-bold tracking-[0.4em] text-[#f5f5f0] uppercase mb-6 block">
+                  00. / The Method
+                </span>
+                <h2 className="text-5xl md:text-6xl font-light text-white mb-10 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Precision in <br />
+                  <span className="italic text-[#f5f5f0]">every variable.</span>
+                </h2>
+                <div className="border-l border-[#f5f5f0]/30 pl-8">
+                  <p className="text-white/70 text-lg font-light leading-loose mb-8">
+                    OPUS treats coffee brewing as applied physics. We control every variable: water temperature to within 0.1 degrees, grind size to 50-micron tolerances, and extraction time measured in tenths of a second. The result is not just coffee. It is the platonic ideal of what coffee can be.
+                  </p>
+                  <p className="text-white/60 text-base font-light leading-loose mb-12">
+                    Our green beans are stored in nitrogen-flushed silos at exactly 11 degrees Celsius, preserving freshness for months without degradation. When an order arrives, we roast, grind, and ship within the same twelve-hour window.
+                  </p>
+                </div>
+
+                <div className="flex gap-12 mt-12 pt-8 border-t border-white/10">
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>0.1°</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Precision</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>50μm</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Grind Size</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>12h</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Roast-to-Ship</div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+
         <OpusProcess />
         <OpusFeatures />
         <OpusProducts />

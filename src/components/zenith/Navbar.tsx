@@ -45,6 +45,7 @@ export default function ZenithNavbar() {
           <a href="#philosophy" className="hover:text-[#f2f0eb] transition-colors duration-300">Philosophy</a>
           <a href="#technique" className="hover:text-[#f2f0eb] transition-colors duration-300">Technique</a>
           <a href="#collection" className="hover:text-[#f2f0eb] transition-colors duration-300">Collection</a>
+          <Link href="/gallery" className="hover:text-white transition-colors">GALLERY</Link>
         </div>
 
         <button className="text-[#f2f0eb] hover:text-[#f2f0eb]/60 transition-colors duration-300">

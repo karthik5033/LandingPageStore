@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 export default function Footer() {
@@ -33,16 +34,16 @@ export default function Footer() {
           
           <div className="flex flex-col gap-6">
             <h4 className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.25em]">Explore</h4>
-            <a href="#" className="text-sm font-light hover:text-amber-500 transition-colors">Our Story</a>
-            <a href="#" className="text-sm font-light hover:text-amber-500 transition-colors">Sourcing</a>
-            <a href="#" className="text-sm font-light hover:text-amber-500 transition-colors">Locations</a>
+            <a href="#origin" className="text-sm font-light hover:text-amber-500 transition-colors">Our Story</a>
+            <a href="#origin" className="text-sm font-light hover:text-amber-500 transition-colors">Sourcing</a>
+            <a href="/gallery" className="text-sm font-light hover:text-amber-500 transition-colors">Gallery</a>
           </div>
 
           <div className="flex flex-col gap-6">
             <h4 className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.25em]">Shop</h4>
-            <a href="#" className="text-sm font-light hover:text-amber-500 transition-colors">Single Origin</a>
-            <a href="#" className="text-sm font-light hover:text-amber-500 transition-colors">Blends</a>
-            <a href="#" className="text-sm font-light hover:text-amber-500 transition-colors">Subscriptions</a>
+            <a href="#collection" className="text-sm font-light hover:text-amber-500 transition-colors">Single Origin</a>
+            <a href="#collection" className="text-sm font-light hover:text-amber-500 transition-colors">Blends</a>
+            <a href="#collection" className="text-sm font-light hover:text-amber-500 transition-colors">Subscriptions</a>
           </div>
 
           <div className="flex flex-col gap-6">

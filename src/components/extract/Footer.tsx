@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 
 export default function ExtractFooter() {
   return (
@@ -30,8 +31,8 @@ export default function ExtractFooter() {
             <h4 className="text-[10px] text-[#ffffff]/40 uppercase tracking-[0.3em] mb-6 font-bold">Coffee</h4>
             <ul className="flex flex-col gap-4 text-[11px] font-semibold tracking-widest text-[#ffffff]/80">
               <li><a href="#" className="hover:text-[#cfa052] transition-colors duration-300">Espresso Blends</a></li>
-              <li><a href="#" className="hover:text-[#cfa052] transition-colors duration-300">Single Origin</a></li>
-              <li><a href="#" className="hover:text-[#cfa052] transition-colors duration-300">Subscriptions</a></li>
+              <li><a href="#collection" className="hover:text-[#cfa052] transition-colors duration-300">Single Origin</a></li>
+              <li><a href="#collection" className="hover:text-[#cfa052] transition-colors duration-300">Subscriptions</a></li>
             </ul>
           </div>
         </div>

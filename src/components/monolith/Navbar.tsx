@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Menu } from 'lucide-react';
 import { useState } from 'react';

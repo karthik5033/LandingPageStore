@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 
 export default function FractureFooter() {
   return (
@@ -30,8 +31,8 @@ export default function FractureFooter() {
             <h4 className="text-[9px] text-[#ffffff]/40 uppercase tracking-[0.4em] mb-6 font-semibold">Network</h4>
             <ul className="flex flex-col gap-4 text-[10px] font-light tracking-widest text-[#ffffff]/80">
               <li><a href="#" className="hover:text-[#c98a53] transition-colors duration-300">The Lab</a></li>
-              <li><a href="#" className="hover:text-[#c98a53] transition-colors duration-300">Methodology</a></li>
-              <li><a href="#" className="hover:text-[#c98a53] transition-colors duration-300">Contact Protocol</a></li>
+              <li><a href="#craft" className="hover:text-[#c98a53] transition-colors duration-300">Methodology</a></li>
+              <li><a href="/gallery" className="hover:text-[#c98a53] transition-colors duration-300">Gallery Protocol</a></li>
             </ul>
           </div>
         </div>

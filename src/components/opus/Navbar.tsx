@@ -45,6 +45,7 @@ export default function OpusNavbar() {
           <a href="#art" className="hover:text-[#f5f5f0] transition-colors duration-300">The Art</a>
           <a href="#canvas" className="hover:text-[#f5f5f0] transition-colors duration-300">The Canvas</a>
           <a href="#gallery" className="hover:text-[#f5f5f0] transition-colors duration-300">Gallery</a>
+          <Link href="/gallery" className="hover:text-white transition-colors">GALLERY</Link>
         </div>
 
         <button className="text-[#f5f5f0] hover:text-[#a3a3a3] transition-colors duration-300">

@@ -45,6 +45,7 @@ export default function VelvetNavbar() {
           <a href="#origin" className="hover:text-[#d4af37] transition-colors duration-300">Origin</a>
           <a href="#roast" className="hover:text-[#d4af37] transition-colors duration-300">The Roast</a>
           <a href="#reserve" className="hover:text-[#d4af37] transition-colors duration-300">Reserve</a>
+          <Link href="/gallery" className="hover:text-white transition-colors">GALLERY</Link>
         </div>
 
         <button className="text-white/80 hover:text-[#d4af37] transition-colors duration-300">

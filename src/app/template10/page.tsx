@@ -93,6 +93,52 @@ export default function Template10() {
           
         </section>
 
+        {/* ORIGIN SECTION */}
+        <section id="origin" className="min-h-[120vh] relative z-20 flex items-center py-32">
+          <div className="container mx-auto px-6 md:px-16">
+            <div className="max-w-xl">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <span className="text-[10px] font-bold tracking-[0.4em] text-[#fb923c] uppercase mb-6 block">
+                  00. / The Origin
+                </span>
+                <h2 className="text-5xl md:text-6xl font-light text-white mb-10 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Liquid gold, <br />
+                  <span className="italic text-[#fb923c]">bottled.</span>
+                </h2>
+                <div className="border-l border-[#fb923c]/30 pl-8">
+                  <p className="text-white/70 text-lg font-light leading-loose mb-8">
+                    OASIS is crafted from the world's most prized citrus. Seville oranges, Meyer lemons, and Japanese yuzu. Fruits so aromatic that their essential oils are worth more per ounce than saffron. We source directly from groves that have been family-owned for generations.
+                  </p>
+                  <p className="text-white/60 text-base font-light leading-loose mb-12">
+                    Our proprietary micro-filtration process removes all pulp and sediment while preserving the delicate terpene profile that gives each fruit its signature aroma. The result is a juice of crystalline clarity and explosive flavour.
+                  </p>
+                </div>
+
+                <div className="flex gap-12 mt-12 pt-8 border-t border-white/10">
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>3</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Rare Citrus</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>0.2μm</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Filtered</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>Direct</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Trade</div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+
         <OasisProcess />
         
         <OasisFeatures />

@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 
 export default function AuroraFooter() {
   return (
@@ -28,14 +29,14 @@ export default function AuroraFooter() {
             <ul className="flex flex-col gap-4 text-[11px] font-light tracking-widest text-gray-500">
               <li><a href="#" className="hover:text-white transition-colors">The Groves</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Our Process</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Journal</a></li>
+              <li><a href="/gallery" className="hover:text-white transition-colors">Gallery</a></li>
             </ul>
           </div>
           <div className="col-span-2 md:col-span-1">
             <h4 className="text-[9px] font-bold text-yellow-400 uppercase tracking-[0.3em] mb-6">Connect</h4>
             <ul className="flex flex-col gap-4 text-[11px] font-light tracking-widest text-gray-500">
               <li><a href="#" className="hover:text-white transition-colors">Instagram</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+              <li><a href="/gallery" className="hover:text-white transition-colors">Gallery</a></li>
             </ul>
           </div>
         </div>

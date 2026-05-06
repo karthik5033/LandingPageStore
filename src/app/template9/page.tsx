@@ -94,6 +94,52 @@ export default function Template9() {
           
         </section>
 
+        {/* ORIGIN SECTION */}
+        <section id="origin" className="min-h-[120vh] relative z-20 flex items-center py-32">
+          <div className="container mx-auto px-6 md:px-16">
+            <div className="max-w-xl">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <span className="text-[10px] font-bold tracking-[0.4em] text-[#34d399] uppercase mb-6 block">
+                  00. / The Wild
+                </span>
+                <h2 className="text-5xl md:text-6xl font-light text-white mb-10 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Foraged from the <br />
+                  <span className="italic text-[#34d399]">untouched.</span>
+                </h2>
+                <div className="border-l border-[#34d399]/30 pl-8">
+                  <p className="text-white/70 text-lg font-light leading-loose mb-8">
+                    BOTANICA's ingredients are wildcrafted, gathered from forests, meadows, and coastal cliffs where no human hand has intervened. Our foragers work with indigenous communities across the Pacific Northwest, harvesting elderflower, nettle, sea buckthorn, and wild mint at the precise moment of peak potency.
+                  </p>
+                  <p className="text-white/60 text-base font-light leading-loose mb-12">
+                    These are not ingredients you will find in any supply chain catalog. They are rare, seasonal, and profoundly alive. Each batch is unique, shaped by rainfall, altitude, and the quiet rhythms of the natural world.
+                  </p>
+                </div>
+
+                <div className="flex gap-12 mt-12 pt-8 border-t border-white/10">
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>Wild</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Harvested</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>12</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Botanicals</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>Seasonal</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Batches</div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+
         <BotanicaProcess />
         
         <BotanicaFeatures />

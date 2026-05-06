@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -17,7 +18,7 @@ export default function Footer() {
               <h5 className="text-[10px] font-black tracking-widest uppercase text-fuchsia-500 mb-6">The Lab</h5>
               <ul className="flex flex-col gap-4 text-sm font-medium text-white/50">
                 <li><a href="#" className="hover:text-white transition-colors">Formulas</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Process</a></li>
+                <li><a href="#craft" className="hover:text-white transition-colors">Process</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Clinical</a></li>
               </ul>
             </div>

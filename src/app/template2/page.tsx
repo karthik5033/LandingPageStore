@@ -82,6 +82,52 @@ export default function Template2() {
                   UNLEASH
                </h2>
            </section>
+
+        {/* ORIGIN SECTION */}
+        <section id="origin" className="min-h-[120vh] relative z-20 flex items-center py-32">
+          <div className="container mx-auto px-6 md:px-16">
+            <div className="max-w-xl">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <span className="text-[10px] font-bold tracking-[0.4em] text-[#ccff00] uppercase mb-6 block">
+                  [SYS.CORE] // 00
+                </span>
+                <h2 className="text-5xl md:text-6xl font-light text-white mb-10 leading-tight" style={{ fontFamily: "'Space Grotesk', serif" }}>
+                  ENGINEERED <br />
+                  <span className="italic text-[#ccff00]">OUTPUT.</span>
+                </h2>
+                <div className="border-l border-[#ccff00]/30 pl-8">
+                  <p className="text-white/70 text-lg font-light leading-loose mb-8">
+                    VOLT.OS is not a beverage. It is a delivery system. We reverse-engineered the human energy cycle to create a formulation that maps to your body's natural cortisol rhythm. The result: zero crash, zero jitter, sustained cognitive output for up to eight hours.
+                  </p>
+                  <p className="text-white/60 text-base font-light leading-loose mb-12">
+                    Our proprietary NRG-X matrix combines plant-derived caffeine from Guayusa leaf with L-Theanine, Alpha-GPC, and a micro-dose of electrolyte minerals. Every milligram is calibrated. Every effect is intentional.
+                  </p>
+                </div>
+
+                <div className="flex gap-12 mt-12 pt-8 border-t border-white/10">
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Space Grotesk', serif" }}>8h</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Sustained</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Space Grotesk', serif" }}>0</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Crash Factor</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Space Grotesk', serif" }}>NRG-X</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Matrix</div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
            
            {/* Footer with a slight gradient background instead of solid black */}
            <div className="bg-gradient-to-t from-black via-black/90 to-transparent">

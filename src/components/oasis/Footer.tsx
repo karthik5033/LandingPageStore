@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 
 export default function OasisFooter() {
   return (
@@ -18,7 +19,7 @@ export default function OasisFooter() {
           <a href="#" className="hover:text-orange-400 transition-colors">Shop</a>
           <a href="#" className="hover:text-orange-400 transition-colors">Story</a>
           <a href="#" className="hover:text-orange-400 transition-colors">Groves</a>
-          <a href="#" className="hover:text-orange-400 transition-colors">Contact</a>
+          <a href="/gallery" className="hover:text-orange-400 transition-colors">Gallery</a>
         </div>
       </div>
 

@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 export default function BotanicaFooter() {
@@ -43,9 +44,9 @@ export default function BotanicaFooter() {
           <div>
             <h4 className="text-[10px] font-medium text-green-400 uppercase tracking-[0.3em] mb-8">Company</h4>
             <ul className="flex flex-col gap-5 text-xs font-light tracking-widest text-gray-400">
-              <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
+              <li><a href="#origin" className="hover:text-white transition-colors">About Us</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Stockists</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+              <li><a href="/gallery" className="hover:text-white transition-colors">Gallery</a></li>
             </ul>
           </div>
         </div>

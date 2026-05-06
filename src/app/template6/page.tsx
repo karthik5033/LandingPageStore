@@ -95,6 +95,52 @@ export default function Template6() {
           
         </section>
 
+        {/* ORIGIN SECTION */}
+        <section id="origin" className="min-h-[120vh] relative z-20 flex items-center py-32">
+          <div className="container mx-auto px-6 md:px-16">
+            <div className="max-w-xl">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <span className="text-[10px] font-bold tracking-[0.4em] text-[#c8a97e] uppercase mb-6 block">
+                  00. / The Craft
+                </span>
+                <h2 className="text-5xl md:text-6xl font-light text-white mb-10 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Smooth beyond <br />
+                  <span className="italic text-[#c8a97e]">reason.</span>
+                </h2>
+                <div className="border-l border-[#c8a97e]/30 pl-8">
+                  <p className="text-white/70 text-lg font-light leading-loose mb-8">
+                    SILK begins where other chocolatiers stop. We conche our chocolate for ninety-six hours, four times the industry standard, until every particle is reduced to below eighteen microns. At this scale, the human tongue cannot detect any grittiness. Only pure, liquid smoothness remains.
+                  </p>
+                  <p className="text-white/60 text-base font-light leading-loose mb-12">
+                    Our milk chocolate uses fresh cream from grass-fed Jersey cows, blended at precisely forty-two degrees to preserve the delicate lactose crystals that give SILK its signature melt-on-contact texture.
+                  </p>
+                </div>
+
+                <div className="flex gap-12 mt-12 pt-8 border-t border-white/10">
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>96h</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Conching</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>18μm</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Particle Size</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>42°C</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Blend Temp</div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+
         <SilkFeatures />
         
         <SilkProcess />

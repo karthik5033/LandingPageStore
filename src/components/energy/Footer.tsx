@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { useRef } from 'react';
 
@@ -21,7 +22,7 @@ const Footer = () => (
              <div className="flex flex-col gap-4">
                 <span className="text-white mb-4 block text-xs font-mono tracking-[0.2em] border-b border-[#ccff00] pb-2 w-12">LINK</span>
                 <a className="hover:text-[#ccff00] transition-colors" href="#">Products</a>
-                <a className="hover:text-[#ccff00] transition-colors" href="#">Science</a>
+                <a className="hover:text-[#ccff00] transition-colors" href="#specs">Science</a>
                 <a className="hover:text-[#ccff00] transition-colors" href="#">Sponsorships</a>
              </div>
              <div className="flex flex-col gap-4">

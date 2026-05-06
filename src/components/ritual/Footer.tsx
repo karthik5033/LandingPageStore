@@ -21,17 +21,17 @@ export default function RitualFooter() {
           <div>
             <h4 className="text-[10px] text-[#fdfbf7]/40 uppercase tracking-[0.2em] mb-6" style={{ fontFamily: "'Lora', serif" }}>Shop</h4>
             <ul className="flex flex-col gap-4 text-xs font-light text-[#fdfbf7]/80" style={{ fontFamily: "'Lora', serif" }}>
-              <li><a href="#" className="hover:text-[#e8c490] transition-colors duration-300">Fresh Roasts</a></li>
-              <li><a href="#" className="hover:text-[#e8c490] transition-colors duration-300">Ceramics</a></li>
-              <li><a href="#" className="hover:text-[#e8c490] transition-colors duration-300">Brew Gear</a></li>
+              <li><a href="#offerings" className="hover:text-[#e8c490] transition-colors duration-300">Fresh Roasts</a></li>
+              <li><a href="#offerings" className="hover:text-[#e8c490] transition-colors duration-300">Ceramics</a></li>
+              <li><a href="#offerings" className="hover:text-[#e8c490] transition-colors duration-300">Brew Gear</a></li>
             </ul>
           </div>
           <div>
             <h4 className="text-[10px] text-[#fdfbf7]/40 uppercase tracking-[0.2em] mb-6" style={{ fontFamily: "'Lora', serif" }}>Connect</h4>
             <ul className="flex flex-col gap-4 text-xs font-light text-[#fdfbf7]/80" style={{ fontFamily: "'Lora', serif" }}>
-              <li><a href="#" className="hover:text-[#e8c490] transition-colors duration-300">Our Story</a></li>
-              <li><a href="#" className="hover:text-[#e8c490] transition-colors duration-300">The Cafe</a></li>
-              <li><a href="#" className="hover:text-[#e8c490] transition-colors duration-300">Contact Us</a></li>
+              <li><a href="#origin" className="hover:text-[#e8c490] transition-colors duration-300">Our Story</a></li>
+              <li><a href="#hero" className="hover:text-[#e8c490] transition-colors duration-300">The Cafe</a></li>
+              <li><a href="/gallery" className="hover:text-[#e8c490] transition-colors duration-300">Gallery</a></li>
             </ul>
           </div>
         </div>

@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Menu, Search, ShoppingBag } from 'lucide-react';
 import { useState } from 'react';
@@ -46,7 +47,7 @@ export default function Navbar() {
         <a href="#origin" className="hover:text-amber-500 transition-colors">Origins</a>
         <a href="#roast" className="hover:text-amber-500 transition-colors">Process</a>
         <a href="#ritual" className="hover:text-amber-500 transition-colors">Heritage</a>
-        <a href="#" className="hover:text-amber-500 transition-colors">Journal</a>
+        <a href="/gallery" className="hover:text-amber-500 transition-colors">Gallery</a>
       </div>
 
       <div className="flex items-center gap-8 text-white">

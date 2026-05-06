@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import { Instagram, Twitter, Linkedin } from 'lucide-react';
 
 export default function PulseFooter() {
@@ -32,9 +33,9 @@ export default function PulseFooter() {
             <div>
               <h5 className="text-[9px] font-medium tracking-[0.3em] uppercase text-[#c8922a] mb-8">Atelier</h5>
               <ul className="flex flex-col gap-4 text-[11px] font-light text-white/60 tracking-widest uppercase">
-                <li><a href="#" className="hover:text-white transition-colors duration-300">Journal</a></li>
+                <li><a href="/gallery" className="hover:text-white transition-colors duration-300">Gallery</a></li>
                 <li><a href="#" className="hover:text-white transition-colors duration-300">Concierge</a></li>
-                <li><a href="#" className="hover:text-white transition-colors duration-300">Contact</a></li>
+                <li><a href="/gallery" className="hover:text-white transition-colors duration-300">Gallery</a></li>
               </ul>
             </div>
           </div>

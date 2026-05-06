@@ -45,6 +45,7 @@ export default function LumenNavbar() {
           <a href="#essence" className="hover:text-[#d97706] transition-colors duration-300">The Essence</a>
           <a href="#roast" className="hover:text-[#d97706] transition-colors duration-300">The Roast</a>
           <a href="#beans" className="hover:text-[#d97706] transition-colors duration-300">Reserve</a>
+          <Link href="/gallery" className="hover:text-white transition-colors">GALLERY</Link>
         </div>
 
         <button className="text-white hover:text-[#d97706] transition-colors duration-300">

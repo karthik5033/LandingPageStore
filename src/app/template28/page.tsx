@@ -103,6 +103,52 @@ export default function Template28() {
           </div>
         </section>
 
+        {/* ORIGIN SECTION */}
+        <section id="origin" className="min-h-[120vh] relative z-20 flex items-center py-32">
+          <div className="container mx-auto px-6 md:px-16">
+            <div className="max-w-xl">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <span className="text-[10px] font-bold tracking-[0.4em] text-[#cfa052] uppercase mb-6 block">
+                  00. / The Yield
+                </span>
+                <h2 className="text-5xl md:text-6xl font-light text-white mb-10 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Maximum <br />
+                  <span className="italic text-[#cfa052]">extraction.</span>
+                </h2>
+                <div className="border-l border-[#cfa052]/30 pl-8">
+                  <p className="text-white/70 text-lg font-light leading-loose mb-8">
+                    EXTRACT is our pursuit of the perfect yield. The ideal ratio of dissolved solids to water that produces the most balanced, complex cup possible. We use refractometry to measure extraction percentage to two decimal places, targeting the narrow 19.50 to 20.50% window where magic happens.
+                  </p>
+                  <p className="text-white/60 text-base font-light leading-loose mb-12">
+                    Our beans are sourced from Colombian micro-lots in Huila, where volcanic soil and equatorial sun produce a cherry so dense with flavour that even conservative extraction yields extraordinary complexity. Under-extracted coffee is sour. Over-extracted is bitter. EXTRACT is neither. It is exact.
+                  </p>
+                </div>
+
+                <div className="flex gap-12 mt-12 pt-8 border-t border-white/10">
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>20%</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">TDS Target</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>Huila</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Colombia</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>±0.5%</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Tolerance</div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+
         <ExtractProcess />
         <ExtractFeatures />
         <ExtractProducts />

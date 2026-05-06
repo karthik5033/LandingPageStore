@@ -95,6 +95,52 @@ export default function Template7() {
           
         </section>
 
+        {/* ORIGIN SECTION */}
+        <section id="origin" className="min-h-[120vh] relative z-20 flex items-center py-32">
+          <div className="container mx-auto px-6 md:px-16">
+            <div className="max-w-xl">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <span className="text-[10px] font-bold tracking-[0.4em] text-[#4ade80] uppercase mb-6 block">
+                  00. / The Source
+                </span>
+                <h2 className="text-5xl md:text-6xl font-light text-white mb-10 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  From soil to <br />
+                  <span className="italic text-[#4ade80]">soul.</span>
+                </h2>
+                <div className="border-l border-[#4ade80]/30 pl-8">
+                  <p className="text-white/70 text-lg font-light leading-loose mb-8">
+                    Every bottle of VITALITY begins in our regenerative organic farms nestled in the volcanic soil of Central California. No pesticides, no synthetic fertilizers. Just ancient farming practices refined by modern soil science. Our produce is harvested at dawn, cold-pressed within four hours, and bottled before noon.
+                  </p>
+                  <p className="text-white/60 text-base font-light leading-loose mb-12">
+                    We believe that true energy does not come from caffeine or sugar. It comes from living enzymes, raw phytonutrients, and the unmistakable vitality of produce that was in the ground just hours ago.
+                  </p>
+                </div>
+
+                <div className="flex gap-12 mt-12 pt-8 border-t border-white/10">
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>4h</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Farm to Bottle</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>100%</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Organic</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>0g</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Added Sugar</div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+
         <AetherProcess />
         
         <AetherFeatures />

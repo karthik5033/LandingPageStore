@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 export default function SilkFooter() {
@@ -35,7 +36,7 @@ export default function SilkFooter() {
           <div>
             <h4 className="text-[10px] font-bold text-[#c8a97e] uppercase tracking-[0.3em] mb-6">Maison</h4>
             <ul className="flex flex-col gap-4 text-xs font-light tracking-wider text-[#a89584]">
-              <li><a href="#" className="hover:text-white transition-colors">Our Story</a></li>
+              <li><a href="#origin" className="hover:text-white transition-colors">Our Story</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Ingredients</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Boutiques</a></li>
             </ul>
@@ -43,7 +44,7 @@ export default function SilkFooter() {
           <div>
             <h4 className="text-[10px] font-bold text-[#c8a97e] uppercase tracking-[0.3em] mb-6">Support</h4>
             <ul className="flex flex-col gap-4 text-xs font-light tracking-wider text-[#a89584]">
-              <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+              <li><a href="/gallery" className="hover:text-white transition-colors">Gallery</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Shipping</a></li>
               <li><a href="#" className="hover:text-white transition-colors">FAQ</a></li>
             </ul>

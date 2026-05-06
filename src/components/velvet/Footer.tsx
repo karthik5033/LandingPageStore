@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 
 export default function VelvetFooter() {
   return (
@@ -21,17 +22,17 @@ export default function VelvetFooter() {
           <div>
             <h4 className="text-[9px] text-white/40 uppercase tracking-[0.3em] mb-6">Explore</h4>
             <ul className="flex flex-col gap-4 text-[11px] font-light tracking-widest text-white/70">
-              <li><a href="#" className="hover:text-[#d4af37] transition-colors duration-300">Single Origin</a></li>
-              <li><a href="#" className="hover:text-[#d4af37] transition-colors duration-300">Blends</a></li>
-              <li><a href="#" className="hover:text-[#d4af37] transition-colors duration-300">Equipment</a></li>
+              <li><a href="#collection" className="hover:text-[#d4af37] transition-colors duration-300">Single Origin</a></li>
+              <li><a href="#collection" className="hover:text-[#d4af37] transition-colors duration-300">Blends</a></li>
+              <li><a href="#collection" className="hover:text-[#d4af37] transition-colors duration-300">Equipment</a></li>
             </ul>
           </div>
           <div>
             <h4 className="text-[9px] text-white/40 uppercase tracking-[0.3em] mb-6">Company</h4>
             <ul className="flex flex-col gap-4 text-[11px] font-light tracking-widest text-white/70">
-              <li><a href="#" className="hover:text-[#d4af37] transition-colors duration-300">Our Story</a></li>
+              <li><a href="#origin" className="hover:text-[#d4af37] transition-colors duration-300">Our Story</a></li>
               <li><a href="#" className="hover:text-[#d4af37] transition-colors duration-300">Wholesale</a></li>
-              <li><a href="#" className="hover:text-[#d4af37] transition-colors duration-300">Careers</a></li>
+              <li><a href="/gallery" className="hover:text-[#d4af37] transition-colors duration-300">Gallery</a></li>
             </ul>
           </div>
         </div>

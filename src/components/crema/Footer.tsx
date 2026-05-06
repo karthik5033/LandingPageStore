@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import { Coffee } from 'lucide-react';
 
 export default function Footer() {
@@ -20,16 +21,16 @@ export default function Footer() {
             <div>
               <h5 className="text-[10px] font-bold tracking-[0.3em] uppercase text-[#d4a373] mb-8">Explore</h5>
               <ul className="flex flex-col gap-6 text-sm font-light text-white/60">
-                <li><a href="#" className="hover:text-white transition-colors duration-300">Shop Collection</a></li>
-                <li><a href="#" className="hover:text-white transition-colors duration-300">Our Story</a></li>
-                <li><a href="#" className="hover:text-white transition-colors duration-300">Journal</a></li>
+                <li><a href="#collection" className="hover:text-white transition-colors duration-300">Shop Collection</a></li>
+                <li><a href="#origin" className="hover:text-white transition-colors duration-300">Our Story</a></li>
+                <li><a href="/gallery" className="hover:text-white transition-colors duration-300">Gallery</a></li>
               </ul>
             </div>
 
             <div>
               <h5 className="text-[10px] font-bold tracking-[0.3em] uppercase text-[#d4a373] mb-8">Connect</h5>
               <ul className="flex flex-col gap-6 text-sm font-light text-white/60">
-                <li><a href="#" className="hover:text-white transition-colors duration-300">Contact Us</a></li>
+                <li><a href="/gallery" className="hover:text-white transition-colors duration-300">Gallery</a></li>
                 <li><a href="#" className="hover:text-white transition-colors duration-300">Instagram</a></li>
                 <li><a href="#" className="hover:text-white transition-colors duration-300">Pinterest</a></li>
               </ul>

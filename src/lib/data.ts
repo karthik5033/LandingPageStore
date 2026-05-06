@@ -343,5 +343,242 @@ export const categories = [
         folder: "hyper-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       }
     ]
+  },
+  {
+    name: "Spice Series",
+    description: "Vibrant, rich, and earthy templates tailored for artisanal spice and culinary brands. Emphasizes warm tones, raw textures, and exotic allure.",
+    templates: [
+      {
+        id: "30",
+        name: "KIN",
+        description: "Warm & Earthy",
+        href: "/template30",
+        accent: "text-[#8b4513]",
+        accentHex: "#8b4513",
+        heroHeadline: "Earthy Warmth",
+        icon: Sparkles,
+        folder: "spice1-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "31",
+        name: "AROMA",
+        description: "Saffron Gold",
+        href: "/template31",
+        accent: "text-[#f4a460]",
+        accentHex: "#f4a460",
+        heroHeadline: "Saffron Gold",
+        icon: Sparkles,
+        folder: "spice2-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "32",
+        name: "EMBER",
+        description: "Chili Red Intensity",
+        href: "/template32",
+        accent: "text-[#dc143c]",
+        accentHex: "#dc143c",
+        heroHeadline: "Fiery Intensity",
+        icon: Sparkles,
+        folder: "spice3-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "33",
+        name: "OCHRE",
+        description: "Turmeric Yellow",
+        href: "/template33",
+        accent: "text-[#dcb83c]",
+        accentHex: "#dcb83c",
+        heroHeadline: "Golden Spice",
+        icon: Sparkles,
+        folder: "spice4-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "34",
+        name: "FLAME",
+        description: "Cayenne Heat",
+        href: "/template34",
+        accent: "text-[#ff4500]",
+        accentHex: "#ff4500",
+        heroHeadline: "Cayenne Heat",
+        icon: Sparkles,
+        folder: "spice5-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "35",
+        name: "CASSIA",
+        description: "Cinnamon Bark",
+        href: "/template35",
+        accent: "text-[#d2691e]",
+        accentHex: "#d2691e",
+        heroHeadline: "Cinnamon Bark",
+        icon: Sparkles,
+        folder: "spice6-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "36",
+        name: "ANISE",
+        description: "Star Anise Dark",
+        href: "/template36",
+        accent: "text-[#4b0082]",
+        accentHex: "#4b0082",
+        heroHeadline: "Dark Anise",
+        icon: Sparkles,
+        folder: "spice7-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "37",
+        name: "CARAWAY",
+        description: "Sage & Brown",
+        href: "/template37",
+        accent: "text-[#556b2f]",
+        accentHex: "#556b2f",
+        heroHeadline: "Earthy Caraway",
+        icon: Sparkles,
+        folder: "spice8-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "38",
+        name: "MACE",
+        description: "Soft Orange Gold",
+        href: "/template38",
+        accent: "text-[#daa520]",
+        accentHex: "#daa520",
+        heroHeadline: "Soft Gold Mace",
+        icon: Sparkles,
+        folder: "spice9-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "39",
+        name: "SUMAC",
+        description: "Deep Maroon",
+        href: "/template39",
+        accent: "text-[#800000]",
+        accentHex: "#800000",
+        heroHeadline: "Deep Sumac",
+        icon: Sparkles,
+        folder: "spice10-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "40",
+        name: "MASALA",
+        description: "Rich Terracotta",
+        href: "/template40",
+        accent: "text-[#e2725b]",
+        accentHex: "#e2725b",
+        heroHeadline: "Rich Masala",
+        icon: Sparkles,
+        folder: "spice11-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "41",
+        name: "FENNEL",
+        description: "Soft Green Licorice",
+        href: "/template41",
+        accent: "text-[#4caf50]",
+        accentHex: "#4caf50",
+        heroHeadline: "Fresh Fennel",
+        icon: Sparkles,
+        folder: "spice12-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "42",
+        name: "CHAI",
+        description: "Warm Cardamom Blend",
+        href: "/template42",
+        accent: "text-[#8d6e63]",
+        accentHex: "#8d6e63",
+        heroHeadline: "Warm Chai",
+        icon: Sparkles,
+        folder: "spice13-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "43",
+        name: "CLOVE",
+        description: "Dark Warm Brown",
+        href: "/template43",
+        accent: "text-[#5d4037]",
+        accentHex: "#5d4037",
+        heroHeadline: "Intense Clove",
+        icon: Sparkles,
+        folder: "spice14-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "44",
+        name: "NUTMEG",
+        description: "Soft Sandy Brown",
+        href: "/template44",
+        accent: "text-[#a1887f]",
+        accentHex: "#a1887f",
+        heroHeadline: "Soft Nutmeg",
+        icon: Sparkles,
+        folder: "spice15-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "45",
+        name: "CORIANDER",
+        description: "Light Warm Gold",
+        href: "/template45",
+        accent: "text-[#ffb300]",
+        accentHex: "#ffb300",
+        heroHeadline: "Golden Coriander",
+        icon: Sparkles,
+        folder: "spice16-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "46",
+        name: "PEPPER",
+        description: "Dark Grey Black",
+        href: "/template46",
+        accent: "text-[#424242]",
+        accentHex: "#424242",
+        heroHeadline: "Cracked Pepper",
+        icon: Sparkles,
+        folder: "spice17-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "47",
+        name: "CARDAMOM",
+        description: "Vibrant Green Pods",
+        href: "/template47",
+        accent: "text-[#81c784]",
+        accentHex: "#81c784",
+        heroHeadline: "Vibrant Cardamom",
+        icon: Sparkles,
+        folder: "spice18-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "48",
+        name: "VANILLA",
+        description: "Creamy Vanilla Bean",
+        href: "/template48",
+        accent: "text-[#f3e5ab]",
+        accentHex: "#f3e5ab",
+        heroHeadline: "Pure Vanilla",
+        icon: Sparkles,
+        folder: "spice19-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "49",
+        name: "GINGER",
+        description: "Spicy Orange Root",
+        href: "/template49",
+        accent: "text-[#ffcc80]",
+        accentHex: "#ffcc80",
+        heroHeadline: "Spicy Ginger",
+        icon: Sparkles,
+        folder: "spice20-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "50",
+        name: "ALLIUM",
+        description: "Premium Garlic & Onion",
+        href: "/template50",
+        accent: "text-[#f5f5dc]",
+        accentHex: "#f5f5dc",
+        heroHeadline: "Premium Allium",
+        icon: Sparkles,
+        folder: "spice21-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      }
+    ]
   }
 ];

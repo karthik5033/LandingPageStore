@@ -110,6 +110,52 @@ export default function Template26() {
           </div>
         </section>
 
+        {/* ORIGIN SECTION */}
+        <section id="origin" className="min-h-[120vh] relative z-20 flex items-center py-32">
+          <div className="container mx-auto px-6 md:px-16">
+            <div className="max-w-xl">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <span className="text-[10px] font-bold tracking-[0.4em] text-[#b87333] uppercase mb-6 block">
+                  00. / The Force
+                </span>
+                <h2 className="text-5xl md:text-6xl font-light text-white mb-10 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Coffee with <br />
+                  <span className="italic text-[#b87333]">gravitational pull.</span>
+                </h2>
+                <div className="border-l border-[#b87333]/30 pl-8">
+                  <p className="text-white/70 text-lg font-light leading-loose mb-8">
+                    GRAVITY is our darkest, most intense roast. A coffee so dense and powerful it bends your morning routine around it. We source high-altitude Sumatran Mandheling beans, triple-washed to remove every trace of earthiness, then roast them to the edge of second crack where the oils emerge and the sugars caramelize.
+                  </p>
+                  <p className="text-white/60 text-base font-light leading-loose mb-12">
+                    This is not a subtle coffee. It is a force. Notes of dark chocolate, burnt caramel, and a smoky finish that stays with you for hours. Brewed as espresso, it produces a crema so thick you could carve your initials in it.
+                  </p>
+                </div>
+
+                <div className="flex gap-12 mt-12 pt-8 border-t border-white/10">
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>Dark</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Roast Level</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>2nd</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Crack Edge</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>Sumatra</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Mandheling</div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+
         <GravityProcess />
         <GravityFeatures />
         <GravityProducts />

@@ -102,6 +102,52 @@ export default function Template25() {
           </div>
         </section>
 
+        {/* ORIGIN SECTION */}
+        <section id="origin" className="min-h-[120vh] relative z-20 flex items-center py-32">
+          <div className="container mx-auto px-6 md:px-16">
+            <div className="max-w-xl">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <span className="text-[10px] font-bold tracking-[0.4em] text-[#f2f0eb] uppercase mb-6 block">
+                  00. / The Rhythm
+                </span>
+                <h2 className="text-5xl md:text-6xl font-light text-white mb-10 leading-tight" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                  An infinite <br />
+                  <span className="italic text-[#f2f0eb]">loop of flavour.</span>
+                </h2>
+                <div className="border-l border-[#f2f0eb]/30 pl-8">
+                  <p className="text-white/70 text-lg font-light leading-loose mb-8">
+                    ZENITH is built on the idea that great coffee is not a destination but a cycle. A continuous loop of sourcing, roasting, tasting, and refining. We visit our partner farms three times a year, adjusting our roast profiles to match the subtle shifts in each harvest's character.
+                  </p>
+                  <p className="text-white/60 text-base font-light leading-loose mb-12">
+                    No two batches of ZENITH taste identical, and that is by design. Like a jazz musician returning to a familiar melody, each cup carries the same soul but expresses it differently. This is coffee that evolves with the seasons.
+                  </p>
+                </div>
+
+                <div className="flex gap-12 mt-12 pt-8 border-t border-white/10">
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Cormorant Garamond', serif" }}>3x</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Annual Visits</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Cormorant Garamond', serif" }}>∞</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Iterations</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl text-white mb-1" style={{ fontFamily: "'Cormorant Garamond', serif" }}>Seasonal</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-light">Profiles</div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+
         <ZenithProcess />
         <ZenithFeatures />
         <ZenithProducts />

@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 
 export default function OpusFooter() {
   return (
@@ -22,16 +23,16 @@ export default function OpusFooter() {
             <h4 className="text-[8px] text-[#a3a3a3] uppercase tracking-[0.4em] mb-6 font-light">Curations</h4>
             <ul className="flex flex-col gap-4 text-[10px] font-light tracking-widest text-[#f5f5f0]/80">
               <li><a href="#" className="hover:text-[#a3a3a3] transition-colors duration-300">The Blends</a></li>
-              <li><a href="#" className="hover:text-[#a3a3a3] transition-colors duration-300">Single Origin</a></li>
+              <li><a href="#collection" className="hover:text-[#a3a3a3] transition-colors duration-300">Single Origin</a></li>
               <li><a href="#" className="hover:text-[#a3a3a3] transition-colors duration-300">Merchandise</a></li>
             </ul>
           </div>
           <div>
             <h4 className="text-[8px] text-[#a3a3a3] uppercase tracking-[0.4em] mb-6 font-light">Information</h4>
             <ul className="flex flex-col gap-4 text-[10px] font-light tracking-widest text-[#f5f5f0]/80">
-              <li><a href="#" className="hover:text-[#a3a3a3] transition-colors duration-300">About Us</a></li>
-              <li><a href="#" className="hover:text-[#a3a3a3] transition-colors duration-300">Locations</a></li>
-              <li><a href="#" className="hover:text-[#a3a3a3] transition-colors duration-300">Contact</a></li>
+              <li><a href="#origin" className="hover:text-[#a3a3a3] transition-colors duration-300">About Us</a></li>
+              <li><a href="/gallery" className="hover:text-[#a3a3a3] transition-colors duration-300">Gallery</a></li>
+              <li><a href="/gallery" className="hover:text-[#a3a3a3] transition-colors duration-300">Gallery</a></li>
             </ul>
           </div>
         </div>

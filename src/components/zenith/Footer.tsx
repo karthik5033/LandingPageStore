@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 
 export default function ZenithFooter() {
   return (
@@ -30,7 +31,7 @@ export default function ZenithFooter() {
             <h4 className="text-[8px] text-[#f2f0eb]/50 uppercase tracking-[0.4em] mb-6 font-light">Connect</h4>
             <ul className="flex flex-col gap-4 text-[10px] font-light tracking-widest text-[#f2f0eb]/80">
               <li><a href="#" className="hover:text-[#f2f0eb] transition-colors duration-300">Manifesto</a></li>
-              <li><a href="#" className="hover:text-[#f2f0eb] transition-colors duration-300">Journal</a></li>
+              <li><a href="/gallery" className="hover:text-[#f2f0eb] transition-colors duration-300">Gallery</a></li>
               <li><a href="#" className="hover:text-[#f2f0eb] transition-colors duration-300">Inquiries</a></li>
             </ul>
           </div>

@@ -104,12 +104,91 @@ export default function Template29() {
           </div>
         </section>
 
+        {/* ORIGIN SECTION */}
+        <section id="origin" className="min-h-[120vh] relative z-20 flex items-center py-32">
+          <div className="container mx-auto px-8 md:px-16">
+            <div className="max-w-xl">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <span className="text-[11px] tracking-[0.4em] text-[#e8c490] uppercase mb-6 block font-light" style={{ fontFamily: "'Lora', serif" }}>
+                  00. / The Origin
+                </span>
+                <h2 className="text-5xl md:text-7xl font-normal text-[#fdfbf7] mb-10 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Where stillness <br />
+                  <span className="italic text-[#e8c490]">begins.</span>
+                </h2>
+                <div className="border-l border-[#e8c490]/30 pl-8">
+                  <p className="text-[#fdfbf7]/70 text-lg font-light leading-loose mb-8" style={{ fontFamily: "'Lora', serif" }}>
+                    In the misty highlands of Huehuetenango, Guatemala, there is a farm run by the same family for four generations. They pick each cherry by hand at peak ripeness, dry them slowly under the mountain sun, and ship them in small lots — never more than fifty bags at a time.
+                  </p>
+                  <p className="text-[#fdfbf7]/60 text-base font-light leading-loose mb-12" style={{ fontFamily: "'Lora', serif" }}>
+                    We roast these beans in a converted workshop, where the only sounds are the crack of the drum and the hiss of cooling trays. No rush. No compromise. Just the quiet discipline of turning something natural into something extraordinary.
+                  </p>
+                  <button className="text-[10px] font-light tracking-[0.2em] uppercase text-[#fdfbf7] hover:text-[#e8c490] transition-colors duration-300 flex items-center gap-4 group" style={{ fontFamily: "'Lora', serif" }}>
+                    <span className="w-12 h-[1px] bg-[#fdfbf7]/40 group-hover:bg-[#e8c490] transition-colors" />
+                    Read Our Story
+                  </button>
+                </div>
+
+                {/* Stats */}
+                <div className="flex gap-12 mt-16 pt-8 border-t border-[#fdfbf7]/10">
+                  <div>
+                    <div className="text-3xl text-[#fdfbf7] mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>4th</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-[#fdfbf7]/40 font-light" style={{ fontFamily: "'Lora', serif" }}>Generation</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl text-[#fdfbf7] mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>1,800m</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-[#fdfbf7]/40 font-light" style={{ fontFamily: "'Lora', serif" }}>Altitude</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl text-[#fdfbf7] mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>50</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-[#fdfbf7]/40 font-light" style={{ fontFamily: "'Lora', serif" }}>Bags per Lot</div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
         <RitualProcess />
         <RitualFeatures />
         <RitualProducts />
 
+        {/* PHILOSOPHY / TESTIMONIAL SECTION */}
+        <section className="py-40 relative z-20 flex items-center justify-center">
+          <div className="container mx-auto px-8 md:px-16 max-w-4xl text-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.97 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <span className="text-[10px] tracking-[0.3em] text-[#e8c490] uppercase mb-10 block font-light" style={{ fontFamily: "'Lora', serif" }}>
+                Words from Our Community
+              </span>
+              <blockquote
+                className="text-3xl md:text-4xl font-normal text-[#fdfbf7] leading-relaxed mb-10 italic"
+                style={{ fontFamily: "'Playfair Display', serif" }}
+              >
+                &ldquo;I've tried every specialty roaster in the city. Ritual is the only one that makes me slow down. The coffee demands your attention — and rewards it.&rdquo;
+              </blockquote>
+              <div className="flex flex-col items-center gap-2">
+                <div className="w-8 h-[1px] bg-[#e8c490]/50" />
+                <span className="text-[11px] tracking-[0.2em] uppercase text-[#fdfbf7]/60 font-light" style={{ fontFamily: "'Lora', serif" }}>
+                  — Mira Vasquez, Portland
+                </span>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
         {/* CTA SECTION */}
         <section className="h-[80vh] flex flex-col items-center justify-center px-8 text-center bg-transparent border-none">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(232,196,144,0.06)_0%,transparent_60%)] pointer-events-none" />
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

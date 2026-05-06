@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 export default function NoirFooter() {
@@ -35,7 +36,7 @@ export default function NoirFooter() {
             <h4 className="text-[10px] font-bold uppercase tracking-[0.25em]" style={{ color: '#c8922a' }}>Discover</h4>
             <a href="#" className="text-xs font-light hover:text-white transition-colors" style={{ color: '#8a7060' }}>Our Heritage</a>
             <a href="#" className="text-xs font-light hover:text-white transition-colors" style={{ color: '#8a7060' }}>The Process</a>
-            <a href="#" className="text-xs font-light hover:text-white transition-colors" style={{ color: '#8a7060' }}>Sustainability</a>
+            <a href="#origin" className="text-xs font-light hover:text-white transition-colors" style={{ color: '#8a7060' }}>Sustainability</a>
           </div>
 
           <div className="flex flex-col gap-6">

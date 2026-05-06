@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 export default function MonolithFooter() {
@@ -30,7 +31,7 @@ export default function MonolithFooter() {
               <li><a href="#" className="hover:text-white transition-colors">Projects</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Profile</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Publications</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
+              <li><a href="/gallery" className="hover:text-white transition-colors">Gallery</a></li>
             </ul>
           </div>
           <div>

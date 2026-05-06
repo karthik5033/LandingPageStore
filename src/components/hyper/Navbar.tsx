@@ -41,6 +41,7 @@ export default function Navbar() {
           <a href="#velocity" className="hover:text-[#ff00cc] transition-colors">Velocity</a>
           <a href="#core" className="hover:text-[#ff00cc] transition-colors">Core</a>
           <a href="#payloads" className="hover:text-[#ff00cc] transition-colors">Payloads</a>
+          <Link href="/gallery" className="hover:text-white transition-colors">GALLERY</Link>
         </div>
 
         <button className="text-white/80 hover:text-[#ff00cc] transition-colors">

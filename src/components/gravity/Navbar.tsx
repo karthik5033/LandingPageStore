@@ -47,6 +47,7 @@ export default function GravityNavbar() {
           <a href="#impact" className="hover:text-[#b87333] transition-colors duration-300">The Impact</a>
           <a href="#force" className="hover:text-[#b87333] transition-colors duration-300">The Force</a>
           <a href="#fuel" className="hover:text-[#b87333] transition-colors duration-300">The Fuel</a>
+          <Link href="/gallery" className="hover:text-white transition-colors">GALLERY</Link>
         </div>
 
         <button className="text-[#fdfbf7] hover:text-[#b87333] transition-colors duration-300">
