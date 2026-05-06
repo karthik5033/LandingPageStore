@@ -107,23 +107,30 @@ function GalleryContent() {
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 border-b ${scrolled ? 'bg-black/60 backdrop-blur-xl border-white/10 py-5' : 'bg-transparent border-transparent py-8'}`}>
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-          <div className="flex items-center gap-4">
-            <Link href="/" className="font-light tracking-[0.3em] text-lg uppercase text-white hover:text-gray-300 transition-colors" style={{ fontFamily: "'Playfair Display', serif" }}>Atelier</Link>
-          </div>
-          <div className="hidden md:flex gap-10 items-center text-[10px] font-bold tracking-[0.3em] uppercase text-gray-400" style={{ fontFamily: "'Inter', sans-serif" }}>
+          {/* Logo */}
+          <Link href="/" className="font-light tracking-[0.3em] text-lg uppercase text-white hover:text-gray-300 transition-colors" style={{ fontFamily: "'Playfair Display', serif" }}>Atelier</Link>
+
+          {/* Center Nav Links */}
+          <div className="hidden md:flex gap-10 text-[10px] font-bold tracking-[0.3em] uppercase text-gray-400" style={{ fontFamily: "'Inter', sans-serif" }}>
             <Link href="/#features" className="hover:text-white transition-colors duration-300">The Engine</Link>
             <Link href="/" className="hover:text-white transition-colors duration-300">About</Link>
-            <span className="text-white/60 tracking-wider">{userName || 'Guest'}</span>
-            <button
-              onClick={() => { logout(); router.replace('/auth/login'); }}
-              className="text-gray-500 hover:text-red-400 transition-colors duration-300"
-            >
-              Logout
-            </button>
           </div>
-          <Link href="/" className="text-[10px] font-bold uppercase tracking-[0.2em] border border-white/30 text-white px-8 py-3 hover:bg-white hover:text-black transition-all duration-300 inline-block">
-            Home
-          </Link>
+
+          {/* Right: User + Actions */}
+          <div className="flex items-center gap-4">
+            <div className="hidden md:flex items-center gap-3">
+              <span className="text-[9px] font-bold tracking-[0.2em] uppercase text-white/50 bg-white/[0.05] border border-white/10 px-4 py-2 rounded-full">{userName || 'Guest'}</span>
+              <button
+                onClick={() => { logout(); router.replace('/auth/login'); }}
+                className="text-[9px] font-bold tracking-[0.2em] uppercase text-gray-500 hover:text-red-400 transition-colors duration-300"
+              >
+                Logout
+              </button>
+            </div>
+            <Link href="/" className="text-[10px] font-bold uppercase tracking-[0.2em] border border-white/30 text-white px-6 py-2.5 hover:bg-white hover:text-black transition-all duration-300 inline-block">
+              Home
+            </Link>
+          </div>
         </div>
       </nav>
 
