@@ -77,62 +77,91 @@ export default function ScrollSequence({
     );
   };
 
-  // Progressive Interlaced Preloader
+  // Progressive Interlaced Preloader — optimized for fast first paint
   useEffect(() => {
     const imgArray: HTMLImageElement[] = [];
     imagesRef.current = imgArray;
     let loadedCount = 0;
     
-    // Strategy: Load a low-framerate skeleton first, then fill in the gaps.
-    // This prevents the "stuck" lagging effect on slow networks (Vercel deployment)
-    const pass1: number[] = []; // Every 8th frame (approx 12 FPS)
-    const pass2: number[] = []; // Every 4th frame (approx 24 FPS)
-    const pass3: number[] = []; // Every 2th frame (approx 30 FPS)
-    const pass4: number[] = []; // The rest (full 60 FPS)
+    // CRITICAL: Load frame 1 FIRST and render it immediately
+    // This eliminates the blank screen on page load
+    const firstImg = new Image();
+    imgArray[0] = firstImg;
+    firstImg.onload = () => {
+      loadedCount++;
+      setProgress(Math.round((loadedCount / frameCount) * 100));
+      requestAnimationFrame(() => render(0));
+      // After first frame renders, start loading the rest
+      startInterlacedLoad();
+    };
+    firstImg.onerror = () => {
+      loadedCount++;
+      startInterlacedLoad();
+    };
+    firstImg.src = getFramePath(1);
 
-    for (let i = 1; i <= frameCount; i++) {
-        if (i === 1 || i === frameCount || i % 8 === 0) pass1.push(i);
+    const startInterlacedLoad = () => {
+      // Pass 1: Every 16th frame (~4 key frames) — instant skeleton
+      // Pass 2: Every 4th frame — smooth-enough scroll
+      // Pass 3: Remaining frames — full quality
+      const pass1: number[] = [];
+      const pass2: number[] = [];
+      const pass3: number[] = [];
+
+      for (let i = 2; i <= frameCount; i++) { // Skip frame 1, already loaded
+        if (i === frameCount || i % 16 === 0) pass1.push(i);
         else if (i % 4 === 0) pass2.push(i);
-        else if (i % 2 === 0) pass3.push(i);
-        else pass4.push(i);
-    }
+        else pass3.push(i);
+      }
 
-    const loadBatch = (indices: number[], onComplete?: () => void) => {
+      // Load batches with concurrency limit to avoid saturating the connection
+      const loadBatch = (indices: number[], concurrency: number, onComplete?: () => void) => {
         if (indices.length === 0) {
-            if (onComplete) onComplete();
-            return;
+          if (onComplete) onComplete();
+          return;
         }
 
-        let batchLoaded = 0;
-        indices.forEach(i => {
-            const img = new Image();
-            imgArray[i-1] = img;
-            
-            const handleLoad = () => {
-                batchLoaded++;
-                loadedCount++;
-                setProgress(Math.round((loadedCount / frameCount) * 100));
-                requestAnimationFrame(() => render(targetFrameRef.current));
-                
-                if (batchLoaded === indices.length && onComplete) {
-                    onComplete();
-                }
-            };
+        let started = 0;
+        let finished = 0;
 
-            img.onload = handleLoad;
-            img.onerror = handleLoad;
-            img.src = getFramePath(i);
+        const loadNext = () => {
+          if (started >= indices.length) return;
+          const i = indices[started++];
+          const img = new Image();
+          imgArray[i - 1] = img;
+
+          const handleDone = () => {
+            finished++;
+            loadedCount++;
+            setProgress(Math.round((loadedCount / frameCount) * 100));
+            requestAnimationFrame(() => render(targetFrameRef.current));
+
+            if (finished >= indices.length && onComplete) {
+              onComplete();
+            } else {
+              loadNext(); // Load next in the queue
+            }
+          };
+
+          img.onload = handleDone;
+          img.onerror = handleDone;
+          img.src = getFramePath(i);
+        };
+
+        // Start up to `concurrency` parallel loads
+        const initialBatch = Math.min(concurrency, indices.length);
+        for (let c = 0; c < initialBatch; c++) {
+          loadNext();
+        }
+      };
+
+      // Pass 1: 4 concurrent (fast skeleton), then pass 2: 6, then pass 3: 6
+      loadBatch(pass1, 4, () => {
+        loadBatch(pass2, 6, () => {
+          loadBatch(pass3, 6);
         });
+      });
     };
-
-    // Execute interlaced loading sequentially
-    loadBatch(pass1, () => {
-        loadBatch(pass2, () => {
-            loadBatch(pass3, () => {
-                loadBatch(pass4);
-            });
-        });
-    });
 
   }, [folderPath, frameCount]);
 

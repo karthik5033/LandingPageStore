@@ -17,8 +17,8 @@ interface TemplateCardProps {
   frameCount: number;
 }
 
-// Sample ~15 evenly spaced frame indices from the full sequence
-function getSampledFrames(total: number, sampleCount = 15): number[] {
+// Sample ~10 evenly spaced frame indices
+function getSampledFrames(total: number, sampleCount = 10): number[] {
   const frames: number[] = [];
   const step = Math.max(1, Math.floor(total / sampleCount));
   for (let i = 1; i <= total && frames.length < sampleCount; i += step) {
@@ -38,6 +38,7 @@ export default function TemplateCard({
   const imagesRef = useRef<HTMLImageElement[]>([]);
   const sampledFrames = useRef(getSampledFrames(frameCount));
   const numId = parseInt(id, 10);
+  const preloadStarted = useRef(false);
   
   // Build frame path
   const getFramePath = useCallback((frameIdx: number) => {
@@ -48,52 +49,56 @@ export default function TemplateCard({
   // Use the first frame as the static preview
   const staticSrc = getFramePath(1);
 
-  // Preload the sampled frames when the card enters the viewport
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !preloaded) {
-          // Start preloading sampled frames
-          const imgs: HTMLImageElement[] = [];
-          let loaded = 0;
-          const total = sampledFrames.current.length;
+  // Only preload animation frames on HOVER, not on viewport entry
+  const startPreload = useCallback(() => {
+    if (preloadStarted.current || preloaded) return;
+    preloadStarted.current = true;
 
-          sampledFrames.current.forEach((frameNum) => {
-            const img = new Image();
-            img.onload = () => {
-              loaded++;
-              if (loaded >= total) setPreloaded(true);
-            };
-            img.onerror = () => {
-              loaded++;
-              if (loaded >= total) setPreloaded(true);
-            };
-            img.src = getFramePath(frameNum);
-            imgs.push(img);
-          });
+    const imgs: HTMLImageElement[] = [];
+    let loaded = 0;
+    const total = sampledFrames.current.length;
 
-          imagesRef.current = imgs;
-        }
-      },
-      { rootMargin: '200px' } // Start preloading 200px before visible
-    );
+    sampledFrames.current.forEach((frameNum) => {
+      const img = new Image();
+      img.onload = () => {
+        loaded++;
+        if (loaded >= total) setPreloaded(true);
+      };
+      img.onerror = () => {
+        loaded++;
+        if (loaded >= total) setPreloaded(true);
+      };
+      img.src = getFramePath(frameNum);
+      imgs.push(img);
+    });
 
-    const card = document.getElementById(`card-${id}`);
-    if (card) observer.observe(card);
-
-    return () => observer.disconnect();
-  }, [id, getFramePath, preloaded]);
+    imagesRef.current = imgs;
+  }, [getFramePath, preloaded]);
 
   const handleMouseEnter = useCallback(() => {
     setIsHovered(true);
+    // Start preloading on first hover
+    startPreload();
+
     if (!preloaded || imagesRef.current.length === 0) return;
 
     let idx = 0;
     intervalRef.current = setInterval(() => {
       idx = (idx + 1) % imagesRef.current.length;
       setCurrentFrameIdx(idx);
-    }, 120); // ~8fps — smooth enough, not too fast
-  }, [preloaded]);
+    }, 120);
+  }, [preloaded, startPreload]);
+
+  // If preload finishes while we're still hovering, start animation
+  useEffect(() => {
+    if (preloaded && isHovered && !intervalRef.current) {
+      let idx = 0;
+      intervalRef.current = setInterval(() => {
+        idx = (idx + 1) % imagesRef.current.length;
+        setCurrentFrameIdx(idx);
+      }, 120);
+    }
+  }, [preloaded, isHovered]);
 
   const handleMouseLeave = useCallback(() => {
     setIsHovered(false);
@@ -124,11 +129,12 @@ export default function TemplateCard({
     >
       {/* Preview Container - Links to the Live Preview */}
       <Link href={href} className="w-full aspect-[16/9] relative overflow-hidden bg-black block cursor-pointer">
-        {/* Static Preview Image (visible when not hovered) */}
+        {/* Static Preview Image — native lazy loading, no JS preload */}
         <img
           src={staticSrc}
           alt={name}
           loading="lazy"
+          decoding="async"
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isHovered && preloaded ? 'opacity-0' : 'opacity-80'}`}
         />
 
@@ -217,7 +223,7 @@ export default function TemplateCard({
             backgroundColor: isHovered ? accentHex : 'transparent',
           }}
         >
-          Buy - ${`$${price}`}
+          Buy - {`$${price}`}
         </Link>
       </div>
     </div>
