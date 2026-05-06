@@ -101,16 +101,16 @@ export default function ScrollSequence({
     firstImg.src = getFramePath(1);
 
     const startInterlacedLoad = () => {
-      // Pass 1: Every 16th frame (~4 key frames) — instant skeleton
-      // Pass 2: Every 4th frame — smooth-enough scroll
-      // Pass 3: Remaining frames — full quality
+      // Pass 1: Every 4th frame — dense enough for smooth scrolling (~60 frames)
+      // Pass 2: Every 2nd frame — nearly full quality
+      // Pass 3: Remaining odd frames — pixel-perfect
       const pass1: number[] = [];
       const pass2: number[] = [];
       const pass3: number[] = [];
 
       for (let i = 2; i <= frameCount; i++) { // Skip frame 1, already loaded
-        if (i === frameCount || i % 16 === 0) pass1.push(i);
-        else if (i % 4 === 0) pass2.push(i);
+        if (i === frameCount || i % 4 === 0) pass1.push(i);
+        else if (i % 2 === 0) pass2.push(i);
         else pass3.push(i);
       }
 
@@ -155,9 +155,9 @@ export default function ScrollSequence({
         }
       };
 
-      // Pass 1: 4 concurrent (fast skeleton), then pass 2: 6, then pass 3: 6
-      loadBatch(pass1, 4, () => {
-        loadBatch(pass2, 6, () => {
+      // Pass 1: 8 concurrent (fast dense skeleton), then pass 2: 8, then pass 3: 6
+      loadBatch(pass1, 8, () => {
+        loadBatch(pass2, 8, () => {
           loadBatch(pass3, 6);
         });
       });
