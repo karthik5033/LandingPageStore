@@ -48,6 +48,193 @@ export const categories = [
         heroHeadline: "Smooth Decadence",
         icon: Sparkles,
         folder: "template6-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "51",
+        name: "CREST",
+        description: "Bean-to-Bar Editorial",
+        href: "/template51",
+        accent: "text-[#d4a054]",
+        accentHex: "#d4a054",
+        heroHeadline: "Single Origin",
+        icon: Sparkles,
+        folder: "cacao1-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "52",
+        name: "TERROIR",
+        description: "Chocolate of Place",
+        href: "/template52",
+        accent: "text-[#b8845a]",
+        accentHex: "#b8845a",
+        heroHeadline: "Taste the Land",
+        icon: Sparkles,
+        folder: "cacao2-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "53",
+        name: "IVOIRE",
+        description: "L'Art du Chocolat Blanc",
+        href: "/template53",
+        accent: "text-[#c9b896]",
+        accentHex: "#c9b896",
+        heroHeadline: "Pure White",
+        icon: Sparkles,
+        folder: "cacao3-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "54",
+        name: "AURELIA",
+        description: "La Grande Cuvée",
+        href: "/template54",
+        accent: "text-[#c79a52]",
+        accentHex: "#c79a52",
+        heroHeadline: "La Grande Cuvée",
+        icon: Sparkles,
+        folder: "cacao7-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "55",
+        name: "ECLIPSE",
+        description: "The Dark Eclipse",
+        href: "/template55",
+        accent: "text-[#8f1722]",
+        accentHex: "#8f1722",
+        heroHeadline: "The Dark Eclipse",
+        icon: Sparkles,
+        folder: "cacao6-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "56",
+        name: "NOCTURNE",
+        description: "Grand Cru Classé",
+        href: "/template56",
+        accent: "text-[#cfbba0]",
+        accentHex: "#cfbba0",
+        heroHeadline: "Grand Cru Classé",
+        icon: Sparkles,
+        folder: "cacao6-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "57",
+        name: "AMBROSE",
+        description: "The Alchemy",
+        href: "/template57",
+        accent: "text-[#e6cda3]",
+        accentHex: "#e6cda3",
+        heroHeadline: "The Alchemy",
+        icon: Sparkles,
+        folder: "cacao7-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "58",
+        name: "VALOR",
+        description: "A Legacy of Honor",
+        href: "/template58",
+        accent: "text-[#94a3b8]",
+        accentHex: "#94a3b8",
+        heroHeadline: "Legacy of Honor",
+        icon: Sparkles,
+        folder: "cacao5-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "59",
+        name: "SOMA",
+        description: "The Art of Translation",
+        href: "/template59",
+        accent: "text-[#d2691e]",
+        accentHex: "#d2691e",
+        heroHeadline: "Art of Translation",
+        icon: Sparkles,
+        folder: "cacao8-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "60",
+        name: "CORE",
+        description: "The Base Element",
+        href: "/template60",
+        accent: "text-[#00f0ff]",
+        accentHex: "#00f0ff",
+        heroHeadline: "The Base Element",
+        icon: Sparkles,
+        folder: "cacao10-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "61",
+        name: "LUMINA",
+        description: "Taste the Radiance",
+        href: "/template61",
+        accent: "text-[#ffd700]",
+        accentHex: "#ffd700",
+        heroHeadline: "Taste the Radiance",
+        icon: Sparkles,
+        folder: "cacao11-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "62",
+        name: "OBELISK",
+        description: "Architectural Cacao",
+        href: "/template62",
+        accent: "text-white",
+        accentHex: "#ffffff",
+        heroHeadline: "The Monolith",
+        icon: Sparkles,
+        folder: "cacao12-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "63",
+        name: "VORTEX",
+        description: "Kinetic Cacao Energy",
+        href: "/template63",
+        accent: "text-[#ccff00]",
+        accentHex: "#ccff00",
+        heroHeadline: "Hyper Conched",
+        icon: Sparkles,
+        folder: "cacao13-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "64",
+        name: "NOVA",
+        description: "Celestial Cacao Exploration",
+        href: "/template64",
+        accent: "text-[#e0e7ff]",
+        accentHex: "#e0e7ff",
+        heroHeadline: "Born from Stardust",
+        icon: Sparkles,
+        folder: "cacao14-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "65",
+        name: "AEON",
+        description: "The Eternal Harvest",
+        href: "/template65",
+        accent: "text-[#c5a059]",
+        accentHex: "#c5a059",
+        heroHeadline: "Time, Condensed",
+        icon: Sparkles,
+        folder: "cacao15-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "66",
+        name: "ORIGIN",
+        description: "Raw Botanical Cacao",
+        href: "/template66",
+        accent: "text-[#88b04b]",
+        accentHex: "#88b04b",
+        heroHeadline: "The Raw Truth",
+        icon: Sparkles,
+        folder: "cacao16-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "67",
+        name: "ETHOS",
+        description: "Ethical Transparent Cacao",
+        href: "/template67",
+        accent: "text-[#d1d5db]",
+        accentHex: "#d1d5db",
+        heroHeadline: "Honest Extraction",
+        icon: Sparkles,
+        folder: "cacao17-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       }
     ]
   },

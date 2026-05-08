@@ -1,0 +1,36 @@
+'use client';
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
+import { useState } from 'react';
+import Link from 'next/link';
+
+export default function LuminaNavbar() {
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() || 0;
+    if (latest > previous && latest > 150) setHidden(true);
+    else setHidden(false);
+    setScrolled(latest > 50);
+  });
+
+  return (
+    <motion.nav variants={{ visible: { y: 0, opacity: 1 }, hidden: { y: -100, opacity: 0 } }} animate={hidden ? "hidden" : "visible"} transition={{ duration: 0.4 }}
+      className={`fixed top-0 left-0 w-full z-50 px-8 py-5 transition-all duration-500 ${scrolled ? 'bg-[#1a0b2e]/90 backdrop-blur-md border-b border-[#ffd700]/10' : 'bg-transparent'}`}>
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <div className="flex gap-10 text-xs font-light tracking-[0.3em] text-white/40">
+          <a href="#manifesto" className="hidden md:block hover:text-white transition-colors">Vision</a>
+          <a href="#atelier" className="hidden md:block hover:text-white transition-colors">Atelier</a>
+        </div>
+        <div className="absolute left-1/2 -translate-x-1/2">
+          <span className="text-2xl font-light tracking-[0.5em] text-[#ffd700]" style={{ fontFamily: "'Cormorant Garamond', serif" }}>Lumina</span>
+        </div>
+        <div className="flex items-center gap-10 text-xs font-light tracking-[0.3em] text-white/40">
+          <a href="#craft" className="hidden md:block hover:text-white transition-colors">Process</a>
+          <a href="#collection" className="hidden md:block hover:text-white transition-colors">Collection</a>
+          <Link href="/gallery" className="hover:text-white transition-colors">Gallery</Link>
+        </div>
+      </div>
+    </motion.nav>
+  );
+}
