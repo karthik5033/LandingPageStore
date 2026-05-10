@@ -50,8 +50,10 @@ export default function Template55() {
           fileExtension="png"
           padLength={3}
         />
-        {/* Deep translucent overlay to ensure text contrast while keeping video visible */}
-        <div className="absolute inset-0 bg-[#030303]/75 backdrop-blur-[2px] z-10" />
+        {/* Pro Vignette Overlay: maintains contrast for text at edges while leaving the center bright */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(3,3,3,0.8)_100%)] z-10" />
+        {/* Base light tint to unify the aesthetic without darkening too much */}
+        <div className="absolute inset-0 bg-[#030303]/20 backdrop-blur-[1px] z-10" />
       </div>
 
       <main className="relative z-10 w-full text-white selection:bg-[#8f1722] selection:text-white">

@@ -30,7 +30,7 @@ const products = [
 
 export default function EclipseProducts() {
   return (
-    <section id="collection" className="py-40 px-8 relative z-10 bg-[#030303]/70 backdrop-blur-md border-t border-[#8f1722]/10">
+    <section id="collection" className="py-40 px-8 relative z-10 bg-[#030303]/30 backdrop-blur-sm border-t border-[#8f1722]/10">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

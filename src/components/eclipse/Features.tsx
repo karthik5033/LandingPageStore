@@ -18,7 +18,7 @@ const philosophy = [
 
 export default function EclipseFeatures() {
   return (
-    <section id="philosophy" className="py-40 px-8 relative z-10 bg-[#030303]/50 backdrop-blur-sm border-t border-[#8f1722]/20">
+    <section id="philosophy" className="py-40 px-8 relative z-10 bg-[#030303]/20 backdrop-blur-sm border-t border-[#8f1722]/20">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           <motion.div
