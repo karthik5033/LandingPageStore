@@ -69,9 +69,16 @@ function LoginContent() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="bg-white/[0.02] backdrop-blur-3xl border border-white/5 rounded-2xl p-6 md:p-8 shadow-2xl"
         >
-          <h1 className="text-xl font-light tracking-wide mb-5 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <h1 className="text-xl font-light tracking-wide mb-4 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
             Welcome <span className="italic text-gray-400">Back</span>
           </h1>
+
+          {/* Development Notice */}
+          <div className="bg-white/[0.03] border border-white/10 rounded-xl p-4 mb-6 text-center">
+            <p className="text-[10px] text-gray-400 font-light leading-relaxed uppercase tracking-wider">
+              <span className="text-white font-bold">Developer Preview:</span> The app is currently in the building phase. Authentication is simulated—you may press <span className="text-white font-bold">Sign In</span> directly to enter.
+            </p>
+          </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-1.5">
