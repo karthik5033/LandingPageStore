@@ -1,6 +1,6 @@
 'use client';
 import { motion, useScroll } from 'framer-motion';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { categories } from '@/lib/data';
@@ -55,6 +55,13 @@ function GalleryContent() {
   const [scrolled, setScrolled] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const { scrollY } = useScroll();
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch((e) => console.log('Video play error:', e));
+    }
+  }, []);
 
   // Filter categories/templates based on search
   const filteredCategories = useMemo(() => {
@@ -93,14 +100,14 @@ function GalleryContent() {
       {/* Background Video */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <video 
+          ref={videoRef}
           autoPlay 
           loop 
           muted 
           playsInline 
+          src="/newv.mp4"
           className="w-full h-full object-cover opacity-60 mix-blend-screen grayscale"
-        >
-          <source src="/newv.mp4" type="video/mp4" />
-        </video>
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/90 z-10" />
       </div>
 

@@ -1,7 +1,7 @@
 'use client';
 import { motion, useScroll } from 'framer-motion';
 import { ArrowRight, Layers, Cpu, Smartphone, Code2, Eye, Palette, MousePointerClick, Rocket, Shield, Globe, Timer, Gem } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { categories } from '@/lib/data';
 import { PageTransitionProvider, usePageTransition } from '@/components/PageTransition';
@@ -56,6 +56,13 @@ function HomeContent() {
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
   const { navigateTo } = usePageTransition();
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch((e) => console.log('Video play error:', e));
+    }
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -74,14 +81,14 @@ function HomeContent() {
       {/* Background Video */}
       <div className="fixed inset-0 z-0 pointer-events-none bg-black">
         <video 
+          ref={videoRef}
           autoPlay 
           loop 
           muted 
           playsInline 
+          src="/hero-bg.mp4"
           className="w-full h-full object-cover opacity-40"
-        >
-          <source src="/hero-bg.mp4" type="video/mp4" />
-        </video>
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-[#050505] z-10" />
       </div>
 
