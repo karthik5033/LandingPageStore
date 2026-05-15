@@ -118,7 +118,7 @@ export default function Home() {
               </div>
               <h2 className="text-7xl md:text-9xl font-serif leading-[0.9] mb-12 tracking-tighter">
                 The New <br/>
-                <span className="text-gray-700 italic font-light">Viscosity.</span>
+                <span className="text-gray-400 italic font-light">Viscosity.</span>
               </h2>
               <p className="text-gray-400 text-xl leading-relaxed font-light mb-16 border-l border-[#d8b4e2]/40 pl-12 max-w-lg">
                 A symphony of texture and taste. VELOUR soft serve is extruded 
@@ -153,7 +153,7 @@ export default function Home() {
               </div>
               <h2 className="text-7xl md:text-9xl font-serif leading-[0.9] mb-12 tracking-tighter">
                 Lighter <br/>
-                <span className="text-gray-700 italic font-light">than Air.</span>
+                <span className="text-gray-400 italic font-light">than Air.</span>
               </h2>
               <p className="text-gray-400 text-xl leading-relaxed font-light mb-16 border-l border-[#d8b4e2]/40 pl-12 max-w-lg">
                  We carefully calibrate the overrun—the exact percentage of air 

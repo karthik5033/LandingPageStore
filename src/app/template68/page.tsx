@@ -119,7 +119,7 @@ export default function Home() {
               </div>
               <h2 className="text-6xl md:text-8xl font-serif leading-[0.95] mb-12 tracking-tighter">
                 Density <br/>
-                <span className="text-gray-700 italic font-light">Redefined.</span>
+                <span className="text-gray-400 italic font-light">Redefined.</span>
               </h2>
               <p className="text-gray-400 text-xl leading-relaxed font-light mb-12 border-l border-white/10 pl-10 max-w-lg">
                 Crafted from the richest single-origin dairy and the finest imported 
@@ -155,7 +155,7 @@ export default function Home() {
               </div>
               <h2 className="text-6xl md:text-8xl font-serif leading-[0.95] mb-12 tracking-tighter">
                 Patience <br/>
-                <span className="text-gray-700 italic font-light">is Flavor.</span>
+                <span className="text-gray-400 italic font-light">is Flavor.</span>
               </h2>
               <p className="text-gray-400 text-xl leading-relaxed font-light mb-12 border-l border-white/10 pl-10 max-w-lg">
                  We don't just freeze; we sculpt flavor. Using traditional 
