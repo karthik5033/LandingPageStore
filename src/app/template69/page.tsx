@@ -34,14 +34,7 @@ export default function Home() {
         style={{ scaleX }}
       />
 
-      {/* Side Brand Indicator */}
-      <div className="fixed right-0 top-0 bottom-0 w-24 border-l border-white/5 z-40 hidden md:flex flex-col items-center justify-center">
-        <div className="-rotate-90 origin-center whitespace-nowrap text-[10px] tracking-[0.6em] text-gray-600 flex items-center gap-6">
-          <span className="uppercase">Molecular Soft Serve Lab</span>
-          <div className="w-12 h-[1px] bg-white/10" />
-          <span className="uppercase">Tokyo — LA</span>
-        </div>
-      </div>
+
 
       <div className="fixed inset-0 z-0 pointer-events-none">
         <ScrollSequence 

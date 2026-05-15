@@ -18,13 +18,13 @@ export default function Footer() {
             <div className="w-2 h-2 bg-[#fbcfe8]" />
             <span className="text-3xl font-serif font-bold tracking-tighter">GLACÉ</span>
           </motion.div>
-          <p className="text-sm text-gray-400 leading-relaxed font-light tracking-wide max-w-sm">
-            Crafting the finest coffee experience. <br/>
-            Sourced ethically. Roasted with precision.
+          <p className="text-sm text-gray-300 leading-relaxed font-light tracking-wide max-w-sm">
+            Crafting the finest gelato experience. <br/>
+            Sourced ethically. Churned with precision.
           </p>
           <div className="flex gap-6 mt-4">
              {['Instagram', 'Twitter', 'LinkedIn'].map((social) => (
-               <a key={social} href="#" className="text-[10px] uppercase tracking-[0.2em] hover:text-[#fbcfe8] transition-colors">{social}</a>
+               <a key={social} href="#" className="text-[10px] text-gray-300 uppercase tracking-[0.2em] hover:text-[#fbcfe8] transition-colors">{social}</a>
              ))}
           </div>
         </div>
@@ -33,29 +33,29 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-12 md:gap-24 mt-16 md:mt-0 w-full md:w-2/3 justify-end text-left md:text-right">
           
           <div className="flex flex-col gap-6">
-            <h4 className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.25em]">Explore</h4>
-            <a href="#origin" className="text-sm font-light hover:text-[#fbcfe8] transition-colors">Our Story</a>
-            <a href="#origin" className="text-sm font-light hover:text-[#fbcfe8] transition-colors">Sourcing</a>
-            <a href="/gallery" className="text-sm font-light hover:text-[#fbcfe8] transition-colors">Gallery</a>
+            <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.25em]">Explore</h4>
+            <a href="#origin" className="text-sm font-light text-gray-200 hover:text-[#fbcfe8] transition-colors">Our Story</a>
+            <a href="#origin" className="text-sm font-light text-gray-200 hover:text-[#fbcfe8] transition-colors">Sourcing</a>
+            <a href="/gallery" className="text-sm font-light text-gray-200 hover:text-[#fbcfe8] transition-colors">Gallery</a>
           </div>
 
           <div className="flex flex-col gap-6">
-            <h4 className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.25em]">Shop</h4>
-            <a href="#collection" className="text-sm font-light hover:text-[#fbcfe8] transition-colors">Single Origin</a>
-            <a href="#collection" className="text-sm font-light hover:text-[#fbcfe8] transition-colors">Blends</a>
-            <a href="#collection" className="text-sm font-light hover:text-[#fbcfe8] transition-colors">Subscriptions</a>
+            <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.25em]">Shop</h4>
+            <a href="#collection" className="text-sm font-light text-gray-200 hover:text-[#fbcfe8] transition-colors">Signature Gelatos</a>
+            <a href="#collection" className="text-sm font-light text-gray-200 hover:text-[#fbcfe8] transition-colors">Pints</a>
+            <a href="#collection" className="text-sm font-light text-gray-200 hover:text-[#fbcfe8] transition-colors">Merch</a>
           </div>
 
           <div className="flex flex-col gap-6">
-             <h4 className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.25em]">Reach Us</h4>
-             <span className="text-sm font-light text-gray-300">hello@glace.gelato</span>
-             <span className="text-sm font-light text-gray-300">Los Angeles, CA</span>
+             <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.25em]">Reach Us</h4>
+             <a href="mailto:hello@glace.gelato" className="text-sm font-light text-gray-200 hover:text-[#fbcfe8] transition-colors">hello@glace.gelato</a>
+             <span className="text-sm font-light text-gray-200">Los Angeles, CA</span>
           </div>
 
         </div>
       </div>
 
-      <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-600 uppercase tracking-[0.2em]">
+      <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-400 uppercase tracking-[0.2em]">
          <span>© 2026 Glacé Gelato Co.</span>
          <div className="flex gap-8 mt-4 md:mt-0">
             <a href="#" className="hover:text-[#fbcfe8] transition-colors">Privacy</a>
