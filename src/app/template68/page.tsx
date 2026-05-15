@@ -51,9 +51,9 @@ export default function Home() {
           fileExtension="png"
           padLength={3}
         />
-        {/* Advanced Vignette */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent z-10" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60 z-10" />
+        {/* Subtle Vignette Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50 z-10" />
       </div>
 
       <main className="relative z-10 w-full text-white">
@@ -171,12 +171,7 @@ export default function Home() {
         <Process />
 
         {/* Section 4: Ritual */}
-        <section id="ritual" className="h-screen flex items-center justify-center px-6 relative overflow-hidden bg-white text-black">
-           {/* Background Decoration */}
-           <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none select-none overflow-hidden">
-              <span className="text-[40rem] font-serif font-bold whitespace-nowrap absolute -top-40 -left-20">GLACÉ</span>
-           </div>
-
+        <section id="ritual" className="h-screen flex items-center justify-center px-6 relative bg-transparent text-white overflow-hidden">
            <div className="max-w-4xl text-center relative z-10">
               <motion.div
                  initial={{ opacity: 0, scale: 0.95 }}
@@ -194,7 +189,7 @@ export default function Home() {
                   <motion.button 
                      whileHover={{ scale: 1.05 }}
                      whileTap={{ scale: 0.95 }}
-                     className="px-16 py-8 bg-black text-white font-bold uppercase tracking-[0.3em] text-sm hover:bg-[#fbcfe8] hover:text-black transition-all duration-500"
+                     className="px-16 py-8 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold uppercase tracking-[0.3em] text-sm hover:bg-[#fbcfe8] hover:text-black transition-all duration-500"
                   >
                      Explore the Collection
                   </motion.button>

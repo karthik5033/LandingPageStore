@@ -25,7 +25,7 @@ const features = [
 
 export default function Features() {
   return (
-    <section id="features" className="py-40 px-6 md:pl-40 md:pr-24 relative z-10 bg-black">
+    <section id="features" className="py-40 px-6 md:pl-40 md:pr-24 relative z-10 bg-transparent">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-baseline justify-between mb-24 gap-8">
             <motion.div

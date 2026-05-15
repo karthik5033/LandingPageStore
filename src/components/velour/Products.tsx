@@ -37,7 +37,7 @@ export default function Products() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
-    <section id="products" className="py-32 overflow-hidden relative z-10 bg-black">
+    <section id="products" className="py-32 overflow-hidden relative z-10 bg-black/20 backdrop-blur-md border-y border-white/5">
       <div className="max-w-7xl mx-auto px-6 md:pl-40 md:pr-12 mb-20 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
          <motion.div
            initial={{ opacity: 0, x: -20 }}

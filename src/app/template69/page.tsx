@@ -51,9 +51,9 @@ export default function Home() {
           fileExtension="png"
           padLength={3}
         />
-        {/* Advanced Vignette */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/30 to-transparent z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
+        {/* Subtle Vignette Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/10 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 z-10" />
       </div>
 
       <main className="relative z-10 w-full text-white">
@@ -169,14 +169,7 @@ export default function Home() {
         <Process />
 
         {/* Section 4: Ritual */}
-        <section id="ritual" className="h-screen flex items-center justify-center px-6 relative bg-white text-black overflow-hidden">
-           {/* Geometric Decor */}
-           <div className="absolute inset-0 opacity-[0.02] flex items-center justify-center pointer-events-none">
-              <div className="w-[800px] h-[800px] border border-black rounded-full" />
-              <div className="w-[600px] h-[600px] border border-black rounded-full absolute" />
-              <div className="w-[400px] h-[400px] border border-black rounded-full absolute" />
-           </div>
-
+        <section id="ritual" className="h-screen flex items-center justify-center px-6 relative bg-transparent text-white overflow-hidden">
            <div className="max-w-4xl text-center relative z-10">
               <motion.div
                  initial={{ opacity: 0, y: 40 }}
@@ -192,8 +185,8 @@ export default function Home() {
                      Experience a fleeting moment of pure, unadulterated luxury. Velour is not just eaten; it is felt.
                   </p>
                   <motion.button 
-                     whileHover={{ scale: 1.05, backgroundColor: "#000", color: "#fff" }}
-                     className="px-20 py-8 border-2 border-black text-black font-bold uppercase tracking-[0.4em] text-sm transition-all duration-500"
+                     whileHover={{ scale: 1.05, backgroundColor: "#fff", color: "#000" }}
+                     className="px-20 py-8 border-2 border-white/30 backdrop-blur-md text-white font-bold uppercase tracking-[0.4em] text-sm transition-all duration-500 hover:border-white"
                   >
                      Enter the Atelier
                   </motion.button>

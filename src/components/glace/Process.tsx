@@ -32,7 +32,7 @@ export default function Process() {
   const y2 = useTransform(scrollYProgress, [0, 1], [0, 150]);
 
   return (
-    <section id="roast" ref={ref} className="py-40 px-6 md:pl-40 md:pr-12 relative z-10 bg-[#050505] overflow-hidden">
+    <section id="roast" ref={ref} className="py-40 px-6 md:pl-40 md:pr-12 relative z-10 bg-transparent overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
            
