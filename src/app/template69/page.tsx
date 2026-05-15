@@ -51,9 +51,9 @@ export default function Home() {
           fileExtension="png"
           padLength={3}
         />
-        {/* Subtle Vignette Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/10 to-transparent z-10" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 z-10" />
+        {/* Reading Overlay */}
+        <div className="absolute inset-0 bg-black/60 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50 z-10" />
       </div>
 
       <main className="relative z-10 w-full text-white">
@@ -75,7 +75,7 @@ export default function Home() {
                  initial={{ y: "100%" }}
                  animate={{ y: 0 }}
                  transition={{ duration: 1.5, ease: [0.19, 1, 0.22, 1] }}
-                 className="text-[12vw] md:text-[14rem] leading-[0.75] font-serif font-bold tracking-tighter"
+                 className="text-[12vw] md:text-[10rem] leading-[0.75] font-serif font-bold tracking-tight"
               >
                 VELOUR
               </motion.h1>
@@ -86,10 +86,10 @@ export default function Home() {
                transition={{ delay: 1, duration: 1.5 }}
                className="flex items-baseline gap-8"
             >
-               <p className="text-xl md:text-3xl font-light tracking-[0.4em] uppercase text-gray-500">
+               <p className="text-xl md:text-3xl font-light tracking-[0.4em] uppercase text-gray-200">
                  Silken <span className="text-white">Indulgence</span>
                </p>
-               <div className="hidden md:block w-32 h-[1px] bg-white/10" />
+               <div className="hidden md:block w-32 h-[1px] bg-white/30" />
             </motion.div>
           </motion.div>
 

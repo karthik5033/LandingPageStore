@@ -51,9 +51,9 @@ export default function Home() {
           fileExtension="png"
           padLength={3}
         />
-        {/* Subtle Vignette Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent z-10" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50 z-10" />
+        {/* Reading Overlay */}
+        <div className="absolute inset-0 bg-black/50 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50 z-10" />
       </div>
 
       <main className="relative z-10 w-full text-white">
@@ -75,7 +75,7 @@ export default function Home() {
                  initial={{ y: "100%" }}
                  animate={{ y: 0 }}
                  transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                 className="text-[10vw] md:text-[12rem] leading-[0.8] font-serif font-bold tracking-tighter"
+                 className="text-[12vw] md:text-[10rem] leading-[0.8] font-serif font-bold tracking-tight"
               >
                 GLACÉ
               </motion.h1>
@@ -84,7 +84,7 @@ export default function Home() {
                initial={{ opacity: 0, x: -20 }}
                animate={{ opacity: 1, x: 0 }}
                transition={{ delay: 0.8, duration: 1 }}
-               className="text-lg md:text-2xl font-light tracking-[0.5em] uppercase text-gray-400 flex items-center gap-6"
+               className="text-lg md:text-2xl font-light tracking-[0.4em] uppercase text-gray-200 flex items-center gap-6"
             >
               The Art of <span className="text-[#fbcfe8] italic lowercase font-serif tracking-normal font-normal">Gelato</span>
             </motion.p>

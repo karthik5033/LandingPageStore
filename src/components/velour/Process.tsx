@@ -81,16 +81,16 @@ export default function Process() {
                      initial={{ opacity: 0, scale: 0.9 }}
                      whileInView={{ opacity: 1, scale: 1 }}
                      transition={{ delay: i * 0.1, duration: 0.6 }}
-                     className="group p-10 bg-[#0a0a0a] border border-white/5 hover:border-[#d8b4e2]/30 transition-all duration-700 relative overflow-hidden"
+                     className="group p-10 bg-black/40 backdrop-blur-md border border-white/10 hover:border-[#d8b4e2]/30 transition-all duration-700 relative overflow-hidden rounded-lg"
                    >
                       <div className="relative z-10">
-                        <s.icon className="w-6 h-6 text-[#d8b4e2] mb-6 opacity-40 group-hover:opacity-100 transition-opacity" />
+                        <s.icon className="w-6 h-6 text-[#d8b4e2] mb-6 opacity-60 group-hover:opacity-100 transition-opacity" />
                         <h3 className="text-6xl font-serif text-white mb-2 tracking-tighter">{s.value}</h3>
-                        <p className="text-xs font-bold text-gray-500 uppercase tracking-[0.3em] group-hover:text-[#d8b4e2] transition-colors">{s.label}</p>
-                        <p className="text-sm text-gray-600 mt-4 font-light max-w-[200px]">{s.desc}</p>
+                        <p className="text-xs font-bold text-gray-300 uppercase tracking-[0.3em] group-hover:text-[#d8b4e2] transition-colors">{s.label}</p>
+                        <p className="text-sm text-gray-400 mt-4 font-light max-w-[200px]">{s.desc}</p>
                       </div>
                       
-                      <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">
+                      <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
                          <span className="text-xs font-mono text-white">0{i+1}</span>
                       </div>
                    </motion.div>

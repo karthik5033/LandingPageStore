@@ -38,26 +38,26 @@ export default function Products() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
-    <section id="products" className="py-32 overflow-hidden relative z-10 bg-black/20 backdrop-blur-md border-y border-white/5">
+    <section id="products" className="py-32 overflow-hidden relative z-10 bg-transparent border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6 md:pl-40 md:pr-12 mb-20 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
          <motion.div
            initial={{ opacity: 0, x: -20 }}
            whileInView={{ opacity: 1, x: 0 }}
            transition={{ duration: 0.8 }}
          >
-            <span className="text-[#fbcfe8] text-xs font-bold tracking-[0.4em] uppercase block mb-4">Curated Selections</span>
-            <h2 className="text-5xl md:text-7xl font-serif text-white tracking-tighter">The <span className="italic text-gray-500 font-light">Atelier</span> Collection.</h2>
+            <span className="text-[#fbcfe8] text-xs font-bold tracking-[0.4em] uppercase block mb-4">The Selection</span>
+            <h2 className="text-5xl md:text-7xl font-serif text-white tracking-tight">Signature <span className="italic text-gray-400 font-light">Gelato.</span></h2>
          </motion.div>
          <motion.button 
            whileHover={{ x: 10 }}
            className="text-xs uppercase tracking-[0.3em] font-bold flex items-center gap-4 text-[#fbcfe8] group transition-all"
          >
-           Explore All Flavors
+           View Menu
            <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
          </motion.button>
       </div>
 
-      <div className="flex gap-10 px-6 md:pl-40 pb-20 overflow-x-auto no-scrollbar snap-x snap-mandatory">
+      <div className="flex gap-8 px-6 md:pl-40 pb-20 overflow-x-auto no-scrollbar snap-x snap-mandatory">
         {products.map((p, i) => (
           <motion.div 
             key={p.id}
@@ -67,57 +67,41 @@ export default function Products() {
             viewport={{ once: true }}
             onMouseEnter={() => setHoveredId(p.id)}
             onMouseLeave={() => setHoveredId(null)}
-            className="flex-shrink-0 w-[85vw] md:w-[450px] group relative snap-center cursor-pointer"
+            className="flex-shrink-0 w-[85vw] md:w-[380px] group relative snap-center cursor-pointer"
           >
-             <div className="relative h-[600px] bg-[#111] border border-white/5 overflow-hidden transition-all duration-700 group-hover:border-white/20">
-                {/* Background Gradient */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${p.color} opacity-0 group-hover:opacity-10 transition-opacity duration-1000`} />
-                
-                {/* Large Background Text */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center opacity-[0.03] group-hover:opacity-[0.07] transition-all duration-1000 rotate-90">
-                    <span className="text-[12rem] font-serif font-bold whitespace-nowrap tracking-tighter select-none uppercase">
-                      {p.name.split(' ')[0]}
-                    </span>
-                </div>
-
+             <div className="relative h-[550px] bg-black/40 backdrop-blur-xl border border-white/20 rounded-lg overflow-hidden transition-all duration-500 hover:border-[#fbcfe8]/50">
                 {/* Main Content Container */}
-                <div className="absolute inset-0 p-12 flex flex-col justify-between z-10">
-                   <div className="flex justify-between items-start">
-                      <div className="w-12 h-[1px] bg-white/20 mt-3 group-hover:w-20 transition-all duration-700" />
-                      <span className="text-xs font-mono text-gray-500 tracking-widest uppercase">Variant 0{p.id}</span>
+                <div className="absolute inset-0 p-10 flex flex-col justify-between z-10">
+                   <div className="flex justify-between items-center">
+                      <div className="w-8 h-[1px] bg-white/40 group-hover:w-16 group-hover:bg-[#fbcfe8] transition-all duration-500" />
+                      <span className="text-[10px] font-mono text-gray-400 tracking-widest uppercase">Variant 0{p.id}</span>
                    </div>
 
                    <div className="space-y-6">
-                      <div className="space-y-2">
-                        <h3 className="text-4xl md:text-5xl font-serif text-white tracking-tight group-hover:text-[#fbcfe8] transition-colors duration-500">
+                      <div className="space-y-3">
+                        <h3 className="text-4xl font-serif text-white tracking-tight group-hover:text-[#fbcfe8] transition-colors duration-500">
                           {p.name}
                         </h3>
-                        <p className="text-xs text-[#fbcfe8] uppercase tracking-[0.3em] font-bold opacity-60">
+                        <p className="text-xs text-[#fbcfe8] uppercase tracking-[0.2em] font-bold">
                           {p.notes}
                         </p>
                       </div>
                       
-                      <p className="text-sm text-gray-400 font-light leading-relaxed max-w-[280px] opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-700 delay-100">
+                      <p className="text-sm text-gray-200 font-light leading-relaxed opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 h-0 group-hover:h-auto overflow-hidden">
                         {p.description}
                       </p>
 
-                      <div className="pt-8 flex justify-between items-center border-t border-white/5 transform translate-y-8 group-hover:translate-y-0 transition-all duration-700 delay-200">
+                      <div className="pt-6 flex justify-between items-center border-t border-white/10 mt-6">
                          <span className="text-2xl font-serif text-white">{p.price}</span>
                          <motion.div 
                            whileHover={{ scale: 1.1, rotate: 90 }}
-                           className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-black"
+                           className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-black hover:bg-[#fbcfe8] transition-colors"
                          >
                             <Plus className="w-5 h-5" />
                          </motion.div>
                       </div>
                    </div>
                 </div>
-
-                {/* Animated Corner Accent */}
-                <div 
-                  className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-white/10 to-transparent transition-transform duration-1000 translate-x-32 translate-y--32 group-hover:translate-x-0 group-hover:translate-y-0"
-                  style={{ background: `linear-gradient(to bottom left, ${p.accent}22, transparent)` }}
-                />
              </div>
           </motion.div>
         ))}
