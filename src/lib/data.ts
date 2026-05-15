@@ -767,5 +767,33 @@ export const categories = [
         folder: "spice21-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
       }
     ]
+  },
+  {
+    name: "Ice Cream Series",
+    description: "Cool, refreshing, and creamy templates tailored for artisanal ice cream and gelato brands. Features smooth transitions, soft pastels, and premium dessert aesthetics.",
+    templates: [
+      {
+        id: "68",
+        name: "GLACÉ",
+        description: "The Art of Gelato",
+        href: "/template68",
+        accent: "text-[#fbcfe8]",
+        accentHex: "#fbcfe8",
+        heroHeadline: "Pure Cream",
+        icon: Sparkles,
+        folder: "icecream1-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      },
+      {
+        id: "69",
+        name: "VELOUR",
+        description: "The Soft Serve Experience",
+        href: "/template69",
+        accent: "text-[#d8b4e2]",
+        accentHex: "#d8b4e2",
+        heroHeadline: "Silken Indulgence",
+        icon: Sparkles,
+        folder: "icecream2-frames", ext: ".png", prefix: "ezgif-frame-", frameCount: 156
+      }
+    ]
   }
 ];

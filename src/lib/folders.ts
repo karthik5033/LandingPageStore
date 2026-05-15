@@ -316,5 +316,17 @@ export const templateFolders: Record<string, { folder: string; ext: string; pref
     "ext": ".png",
     "prefix": "ezgif-frame-",
     "count": 156
+  },
+  "68": {
+    "folder": "icecream1-frames",
+    "ext": ".png",
+    "prefix": "ezgif-frame-",
+    "count": 156
+  },
+  "69": {
+    "folder": "icecream2-frames",
+    "ext": ".png",
+    "prefix": "ezgif-frame-",
+    "count": 156
   }
 };
