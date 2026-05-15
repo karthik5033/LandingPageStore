@@ -32,39 +32,6 @@ export default function Navbar() {
         hidden: { y: -100, opacity: 0 }
       }}
       animate={hidden ? "hidden" : "visible"}
-import Link from 'next/link';
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
-import { Menu, Search, ShoppingBag } from 'lucide-react';
-import { useState } from 'react';
-import { cn } from '@/lib/utils';
-
-export default function Navbar() {
-  const { scrollY } = useScroll();
-  const [hidden, setHidden] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    const previous = scrollY.getPrevious() || 0;
-    if (latest > previous && latest > 150) {
-      setHidden(true);
-    } else {
-      setHidden(false);
-    }
-    
-    if (latest > 50) {
-        setScrolled(true);
-    } else {
-        setScrolled(false);
-    }
-  });
-
-  return (
-    <motion.nav 
-      variants={{
-        visible: { y: 0, opacity: 1 },
-        hidden: { y: -100, opacity: 0 }
-      }}
-      animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
       className={cn(
         "fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 md:px-12 py-6 transition-colors duration-500",

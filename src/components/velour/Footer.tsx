@@ -3,10 +3,6 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 export default function Footer() {
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-
-export default function Footer() {
   return (
     <footer className="w-full bg-black text-white relative z-20 py-10 px-6 md:px-24 border-t border-white/10">
       <div className="flex flex-col md:flex-row justify-between items-start">
