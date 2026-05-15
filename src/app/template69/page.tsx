@@ -1,5 +1,5 @@
 'use client';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
 import ScrollSequence from '@/components/ScrollSequence';
 import Navbar from '@/components/velour/Navbar';
 import Footer from '@/components/velour/Footer';
@@ -7,13 +7,6 @@ import Features from '@/components/velour/Features';
 import Products from '@/components/velour/Products';
 import Process from '@/components/velour/Process';
 import { useRef, useState, useEffect } from 'react';
-
-const sections = [
-  { id: 'hero', title: 'Beginnings' },
-  { id: 'origin', title: 'The Source' },
-  { id: 'roast', title: 'The Craft' },
-  { id: 'ritual', title: 'The Ritual' }
-];
 
 export default function Home() {
   const containerRef = useRef(null);
@@ -28,20 +21,26 @@ export default function Home() {
     restDelta: 0.001
   });
 
+  const opacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.15], [1, 0.95]);
+
   return (
-    <div ref={containerRef} className="relative bg-black font-sans">
+    <div ref={containerRef} className="relative bg-[#020202] font-sans selection:bg-[#d8b4e2] selection:text-black">
       <Navbar />
 
       {/* Progress Bar (Top) */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-white origin-left z-50 mix-blend-difference"
+        className="fixed top-0 left-0 right-0 h-[2px] bg-[#d8b4e2] origin-left z-[100]"
         style={{ scaleX }}
       />
 
-      {/* Decorative Vertical Lines (Left) */}
-      <div className="fixed left-0 top-0 bottom-0 w-24 border-r border-white/10 z-40 hidden md:block" />
-      <div className="fixed left-12 top-1/2 -translate-y-1/2 -rotate-90 origin-center whitespace-nowrap text-xs tracking-[0.3em] text-white/40 hidden md:block z-40 flex items-center gap-4">
-        <span>EST. 2026 — VELOUR SOFT SERVE</span>
+      {/* Side Brand Indicator */}
+      <div className="fixed right-0 top-0 bottom-0 w-24 border-l border-white/5 z-40 hidden md:flex flex-col items-center justify-center">
+        <div className="-rotate-90 origin-center whitespace-nowrap text-[10px] tracking-[0.6em] text-gray-600 flex items-center gap-6">
+          <span className="uppercase">Molecular Soft Serve Lab</span>
+          <div className="w-12 h-[1px] bg-white/10" />
+          <span className="uppercase">Tokyo — LA</span>
+        </div>
       </div>
 
       <div className="fixed inset-0 z-0 pointer-events-none">
@@ -52,139 +51,151 @@ export default function Home() {
           fileExtension="png"
           padLength={3}
         />
-        {/* Vignette Overlay for better text readability on left */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent z-10" />
+        {/* Advanced Vignette */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/30 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
       </div>
 
-      <main className="relative z-10 w-full text-white selection:bg-amber-100 selection:text-black">
+      <main className="relative z-10 w-full text-white">
         
         {/* Section 1: Hero */}
-        <section id="hero" className="h-screen relative flex items-center pl-6 md:pl-40 pr-6">
-          <div className="max-w-4xl relative z-20">
+        <section id="hero" className="h-[120vh] relative flex items-center pl-6 md:pl-48 pr-6">
+          <motion.div 
+            style={{ opacity, scale }}
+            className="max-w-5xl relative z-20"
+          >
             <motion.div 
               initial={{ width: 0 }}
-              animate={{ width: '100px' }}
-              transition={{ duration: 1, delay: 0.5 }}
-              className="h-[1px] bg-white mb-8"
+              animate={{ width: '60px' }}
+              transition={{ duration: 2, ease: "expoOut" }}
+              className="h-[1px] bg-[#d8b4e2] mb-16"
             />
-            <motion.h1 
-               initial={{ opacity: 0, x: -50 }}
-               animate={{ opacity: 1, x: 0 }}
-               transition={{ duration: 1, ease: "easeOut" }}
-               className="text-7xl sm:text-8xl md:text-[9rem] leading-[0.85] font-serif font-bold tracking-tighter mix-blend-overlay mb-6"
-            >
-              VELOUR
-            </motion.h1>
-            <motion.p 
+            <div className="overflow-hidden mb-8">
+              <motion.h1 
+                 initial={{ y: "100%" }}
+                 animate={{ y: 0 }}
+                 transition={{ duration: 1.5, ease: [0.19, 1, 0.22, 1] }}
+                 className="text-[12vw] md:text-[14rem] leading-[0.75] font-serif font-bold tracking-tighter"
+              >
+                VELOUR
+              </motion.h1>
+            </div>
+            <motion.div
                initial={{ opacity: 0 }}
                animate={{ opacity: 1 }}
-               transition={{ delay: 0.8, duration: 1 }}
-               className="text-xl md:text-2xl font-light tracking-[0.4em] uppercase text-gray-300 ml-2"
+               transition={{ delay: 1, duration: 1.5 }}
+               className="flex items-baseline gap-8"
             >
-              Silken Indulgence
-            </motion.p>
-          </div>
+               <p className="text-xl md:text-3xl font-light tracking-[0.4em] uppercase text-gray-500">
+                 Silken <span className="text-white">Indulgence</span>
+               </p>
+               <div className="hidden md:block w-32 h-[1px] bg-white/10" />
+            </motion.div>
+          </motion.div>
 
-          
+          <div className="absolute bottom-24 left-48 hidden md:block">
+             <div className="flex items-center gap-6">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#d8b4e2] animate-pulse" />
+                <span className="text-[10px] tracking-[0.4em] uppercase text-gray-500 font-bold">Atmospheric Pressure: 1.02 atm</span>
+             </div>
+          </div>
         </section>
 
         {/* Section 2: Origin */}
-        <section id="origin" className="min-h-[120vh] flex items-center pl-6 md:pl-40 pr-6 relative py-24">
-          <div className="max-w-xl">
+        <section id="origin" className="min-h-screen flex items-center pl-6 md:pl-48 pr-6 relative py-32">
+          <div className="max-w-2xl">
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, margin: "-20%" }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2, ease: "expoOut" }}
             >
-              <span className="block text-[#d8b4e2] text-xs font-bold tracking-[0.3em] mb-4 uppercase">
-                01. / The Source
-              </span>
-              <h2 className="text-5xl md:text-6xl font-serif leading-tight mb-8">
-                The Perfect <br/>
-                <span className="text-gray-400">Swirl.</span>
+              <div className="flex items-center gap-6 mb-12">
+                <span className="text-[#d8b4e2] text-xs font-bold tracking-[0.5em] uppercase">
+                  01. / The Synthesis
+                </span>
+                <div className="flex-1 h-[1px] bg-white/10" />
+              </div>
+              <h2 className="text-7xl md:text-9xl font-serif leading-[0.9] mb-12 tracking-tighter">
+                The New <br/>
+                <span className="text-gray-700 italic font-light">Viscosity.</span>
               </h2>
-              <p className="text-gray-300 text-lg leading-relaxed font-light mb-8 border-l border-[#d8b4e2]/20 pl-6">
+              <p className="text-gray-400 text-xl leading-relaxed font-light mb-16 border-l border-[#d8b4e2]/40 pl-12 max-w-lg">
                 A symphony of texture and taste. VELOUR soft serve is extruded 
                 precisely to create a micro-crystal structure that feels like 
                 pure silk on the palate.
               </p>
-              <button className="text-xs font-bold uppercase tracking-widest border-b border-white pb-2 hover:text-[#d8b4e2] hover:border-[#d8b4e2] transition-colors">
-                Discover Origins
-              </button>
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                className="px-10 py-5 border border-white/20 text-xs font-bold uppercase tracking-[0.4em] hover:bg-white hover:text-black transition-all"
+              >
+                Research Origins
+              </motion.button>
             </motion.div>
           </div>
         </section>
 
-        {/* Expanded Content: Features Grid */}
         <Features />
 
-        {/* Section 3: Process */}
-        <section id="roast" className="min-h-[120vh] flex items-center pl-6 md:pl-40 pr-6 relative py-24">
-          <div className="max-w-xl">
+        <section id="roast" className="min-h-screen flex items-center pl-6 md:pl-48 pr-6 relative py-32">
+          <div className="max-w-2xl">
              <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, margin: "-20%" }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2, ease: "expoOut" }}
             >
-              <span className="block text-[#d8b4e2] text-xs font-bold tracking-[0.3em] mb-4 uppercase">
-                02. / The Craft
-              </span>
-              <h2 className="text-5xl md:text-6xl font-serif leading-tight mb-8">
-                Air as an <br/>
-                <span className="text-gray-400">Ingredient.</span>
+              <div className="flex items-center gap-6 mb-12">
+                <span className="text-[#d8b4e2] text-xs font-bold tracking-[0.5em] uppercase">
+                  02. / The Aeration
+                </span>
+                <div className="flex-1 h-[1px] bg-white/10" />
+              </div>
+              <h2 className="text-7xl md:text-9xl font-serif leading-[0.9] mb-12 tracking-tighter">
+                Lighter <br/>
+                <span className="text-gray-700 italic font-light">than Air.</span>
               </h2>
-              <p className="text-gray-300 text-lg leading-relaxed font-light mb-8 border-l border-[#d8b4e2]/20 pl-6">
+              <p className="text-gray-400 text-xl leading-relaxed font-light mb-16 border-l border-[#d8b4e2]/40 pl-12 max-w-lg">
                  We carefully calibrate the overrun—the exact percentage of air 
                  whipped into the base—resulting in a weightless, cloud-like 
                  dessert that transcends traditional ice cream.
               </p>
-              
-              <div className="flex gap-8 mt-12">
-                 <div>
-                    <div className="text-3xl font-serif mb-1">-8°C</div>
-                    <div className="text-[10px] uppercase tracking-widest text-gray-500">Extrusion Temp</div>
-                 </div>
-                 <div>
-                    <div className="text-3xl font-serif mb-1">35%</div>
-                    <div className="text-[10px] uppercase tracking-widest text-gray-500">Optimal Overrun</div>
-                 </div>
-              </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Expanded Content: Products */}
         <Products />
 
-        {/* Expanded Content: Stats / Methodology */}
         <Process />
 
         {/* Section 4: Ritual */}
-        <section id="ritual" className="h-[100vh] flex items-center justify-center pl-6 md:pl-40 pr-6">
-           <div className="max-w-3xl text-center">
+        <section id="ritual" className="h-screen flex items-center justify-center px-6 relative bg-white text-black overflow-hidden">
+           {/* Geometric Decor */}
+           <div className="absolute inset-0 opacity-[0.02] flex items-center justify-center pointer-events-none">
+              <div className="w-[800px] h-[800px] border border-black rounded-full" />
+              <div className="w-[600px] h-[600px] border border-black rounded-full absolute" />
+              <div className="w-[400px] h-[400px] border border-black rounded-full absolute" />
+           </div>
+
+           <div className="max-w-4xl text-center relative z-10">
               <motion.div
-                 initial={{ opacity: 0, scale: 0.95 }}
-                 whileInView={{ opacity: 1, scale: 1 }}
-                 transition={{ duration: 1 }}
+                 initial={{ opacity: 0, y: 40 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 transition={{ duration: 1.5, ease: [0.19, 1, 0.22, 1] }}
               >
-                  <span className="block text-[#d8b4e2] text-xs font-bold tracking-[0.3em] mb-6 uppercase">
-                    03. / The Ritual
-                  </span>
-                  <h2 className="text-6xl md:text-8xl font-serif font-bold mb-8 leading-none">
+                  <span className="text-xs font-bold tracking-[0.6em] uppercase mb-12 block text-gray-400">03. / The Immersion</span>
+                  <h2 className="text-8xl md:text-[12rem] font-serif font-bold mb-16 leading-[0.75] tracking-tighter">
                     MELT <br />
-                    INTO IT.
+                    <span className="text-[#d8b4e2] italic font-normal">Into It.</span>
                   </h2>
-                  <p className="text-xl text-gray-400 max-w-lg mx-auto mb-12 font-light">
+                  <p className="text-xl text-gray-400 max-w-lg mx-auto mb-20 font-light leading-relaxed">
                      Experience a fleeting moment of pure, unadulterated luxury. Velour is not just eaten; it is felt.
                   </p>
                   <motion.button 
-                     whileHover={{ scale: 1.02 }}
-                     whileTap={{ scale: 0.98 }}
-                     className="px-10 py-5 bg-white text-black font-bold uppercase tracking-[0.2em] text-sm hover:bg-[#d8b4e2] transition-colors"
+                     whileHover={{ scale: 1.05, backgroundColor: "#000", color: "#fff" }}
+                     className="px-20 py-8 border-2 border-black text-black font-bold uppercase tracking-[0.4em] text-sm transition-all duration-500"
                   >
-                     Taste the Collection
+                     Enter the Atelier
                   </motion.button>
               </motion.div>
            </div>
@@ -196,3 +207,4 @@ export default function Home() {
     </div>
   );
 }
+
