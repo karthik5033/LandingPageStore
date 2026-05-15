@@ -162,7 +162,7 @@ export default function Home() {
         <Process />
 
         {/* Section 4: Ritual */}
-        <section id="ritual" className="h-screen flex items-center justify-center px-6 relative bg-transparent text-white overflow-hidden">
+        <section id="ritual" className="min-h-screen py-32 flex items-center justify-center px-6 relative bg-transparent text-white overflow-hidden">
            <div className="max-w-4xl text-center relative z-10">
               <motion.div
                  initial={{ opacity: 0, y: 40 }}
