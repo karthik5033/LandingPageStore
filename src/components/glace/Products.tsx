@@ -57,7 +57,7 @@ export default function Products() {
          </motion.button>
       </div>
 
-      <div className="flex gap-8 px-6 md:pl-40 pb-20 overflow-x-auto no-scrollbar snap-x snap-mandatory">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6 md:pl-40 md:pr-12 pb-20">
         {products.map((p, i) => (
           <motion.div 
             key={p.id}
@@ -67,14 +67,14 @@ export default function Products() {
             viewport={{ once: true }}
             onMouseEnter={() => setHoveredId(p.id)}
             onMouseLeave={() => setHoveredId(null)}
-            className="flex-shrink-0 w-[85vw] md:w-[380px] group relative snap-center cursor-pointer"
+            className="w-full group relative cursor-pointer"
           >
-             <div className="relative h-[550px] bg-black/40 backdrop-blur-xl border border-white/20 rounded-lg overflow-hidden transition-all duration-500 hover:border-[#fbcfe8]/50">
+             <div className="relative h-[550px] bg-black/40 backdrop-blur-xl border border-white/20 rounded-lg overflow-hidden transition-all duration-500 hover:border-white">
                 {/* Main Content Container */}
                 <div className="absolute inset-0 p-10 flex flex-col justify-between z-10">
                    <div className="flex justify-between items-center">
-                      <div className="w-8 h-[1px] bg-white/40 group-hover:w-16 group-hover:bg-[#fbcfe8] transition-all duration-500" />
-                      <span className="text-[10px] font-mono text-gray-400 tracking-widest uppercase">Variant 0{p.id}</span>
+                      <div className="w-8 h-[1px] bg-white/40 group-hover:w-16 group-hover:bg-white transition-all duration-500" />
+                      <span className="text-[10px] font-mono text-gray-300 tracking-widest uppercase">Variant 0{p.id}</span>
                    </div>
 
                    <div className="space-y-6">
@@ -82,7 +82,7 @@ export default function Products() {
                         <h3 className="text-4xl font-serif text-white tracking-tight group-hover:text-[#fbcfe8] transition-colors duration-500">
                           {p.name}
                         </h3>
-                        <p className="text-xs text-[#fbcfe8] uppercase tracking-[0.2em] font-bold">
+                        <p className="text-xs text-gray-300 uppercase tracking-[0.2em] font-bold">
                           {p.notes}
                         </p>
                       </div>
@@ -91,11 +91,11 @@ export default function Products() {
                         {p.description}
                       </p>
 
-                      <div className="pt-6 flex justify-between items-center border-t border-white/10 mt-6">
+                      <div className="pt-6 flex justify-between items-center border-t border-white/20 mt-6">
                          <span className="text-2xl font-serif text-white">{p.price}</span>
                          <motion.div 
                            whileHover={{ scale: 1.1, rotate: 90 }}
-                           className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-black hover:bg-[#fbcfe8] transition-colors"
+                           className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-black"
                          >
                             <Plus className="w-5 h-5" />
                          </motion.div>

@@ -45,7 +45,7 @@ export default function Process() {
                 <span className="text-[#fbcfe8] text-xs font-bold tracking-[0.5em] uppercase block mb-8">The Methodology</span>
                 <h2 className="text-6xl md:text-8xl font-serif text-white leading-[0.9] mb-12 tracking-tighter">
                    Precision in <br/> 
-                   <span className="text-gray-600 font-light italic">Every Churn.</span>
+                   <span className="text-gray-300 font-light italic">Every Churn.</span>
                 </h2>
                 
                 <div className="space-y-12">

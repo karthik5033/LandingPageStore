@@ -67,7 +67,7 @@ export default function Home() {
             <motion.div 
               initial={{ width: 0 }}
               animate={{ width: '60px' }}
-              transition={{ duration: 2, ease: "expoOut" }}
+              transition={{ duration: 2, ease: "easeOut" }}
               className="h-[1px] bg-[#d8b4e2] mb-16"
             />
             <div className="overflow-hidden mb-8">
@@ -108,7 +108,7 @@ export default function Home() {
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: "expoOut" }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
             >
               <div className="flex items-center gap-6 mb-12">
                 <span className="text-[#d8b4e2] text-xs font-bold tracking-[0.5em] uppercase">
@@ -143,7 +143,7 @@ export default function Home() {
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: "expoOut" }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
             >
               <div className="flex items-center gap-6 mb-12">
                 <span className="text-[#d8b4e2] text-xs font-bold tracking-[0.5em] uppercase">
